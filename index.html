@@ -67,7 +67,7 @@
         /* HEADER MODIFICADO PARA ESCALAR PERFECTAMENTE */
         header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .header-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; border-radius: 8px; }
         .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
         .logo span { color: var(--accent-red); }
         
@@ -698,6 +698,15 @@
                         <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Main Images</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Cambie las fotos utilizadas en las diferentes secciones de la página principal.</p>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Change the photos used in the different sections of the main page.</p>
+
+                        <div class="admin-edit-card" style="border-color: var(--navy-primary); background-color: #f8fafc; margin-bottom: 1.5rem;">
+                            <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Logo Principal / Main Logo</h4>
+                            <input type="file" id="upload-logo" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateLogoImage('upload-logo')">Guardar Logo</button>
+                                <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeLogoImage()">Restaurar Original</button>
+                            </div>
+                        </div>
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                             <div class="admin-edit-card">
@@ -769,7 +778,37 @@
                                 </div>
                             </div>
                         </div>
+
+                        <h4 style="color: var(--navy-dark); font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;" lang="es">Siguientes Pasos</h4>
+                        <h4 style="color: var(--navy-dark); font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;" lang="en">Next Steps</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Bautismo / Baptism</h4>
+                                <input type="file" id="upload-step-bautismo" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-bautismo', 'upload-step-bautismo')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-bautismo', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Discipulado / Discipleship</h4>
+                                <input type="file" id="upload-step-discipulado" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-discipulado', 'upload-step-discipulado')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-discipulado', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Visitas / Home Visit</h4>
+                                <input type="file" id="upload-step-visita" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-visita', 'upload-step-visita')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-visita', '')">Eliminar</button>
+                                </div>
+                            </div>
                         </div>
+
+                    </div>
 
                     <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
                         <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
@@ -1484,7 +1523,7 @@
             }
         }
 
-        // --- FUNCION PARA ELIMINAR IMAGEN ---
+        // --- FUNCION PARA ELIMINAR IMAGEN MAIN GENERAL ---
         function removeMainImage(targetId, defaultSrc) {
             if(confirm("¿Seguro que desea eliminar esta imagen? / Are you sure?")) {
                 localStorage.removeItem('faro_main_' + targetId);
@@ -1496,12 +1535,44 @@
                 alert("¡Imagen eliminada con éxito! / Image removed successfully!");
             }
         }
+        
+        // --- FUNCIONES EXCLUSIVAS PARA LOGO ---
+        async function updateLogoImage(inputId) {
+            const fileInput = document.getElementById(inputId);
+            if (!fileInput.files || fileInput.files.length === 0) { alert("Seleccione una imagen. / Select an image."); return; }
+            try {
+                let compressedImage = await compressImage(fileInput.files[0]);
+                localStorage.setItem('faro_main_logo', compressedImage);
+                // Actualiza ambos logos de todos los idiomas
+                document.querySelectorAll('.logo-img').forEach(img => img.src = compressedImage);
+                addLog(`Actualizó el logo principal`, `Updated main logo`);
+                alert("¡Éxito! Logo actualizado. / Success! Logo updated.");
+                fileInput.value = ""; 
+            } catch (error) {
+                alert("Error de memoria. / Memory error.");
+            }
+        }
+
+        function removeLogoImage() {
+            if(confirm("¿Seguro que desea restaurar el logo original? / Are you sure?")) {
+                localStorage.removeItem('faro_main_logo');
+                document.querySelectorAll('.logo-img').forEach(img => img.src = 'Logo.jpg');
+                addLog(`Restauró el logo por defecto`, `Restored default logo`);
+                alert("¡Logo restaurado con éxito! / Logo restored successfully!");
+            }
+        }
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             initEvents();
             initTeam(); 
             renderAuditLog();
+            
+            // Cargar Logo Personalizado (si lo hay)
+            const savedLogo = localStorage.getItem('faro_main_logo');
+            if (savedLogo) {
+                document.querySelectorAll('.logo-img').forEach(img => img.src = savedLogo);
+            }
 
             // Load Main Static Images
             const imageIds = [
