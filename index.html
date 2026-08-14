@@ -693,7 +693,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; text-align: left;">
+                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
                         <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Imágenes Principales</h3>
                         <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Main Images</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Cambie las fotos utilizadas en las diferentes secciones de la página principal.</p>
@@ -716,7 +716,60 @@
                                 <button class="btn btn-primary" style="padding: 0.6rem;" onclick="updateMainImage('img-edit-2', 'upload-edit-2')">Actualizar / Update</button>
                             </div>
                         </div>
-                    </div>
+
+                        <h4 style="color: var(--navy-dark); font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;" lang="es">Ministerios y Ofrenda</h4>
+                        <h4 style="color: var(--navy-dark); font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;" lang="en">Ministries and Giving</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Guardería / Nursery</h4>
+                                <input type="file" id="upload-min-guarderia" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-guarderia', 'upload-min-guarderia')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-guarderia', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Niños / Children</h4>
+                                <input type="file" id="upload-min-ninos" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-ninos', 'upload-min-ninos')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-ninos', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Jóvenes / Youth</h4>
+                                <input type="file" id="upload-min-jovenes" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-jovenes', 'upload-min-jovenes')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-jovenes', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Damas / Women</h4>
+                                <input type="file" id="upload-min-damas" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-damas', 'upload-min-damas')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-damas', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Varones / Men</h4>
+                                <input type="file" id="upload-min-varones" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-varones', 'upload-min-varones')">Guardar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-varones', '')">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="admin-edit-card" style="border-color: #10b981; background-color: #f0fdf4;">
+                                <h4 style="color: #10b981; font-size: 1.05rem;">Código QR (Ofrenda)</h4>
+                                <input type="file" id="upload-ofrendar-qr" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; background-color: #10b981;" onclick="updateMainImage('img-ofrendar-qr', 'upload-ofrendar-qr')">Guardar QR</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-ofrendar-qr', '')">Eliminar QR</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
 
                     <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
                         <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
@@ -1428,6 +1481,19 @@
                 renderPublicEvents();
                 renderAdminEvents();
                 addLog(`Eliminó el evento: ${evTitle}`, `Deleted event: ${evTitle}`);
+            }
+        }
+
+        // --- FUNCION PARA ELIMINAR IMAGEN ---
+        function removeMainImage(targetId, defaultSrc) {
+            if(confirm("¿Seguro que desea eliminar esta imagen? / Are you sure?")) {
+                localStorage.removeItem('faro_main_' + targetId);
+                const targetImg = document.getElementById(targetId);
+                if (targetImg) {
+                    targetImg.src = defaultSrc; 
+                }
+                addLog(`Eliminó la imagen: ${targetId}`, `Removed image: ${targetId}`);
+                alert("¡Imagen eliminada con éxito! / Image removed successfully!");
             }
         }
 
