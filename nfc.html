@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iglesia El Faro - Conéctate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* General Reset and Body Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            /* Sleek dark gradient background mimicking your image */
+            background: linear-gradient(135deg, #1f1f1f 0%, #0a0a0a 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Mobile-Friendly Container */
+        .container {
+            width: 100%;
+            max-width: 400px; /* Keeps it looking like an app on desktop too */
+            text-align: center;
+        }
+
+        /* Church Logo Profile Picture */
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Hidden Title for Accessibility */
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            display: none; /* Hidden since logo has the text, but good for screen readers */
+        }
+
+        /* Link Buttons */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 18px 20px;
+            border-radius: 30px; /* Pill shape */
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Active click effect */
+        .link-btn:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        /* Icon Positioning */
+        .link-btn i {
+            position: absolute;
+            left: 24px;
+            font-size: 1.4rem;
+        }
+
+        /* Social Media Brand Colors */
+        .fa-facebook { color: #1877F2; }
+        .fa-instagram { color: #E1306C; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-globe { color: #333333; }
+        .fa-youtube { color: #FF0000; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="logo.png" alt="Iglesia El Faro Logo" class="profile-pic">
+        
+        <h1>Iglesia El Faro</h1>
+
+        <a href="https://www.facebook.com/YOUR_CHURCH_PAGE" target="_blank" class="link-btn">
+            <i class="fab fa-facebook"></i> Visítanos En Facebook
+        </a>
+
+        <a href="https://www.instagram.com/YOUR_CHURCH_PAGE" target="_blank" class="link-btn">
+            <i class="fab fa-instagram"></i> Síguenos En Instagram
+        </a>
+
+        <a href="https://wa.me/11234567890" target="_blank" class="link-btn">
+            <i class="fab fa-whatsapp"></i> Mándanos Un Mensaje
+        </a>
+
+        <a href="index.html" class="link-btn">
+            <i class="fas fa-globe"></i> Visita Nuestra Página
+        </a>
+
+        <a href="https://www.youtube.com/YOUR_CHURCH_CHANNEL" target="_blank" class="link-btn">
+            <i class="fab fa-youtube"></i> Mira Nuestro Contenido
+        </a>
+    </div>
+
+</body>
+</html>

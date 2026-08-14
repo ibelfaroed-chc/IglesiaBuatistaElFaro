@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Faro Baptist Church - Edcouch, TX</title>
+    <style>
+        :root {
+            --navy-dark: #0b3d91; 
+            --navy-primary: #1e40af; 
+            --accent-red: #e11d48; 
+            --accent-red-hover: #be123c; 
+            --whatsapp-green: #16a34a;
+            --facebook-blue: #1877F2;
+            --bg-light: #f8fafc; 
+            --card-bg: #ffffff; 
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--card-bg);
+            line-height: 1.6;
+        }
+
+        /* Language Toggle CSS - Default to Spanish (Hide English by default) */
+        body [lang="en"] { display: none !important; }
+        body.lang-en [lang="es"] { display: none !important; }
+        body.lang-en [lang="en"] { display: block !important; }
+        
+        body.lang-en span[lang="en"], 
+        body.lang-en a[lang="en"], 
+        body.lang-en strong[lang="en"], 
+        body.lang-en label[lang="en"] { display: inline !important; }
+        
+        body.lang-en div[lang="en"].logo,
+        body.lang-en div[lang="en"].top-bar-info { display: flex !important; }
+
+        .lang-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--navy-dark);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--navy-dark);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-bar-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a, .dropbtn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.90rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: var(--accent-red);
+        }
+
+        /* Dropdown Tab Styles (WITH HOVER BRIDGE) */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px; 
+            margin-bottom: -15px; 
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            background-color: rgba(70, 70, 70, 0.95);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffffff !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(11, 61, 145, 0.85) 0%, rgba(11, 61, 145, 0.95) 100%),
+                        url('P01.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 8rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem auto;
+            color: #e2e8f0;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Editorial Split Sections */
+        .editorial-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: flex-start;
+        }
+
+        .editorial-section.reverse {
+            direction: rtl;
+            align-items: center;
+        }
+
+        .editorial-section.reverse > * {
+            direction: ltr;
+        }
+
+        .editorial-content {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .editorial-content h2 {
+            font-size: 3.2rem;
+            font-family: serif;
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 1.8rem;
+        }
+
+        .editorial-content h2 em {
+            font-style: italic;
+        }
+
+        .editorial-content p {
+            font-size: 1.1rem;
+            color: #333333;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .editorial-content p.italic-note {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #555555;
+            margin-bottom: 2rem;
+        }
+
+        .editorial-btn {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border: 1px solid #1a1a1a;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .editorial-btn:hover {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .editorial-image-wrapper {
+            position: relative;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .editorial-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-red);
+            z-index: 1;
+        }
+
+        .editorial-image-wrapper.right-box::before {
+            top: 25px;
+            left: 25px;
+        }
+
+        .editorial-image-wrapper img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Connect / Social Section */
+        .connect-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .connect-section h2 {
+            font-size: 3rem;
+            font-family: serif;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .connect-section h2 em {
+            font-style: italic;
+            color: var(--navy-primary);
+        }
+
+        .connect-section > p {
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+            font-size: 1.05rem;
+        }
+
+        .social-circles-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+        }
+
+        .social-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .social-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-circle:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .circle-facebook {
+            background-color: var(--facebook-blue);
+        }
+
+        .circle-whatsapp {
+            background-color: var(--whatsapp-green);
+        }
+
+        .circle-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* Bottom Action Bar */
+        .bottom-action-bar {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .action-item span.icon {
+            font-size: 1.8rem;
+        }
+
+        .action-item h4 {
+            font-family: serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .action-item a, .action-item p {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .action-item a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        /* Upcoming Events Section Styled with Blue Background */
+        .events-section {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%);
+            color: #ffffff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .events-section h2 {
+            font-size: 3rem;
+            font-family: serif;
+            font-weight: 400;
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .events-section h2 em {
+            font-style: italic;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+
+        .event-img-container {
+            width: 100%;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover .event-img-container img {
+            transform: scale(1.03);
+        }
+
+        .event-title {
+            font-size: 1.35rem;
+            font-family: serif;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .event-meta {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Full Google Calendar Embed Container */
+        .calendar-embed-container {
+            max-width: 1100px;
+            margin: 3rem auto 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Common Layout Extras */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--navy-dark);
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+
+        .bg-light-section {
+            background-color: var(--bg-light);
+        }
+
+        .ministry-grid, .visit-grid {
+            display: grid;
+            gap: 2rem;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .ministry-card, .visit-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            height: 100%;
+        }
+
+        .ministry-card {
+            border-top: 4px solid var(--navy-primary);
+        }
+
+        .ministry-card h3, .visit-card h3 {
+            color: var(--navy-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .ministry-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .ministry-details li {
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .ministry-details li::before {
+            content: "•";
+            color: var(--accent-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .sermon-card {
+            background: var(--card-bg);
+            padding: 3.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sermon-card h3 {
+            color: var(--navy-dark);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .sermon-card p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .ministry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .contact-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            color: var(--navy-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .map-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            width: 100%;
+            height: 500px;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        
+        .hidden { display: none !important; }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .admin-table th, .admin-table td {
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            text-align: left;
+        }
+
+        .admin-table th {
+            background-color: var(--navy-dark);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--navy-dark);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer p { margin-top: 0.5rem; }
+
+        @media (max-width: 900px) {
+            .editorial-section, .editorial-section.reverse {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📍 24211 Sunflower Ln, Edcouch, TX</span>
+            <span>📞 (956) 382-1051</span>
+        </div>
+        <div>
+            <span lang="es">Bienvenidos</span>
+            <span lang="en">Welcome</span>
+            <div style="display: inline-block; margin-left: 1rem;">
+                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-brand">
+            <div class="logo" lang="es">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                Iglesia Bautista <span>El Faro</span>
+            </div>
+            <div class="logo" lang="en">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                El Faro <span>Baptist Church</span>
+            </div>
+        </div>
+        <nav>
+            <a href="#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+            
+            <div class="dropdown">
+                <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
+                <div class="dropdown-content">
+                    <a href="#pasos"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                    <a href="#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                    <a href="#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                </div>
+            </div>
+            
+            <a href="#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+            
+            <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+            
+            <a href="#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+            <a href="#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+            <a href="#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
+            
+            <a onclick="toggleAdminTab()" style="color: var(--accent-red); font-weight: bold; cursor: pointer;">
+                <span lang="es">Administración</span><span lang="en">Admin</span>
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1 lang="es">Un Lugar Para Usted y Su Familia</h1>
+        <h1 lang="en">A Place For You And Your Family</h1>
+        
+        <p lang="es">Una iglesia muy amigable que ama a Dios. Le invitamos a acompañarnos en nuestros servicios y crecer juntos en la fe.</p>
+        <p lang="en">A very friendly church that loves God. We invite you to join us in our services and grow together in faith.</p>
+        
+        <div class="btn-group">
+            <a href="#pasos" class="btn btn-primary" lang="es">Planifique Su Visita</a>
+            <a href="#pasos" class="btn btn-primary" lang="en">Plan Your Visit</a>
+        </div>
+    </section>
+
+    <section class="editorial-section" id="visita">
+        <div class="editorial-content">
+            <h2 lang="es">Bienvenidos a<br>Iglesia El Faro</h2>
+            <h2 lang="en">Welcome to<br>El Faro Church</h2>
+            
+            <p lang="es">Somos una iglesia amigable en Edcouch, TX, observando ritmos bíblicos de oración y comunidad que conducen al crecimiento espiritual personal.</p>
+            <p lang="en">We are a friendly church in Edcouch, TX, observing biblical rhythms of prayer and community that lead to personal spiritual growth.</p>
+            
+            <p class="italic-note" lang="es">Conozca más sobre nuestra iglesia y prácticas espirituales.</p>
+            <p class="italic-note" lang="en">Learn more about our church and spiritual practices.</p>
+            
+            <a href="#nosotros" class="editorial-btn">
+                <span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span>
+            </a>
+        </div>
+        <div class="editorial-image-wrapper">
+            <img src="P04.jpg" alt="El Faro Church Scene 1">
+        </div>
+    </section>
+
+    <section class="editorial-section reverse bg-light-section" id="oracion">
+        <div class="editorial-content">
+            <h2 lang="es">Nos encantaría<br>conocerle</h2>
+            <h2 lang="en">We'd love to get<br>to know <em>you</em></h2>
+            
+            <p lang="es">Nuestro ministerio está arraigado en la dirección espiritual y la amistad, que son esencialmente conversaciones sobre la vida y la oración.</p>
+            <p lang="en">Our ministry is rooted in spiritual direction and friendships, which are essentially conversations about life and prayer.</p>
+            
+            <p class="italic-note" lang="es">Comuníquese con alguien de nuestro equipo pastoral para iniciar una conversación.</p>
+            <p class="italic-note" lang="en">Reach out to someone on our Pastoral Team to start a conversation.</p>
+            
+            <a href="#contacto" class="editorial-btn" lang="es">Conéctese con Nosotros</a>
+            <a href="#contacto" class="editorial-btn" lang="en">Connect With Us</a>
+        </div>
+        <div class="editorial-image-wrapper right-box">
+            <img src="P05.jpg" alt="El Faro Church Scene 2">
+        </div>
+    </section>
+
+    <section class="events-section" id="eventos">
+        <h2 lang="es">Próximos <em>Eventos</em></h2>
+        <h2 lang="en">Upcoming <em>Events</em></h2>
+        
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-img-container">
+                    <img src="P01.jpg" alt="Vacation Bible School">
+                </div>
+                <h3 class="event-title" lang="es">Escuelita Bíblica de Vacaciones (VBS)</h3>
+                <h3 class="event-title" lang="en">Vacation Bible School (VBS)</h3>
+                <p class="event-meta">📅 August 15, 2026 6:00 PM</p>
+                <p class="event-meta">📍 El Faro Baptist Church</p>
+            </div>
+
+            <div class="event-card">
+                <div class="event-img-container">
+                    <img src="P02.jpg" alt="Revival Services">
+                </div>
+                <h3 class="event-title" lang="es">Servicios de Avivamiento</h3>
+                <h3 class="event-title" lang="en">Revival Services</h3>
+                <p class="event-meta">📅 August 22, 2026 7:00 PM</p>
+                <p class="event-meta">📍 El Faro Baptist Church</p>
+            </div>
+
+            <div class="event-card">
+                <div class="event-img-container">
+                    <img src="P03.jpg" alt="Community Dinner">
+                </div>
+                <h3 class="event-title" lang="es">Cena y Convivio Comunitario</h3>
+                <h3 class="event-title" lang="en">Community Dinner and Fellowship</h3>
+                <p class="event-meta">📅 August 29, 2026 5:00 PM</p>
+                <p class="event-meta">📍 <span lang="es">Ubicación Variada / Edcouch</span><span lang="en">Location Varies / Edcouch</span></p>
+            </div>
+        </div>
+
+        <div class="calendar-embed-container">
+            <h3 style="color: var(--navy-dark); margin-bottom: 1rem; font-family: serif; text-align: center;" lang="es">Calendario Completo de Google</h3>
+            <h3 style="color: var(--navy-dark); margin-bottom: 1rem; font-family: serif; text-align: center;" lang="en">Full Google Calendar</h3>
+            <div style="width: 100%; height: 650px; border-radius: 12px; overflow: hidden;">
+                <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FChicago" width="100%" height="650" frameborder="0" scrolling="yes" style="border:0;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="nosotros">
+        <div class="section-header">
+            <h2 lang="es">Quiénes Somos y Qué Creemos</h2>
+            <h2 lang="en">About Us & Beliefs</h2>
+            <p lang="es">Conozca nuestra historia y doctrina bíblica.</p>
+            <p lang="en">Learn about our story and biblical doctrine.</p>
+        </div>
+        
+        <div class="visit-grid" style="margin-bottom: 4rem;">
+            <div class="visit-card" style="border-top: 4px solid var(--navy-primary);">
+                <div class="ministry-icon">📖</div>
+                <h3 lang="es">Declaración de Fe</h3>
+                <h3 lang="en">Statement of Faith</h3>
+                <p lang="es">Creemos en el Evangelio, la salvación por gracia, el bautismo del creyente y que las Escrituras son la palabra inerrante de Dios.</p>
+                <p lang="en">We believe in the Gospel, salvation by grace, believer's baptism, and that the Scriptures are the inerrant word of God.</p>
+                
+                <button onclick="toggleFaith()" id="faith-btn" class="editorial-btn" style="margin-top: 1.5rem; padding: 0.6rem 1.5rem; font-size: 0.75rem;">
+                    <span lang="es">LEER MÁS</span><span lang="en">READ MORE</span>
+                </button>
+            </div>
+            <div class="visit-card" style="border-top: 4px solid var(--accent-red);">
+                <div class="ministry-icon">📍</div>
+                <h3 lang="es">Nuestra Historia</h3>
+                <h3 lang="en">Our Story</h3>
+                <p lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, sirviendo fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
+                <p lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community with the love of Christ throughout the years.</p>
+            </div>
+        </div>
+
+        <div id="faith-content" style="display: none; background: var(--card-bg); padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 4rem;">
+            <h3 lang="es" style="color: var(--navy-primary); margin-bottom: 1rem;">Declaración de Fe – Iglesia El Faro</h3>
+            <h3 lang="en" style="color: var(--navy-primary); margin-bottom: 1rem;">Statement of Faith – El Faro Church</h3>
+
+            <div lang="es">
+                <h4>La Biblia</h4>
+                <p>Creemos que la Biblia es la Palabra de Dios revelada, y que es completa y verbalmente inspirada por Dios. Creemos que la Escritura es la inerrante e infalible Palabra de Dios, y se encuentra así en sus 66 libros desde Génesis hasta Apocalipsis. Creemos que Dios no solamente inspiró cada palabra, sino que también la preservó a través de los tiempos. Creemos que la Versión Reina Valera 1960 es la Palabra de Dios preservada para el pueblo Hispano-Parlante (Salmos 12:6-7; II Timoteo 3:15-17; I Pedro 1:23-25; II Pedro 1:19-21).</p>
+                
+                <h4>Dios</h4>
+                <p>Creemos en un sólo Dios, el cual es eterno, auto-existente, infinito e inmutable. Creemos que tiene una naturaleza, una esencia, una sustancia y que se ha manifestado al hombre en tres personas: el Padre, el Hijo y el Espíritu Santo (Deuteronomio 6:4; I Timoteo 1:17; Santiago 1:17; I Juan 4:4).</p>
+
+                <h4>Los Últimos Días</h4>
+                <p>Creemos en la interpretación literal de las Escrituras en su contexto gramatical e histórico. Creemos en el Rapto pre-tribulacional de los santos de la iglesia, seguido por los siete años de Tribulación. Creemos en el regreso pre-milenial de Cristo a la tierra y su literal reinado de mil años. Seguido a estos mil años es el juicio del Gran Trono Blanco y entonces el Cielo nuevo y tierra nueva (I Corintios 15:51-58: I Tesalonicenses 4:13-18; I Tesalonicenses 5:1-9; Apocalipsis 19-22).</p>
+
+                <h4>El Hijo</h4>
+                <p>Creemos que Jesucristo es el único Salvador de la humanidad. Creemos que Jesucristo es eternamente Dios y que posee todos los atributos de la Deidad. Creemos que el Señor Jesucristo nació de una virgen, que Él es Dios encarnado, y que el propósito de la encarnación fue revelar a Dios para redimir al hombre, y para reinar sobre el reino de Dios. Creemos que Jesucristo nunca renunció a ninguno de los atributos de su Deidad, sino que simplemente los guardó.</p>
+                <p>Creemos que vivió una vida perfecta, sin pecado, y que al final de ella la ofreció por la humanidad como un sacrificio sustitutivo por los pecados del hombre. Este sacrificio fue el pago justo a Dios por el perdón por el pecado. Este perdón fue activado por su muerte a través del derramamiento de su sangre en la Cruz y fue aceptado por Dios después de su resurrección. Creemos que Él ascendió al cielo después de su resurrección para estar sentado a la diestra del Padre, esperando por el tiempo para recibir a su iglesia en el Rapto, y regresar después de siete años a la tierra para gobernar y dirigir su Reino por 1,000 años (Salmos 2:7-9; Isaías 7:14; Isaías 9:6; Isaías 43:11; Miqueas 5:2; Mateo 1:25; Lucas 1:26-35; Juan 1:1; Juan 1:3; Juan 14; Juan 18; Juan 29; Romanos 3:19-25; Romanos 5:6-15; Filipenses 2:5-11; I Tesalonicenses 2:5; I Tesalonicenses 3:16; I Tesalonicenses 4:13-18; Tito 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Pedro 1:19; I Pedro 2:2; I Juan 1:3; Apocalipsis 20:1-6).</p>
+
+                <h4>El Pecado y la Salvación</h4>
+                <p>Creemos que todos los hombres nacen con la herencia del pecado natural recibida de parte de nuestro antecesor común Adán. Creemos que debido a esta naturaleza el hombre es un pecador por decisión, y que es totalmente incapaz de reformarse a sí mismo o dejar de pecar por su propio poder. Creemos que la única esperanza de salvación para el hombre es un cambio total de mente referente a su condición de pecado e inhabilidad de cambiarla, es volverse a Jesucristo como su único Salvador.</p>
+                <p>Creemos que solamente a través del sacrificio sustitutivo de Jesucristo en la Cruz el hombre puede ser perdonado de sus pecados. Creemos que todos los que rechazan a Jesucristo como su salvador ya están condenados al Lago de Fuego eternamente (Génesis 5:1-5; Hechos 4:19; Hechos 16:31; Romanos 3:10-23; Romanos 5:6-12; Romanos 6:23; Romanos 10:9-10; Efesios 2:8-9; Tito 3:5-6; Apocalipsis 20:11-14).</p>
+
+                <h4>El Espíritu Santo</h4>
+                <p>Creemos que El Espíritu Santo de Dios es una persona que tiene todos los atributos de la Deidad de Dios. Creemos que el Espíritu Santo ha estado siempre presente desde la creación de la raza humana. Sin embargo, creemos que Él ha tenido un ministerio especial que comenzó el día de Pentecostés y que continúa hasta el día del rapto de la iglesia. Su ministerio incluye el proveer convicción del pecado y redargüir hacia una vida de santidad. El Espíritu Santo fue enviado para regenerar, santificar, sellar, y llenar a todos aquellos que han recibido a Cristo como su Salvador y Señor (Juan 3:5-6; Juan 14:16; Hechos 1:5; Hechos 11:15; I Corintios 3:16; I Corintios 6:19-20; I Corintios 12:13).</p>
+
+                <h4>La Iglesia del Nuevo Testamento</h4>
+                <p>Creemos que la iglesia comenzó con el llamado de los doce apóstoles por Jesucristo y que fue empoderada en el día de Pentecostés. Creemos que la iglesia local es la única institución de parte de Dios para hacer su obra en este tiempo. Creemos que la iglesia local está compuesta por miembros que han sido salvos y bautizados de acuerdo a las instrucciones de Cristo, y que voluntariamente se reúnen juntos con el propósito de adorar a Dios, tener comunión con los hermanos, servir y recordar la Cena del Señor. Creemos que todos los creyentes serán llevados en el Rapto, justo antes de la Tribulación (Mateo 16:16-18; Hechos 1:15; Hechos 2:41-43; Hechos 11:15; Hechos 20:28; I Corintios 15:51-58; Efesios 1:12-14; Efesios 5:25-30; I Tesalonicenses 4:13-18; I Timoteo 3:4-15).</p>
+            </div>
+
+            <div lang="en">
+                <h4>The Bible</h4>
+                <p>We believe the Bible is the revealed Word of God, and that it is fully and verbally inspired by God. We believe the Scripture is the inerrant and infallible Word of God, found in its 66 books from Genesis to Revelation. We believe God not only inspired every word, but also preserved it through the ages. We believe the Reina Valera 1960 version is the preserved Word of God for the Spanish-speaking people (Psalms 12:6-7; II Timothy 3:15-17; I Peter 1:23-25; II Peter 1:19-21).</p>
+                
+                <h4>God</h4>
+                <p>We believe in one God, who is eternal, self-existent, infinite and immutable. We believe He has one nature, one essence, one substance and has manifested Himself to man in three persons: the Father, the Son and the Holy Spirit (Deuteronomy 6:4; I Timothy 1:17; James 1:17; I John 4:4).</p>
+
+                <h4>The Last Days</h4>
+                <p>We believe in the literal interpretation of the Scriptures in their grammatical and historical context. We believe in the pre-tribulational Rapture of the church saints, followed by the seven years of Tribulation. We believe in the pre-millennial return of Christ to earth and His literal reign of a thousand years. Following these thousand years is the Great White Throne judgment and then the new Heaven and new earth (I Corinthians 15:51-58; I Thessalonians 4:13-18; I Thessalonians 5:1-9; Revelation 19-22).</p>
+
+                <h4>The Son</h4>
+                <p>We believe Jesus Christ is the only Savior of humanity. We believe Jesus Christ is eternally God and possesses all attributes of Deity. We believe the Lord Jesus Christ was born of a virgin, that He is God incarnate, and that the purpose of the incarnation was to reveal God to redeem man, and to rule over God's kingdom. We believe Jesus Christ never relinquished any of the attributes of His Deity, but merely laid them aside.</p>
+                <p>We believe He lived a perfect, sinless life, and at the end of it offered it for humanity as a substitutionary sacrifice for the sins of man. This sacrifice was the just payment to God for the forgiveness of sin. This forgiveness was activated by His death through the shedding of His blood on the Cross and was accepted by God after His resurrection. We believe He ascended to heaven after His resurrection to be seated at the right hand of the Father, waiting for the time to receive His church at the Rapture, and to return after seven years to the earth to rule and direct His Kingdom for 1,000 years (Psalms 2:7-9; Isaiah 7:14; Isaiah 9:6; Isaiah 43:11; Micah 5:2; Matthew 1:25; Luke 1:26-35; John 1:1; John 1:3; John 14; John 18; John 29; Romans 3:19-25; Romans 5:6-15; Philippians 2:5-11; I Thessalonians 2:5; I Thessalonians 3:16; I Thessalonians 4:13-18; Titus 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Peter 1:19; I Peter 2:2; I Juan 1:3; Revelation 20:1-6).</p>
+
+                <h4>Sin and Salvation</h4>
+                <p>We believe all men are born with the inheritance of natural sin received from our common ancestor Adam. We believe that because of this nature man is a sinner by choice, and is totally incapable of reforming himself or ceasing to sin by his own power. We believe the only hope of salvation for man is a total change of mind regarding his sinful condition and inability to change it, turning to Jesus Christ as his only Savior.</p>
+                <p>We believe only through the substitutionary sacrifice of Jesus Christ on the Cross can man be forgiven of his sins. We believe all who reject Jesus Christ as their savior are already condemned to the Lake of Fire eternally (Genesis 5:1-5; Acts 4:19; Acts 16:31; Romans 3:10-23; Romans 5:6-12; Romans 6:23; Romans 10:9-10; Ephesians 2:8-9; Titus 3:5-6; Revelation 20:11-14).</p>
+
+                <h4>The Holy Spirit</h4>
+                <p>We believe the Holy Spirit of God is a person who has all the attributes of the Deity of God. We believe the Holy Spirit has always been present since the creation of the human race. However, we believe He has had a special ministry that began on the day of Pentecost and continues until the day of the rapture of the church. His ministry includes providing conviction of sin and reproving toward a life of holiness. The Holy Spirit was sent to regenerate, sanctify, seal, and fill all those who have received Christ as their Savior and Lord (John 3:5-6; John 14:16; Acts 1:5; Acts 11:15; I Corinthians 3:16; I Corinthians 6:19-20; I Corinthians 12:13).</p>
+
+                <h4>The New Testament Church</h4>
+                <p>We believe the church began with the calling of the twelve apostles by Jesus Christ and was empowered on the day of Pentecost. We believe the local church is God's only institution to do His work in this time. We believe the local church is composed of members who have been saved and baptized according to Christ's instructions, and who voluntarily gather together for the purpose of worshipping God, having fellowship with the brethren, serving and remembering the Lord's Supper. We believe all believers will be taken in the Rapture, just prior to the Tribulation (Matthew 16:16-18; Acts 1:15; Acts 2:41-43; Acts 11:15; Acts 20:28; I Corinthians 15:51-58; Ephesians 1:12-14; Ephesians 5:25-30; I Thessalonians 4:13-18; I Timothy 3:4-15).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="equipo">
+        <div class="section-header">
+            <h2 lang="es">Conoce Nuestro Equipo</h2>
+            <h2 lang="en">Meet Our Team</h2>
+            <p lang="es">El liderazgo pastoral y ministerial de nuestra iglesia.</p>
+            <p lang="en">The pastoral and ministerial leadership of our church.</p>
+        </div>
+        
+        <div style="max-width: 400px; margin: 0 auto 2.5rem auto;">
+            <div class="ministry-card" style="border-top: 4px solid var(--accent-red);">
+                <div style="width: 120px; height: 120px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <img src="P10-Pastor.jpg" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Pastor Neil Arias</h3>
+                <p style="color: var(--text-muted);" lang="es">Pastor Principal</p>
+                <p style="color: var(--text-muted);" lang="en">Lead Pastor</p>
+            </div>
+        </div>
+
+        <div class="ministry-grid" style="max-width: 700px; margin: 0 auto;">
+            <div class="ministry-card">
+                <div style="width: 100px; height: 100px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <img src="Gobber.png" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Andres de la Garza</h3>
+                <p style="color: var(--text-muted);" lang="es">Diácono</p>
+                <p style="color: var(--text-muted);" lang="en">Deacon</p>
+            </div>
+            <div class="ministry-card">
+                <div class="ministry-icon">👤</div>
+                <h3>Refugio Castillo</h3>
+                <p style="color: var(--text-muted);" lang="es">Diácono</p>
+                <p style="color: var(--text-muted);" lang="en">Deacon</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light-section" id="ministerios">
+        <div class="section-header">
+            <h2 lang="es">Nuestros Ministerios</h2>
+            <h2 lang="en">Our Ministries</h2>
+            <p lang="es">Conozca las diferentes áreas donde servimos a nuestra comunidad.</p>
+            <p lang="en">Learn about the different areas where we serve our community.</p>
+        </div>
+        
+        <div class="ministry-grid">
+            <div class="ministry-card">
+                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="P14-Guarderia.jpeg" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es">Guardería</h3>
+                <h3 lang="en">Nursery</h3>
+                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Nuestras instalaciones de guardería, respaldadas por un dedicado equipo de voluntarias, ofrecen un entorno higiénico y protegido para el cuidado de bebés y niños de hasta tres años.</p>
+                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">Our nursery facilities, supported by a dedicated team of volunteers, offer a hygienic and protected environment for the care of babies and toddlers up to three years old.</p>
+            </div>
+
+            <div class="ministry-card">
+                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="P09-Ninos.jpg" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es">Ministerio de Niños</h3>
+                <h3 lang="en">Children's Ministry</h3>
+                <p class="ministry-desc" lang="es" style="font-size:0.85rem; margin-bottom:1rem;">Contamos con un programa integral cuidadosamente adaptado para el desarrollo espiritual infantil. Durante las clases de Escuela Dominical, los estudiantes disfrutan de un entorno de aprendizaje que incluye historias bíblicas, memorización de versículos y tiempos de alabanza.</p>
+                <p class="ministry-desc" lang="en" style="font-size:0.85rem; margin-bottom:1rem;">We have a comprehensive program carefully adapted for children's spiritual development. During Sunday School classes, students enjoy a learning environment that includes Bible stories, verse memorization, and times of worship.</p>
+                <ul class="ministry-details">
+                    <li><strong lang="es">Edades:</strong><strong lang="en">Ages:</strong> 6-12</li>
+                    <li><strong lang="es">Domingo en la mañana:</strong><strong lang="en">Sunday Morning:</strong> 9:30am-10:30am</li>
+                    <li><strong lang="es">Club de Niños (Domingo tarde):</strong><strong lang="en">Kids Club (Sunday Afternoon):</strong> 5:00pm-7:00pm</li>
+                </ul>
+            </div>
+            
+            <div class="ministry-card">
+                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="P08-Jovenes.jpeg" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es">Jóvenes</h3>
+                <h3 lang="en">Youth Ministry</h3>
+                <p class="ministry-desc" lang="es" style="font-size:0.85rem; margin-bottom:1rem;">El ministerio juvenil ofrece estudios bíblicos orientados a inspirar a los adolescentes a dedicar sus vidas al servicio de Dios. Nuestros líderes están plenamente capacitados para brindar apoyo y guía, utilizando las Escrituras como el pilar fundamental para superar los desafíos propios de la juventud. Este desarrollo espiritual se complementa con eventos especiales cada mes y la oportunidad de alabar a Dios integrándose al coro juvenil de manera semanal.</p>
+                <p class="ministry-desc" lang="en" style="font-size:0.85rem; margin-bottom:1rem;">The youth ministry offers Bible studies aimed at inspiring teens to dedicate their lives to serving God. Our leaders are fully trained to provide support and guidance, using the Scriptures as the fundamental pillar to overcome the challenges of youth. This spiritual development is complemented by special monthly events and the opportunity to praise God by joining the youth choir weekly.</p>
+                <ul class="ministry-details">
+                    <li><strong lang="es">Edades:</strong><strong lang="en">Ages:</strong> 13+</li>
+                    <li><strong lang="es">Domingo en la mañana:</strong><strong lang="en">Sunday Morning:</strong> 9:30am-10:30am</li>
+                    <li><strong lang="es">Miércoles en la tarde:</strong><strong lang="en">Wednesday Evening:</strong> 7:00pm-8:30pm</li>
+                </ul>
+            </div>
+            
+            <div class="ministry-card">
+                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="P12-Damas.jpeg" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es">Damas</h3>
+                <h3 lang="en">Women's Ministries</h3>
+                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Un espacio dedicado a que las mujeres aprendan y apliquen los principios de la Palabra de Dios. Las damas disfrutarán de estudios enriquecedores y conferencias que les proporcionarán un fundamento bíblico sólido, capacitándolas para ser pilares espirituales y verdaderas edificadoras de sus vidas y familias.</p>
+                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">A space dedicated for women to learn and apply the principles of God's Word. Ladies will enjoy enriching studies and conferences that will provide a solid biblical foundation, empowering them to be spiritual pillars and true builders of their lives and families.</p>
+            </div>
+            
+            <div class="ministry-card">
+                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
+                    <img src="P13-Varones.jpeg" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es">Varones</h3>
+                <h3 lang="en">Men's Ministries</h3>
+                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Una hermandad enfocada en que los hombres sean instruidos en los principios fundamentales de las Escrituras. A través de estudios bíblicos y conferencias, los varones reciben las herramientas necesarias para fortalecer su fe, guiando y estableciendo un fundamento fuerte para el bienestar integral de sus hogares.</p>
+                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">A brotherhood focused on instructing men in the fundamental principles of the Scriptures. Through Bible studies and conferences, men receive the necessary tools to strengthen their faith, guiding and establishing a strong foundation for the overall well-being of their homes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light-section" id="pasos">
+        <div class="section-header">
+            <h2 lang="es">Siguientes Pasos / Involúcrese</h2>
+            <h2 lang="en">Next Steps / Get Involved</h2>
+            <p lang="es">Le guiamos paso a paso para que crezca más profundamente en su camino de fe.</p>
+            <p lang="en">We guide you step-by-step to grow deeper in your faith journey.</p>
+        </div>
+        
+        <div class="ministry-grid" style="gap: 3rem; margin-bottom: 3rem;">
+            <div style="text-align: center;">
+                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <img src="P15-Bautismo.jpg" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Bautismo</h3>
+                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Baptism</h3>
+                <p lang="es">Dé el siguiente paso de obediencia pública en su fe cristiana.</p>
+                <p lang="en">Take the next step of public obedience in your Christian faith.</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <img src="P16-Discipulado.jpg" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Clases de Discipulado</h3>
+                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Discipleship Classes</h3>
+                <p lang="es">Fundamentos sólidos para nuevos creyentes y futuros miembros.</p>
+                <p lang="en">Solid foundations for new believers and future members.</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <img src="P17-Visita_A_Casa.jpg" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Visita a Su Casa</h3>
+                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Home Visit</h3>
+                <p lang="es">Queremos conocerle mejor y orar por su familia personalmente.</p>
+                <p lang="en">We want to get to know you better and pray for your family personally.</p>
+            </div>
+        </div>
+
+        <div class="contact-box" id="contacto" style="margin-top: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; border-top: 4px solid var(--navy-primary); padding: 0;">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUJ2GnrqRqq9gQTPMWXAJ-m0WDny7uX_olK2tzYz2LQrnx8w/viewform?embedded=true" width="100%" height="1241" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+
+    <section class="section" id="ofrendar">
+        <div class="section-header" style="text-align: center;">
+            <h2 lang="es">Ofrendar y Diezmar en Línea</h2>
+            <h2 lang="en">Online Giving</h2>
+            <p lang="es">"Cada uno dé como propuso en su corazón: no con tristeza ni por obligación, porque Dios ama al dador alegre." - 2 Corintios 9:7</p>
+            <p lang="en">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
+        </div>
+        
+        <div class="sermon-card" style="max-width: 800px; margin: 0 auto; text-align: center; border-top: 4px solid var(--accent-red); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="margin-bottom: 1.5rem;">
+                <img src="P06-Ofrenda.jpeg" alt="Giving QR Code" style="width: 200px; height: 200px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+            <h3 lang="es" style="text-align: center; width: 100%;">Apoye la Misión</h3>
+            <h3 lang="en" style="text-align: center; width: 100%;">Support the Mission</h3>
+            <p lang="es" style="margin-bottom: 1.5rem; text-align: center; width: 100%;">Escanee el código QR con su teléfono para ofrendar de manera rápida y segura. Su generosidad nos ayuda a continuar compartiendo el Evangelio y sirviendo a nuestra comunidad de Edcouch.</p>
+            <p lang="en" style="margin-bottom: 1.5rem; text-align: center; width: 100%;">Scan the QR code with your phone to give quickly and securely. Your generosity helps us continue sharing the Gospel and serving our Edcouch community.</p>
+        </div>
+    </section>
+
+    <section class="section bg-light-section" id="contacto-mapa">
+        <div class="section-header">
+            <h2 lang="es">Ubicación</h2>
+            <h2 lang="en">Location</h2>
+            <p lang="es">Encuéntrenos fácilmente. ¡Le esperamos!</p>
+            <p lang="en">Find us easily. We look forward to welcoming you.</p>
+        </div>
+        <div class="map-wrapper">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8!2d-97.9782!3d26.2945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjY_MTcnNDAuMiJOIDk3wrA1OCc0MS41Ilc!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus&q=24211+Sunflower+Ln,+Edcouch,+TX" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section class="connect-section" id="conecta">
+        <h2 lang="es">Conéctese <em>Con Nosotros</em></h2>
+        <h2 lang="en">Connect <em>With Us</em></h2>
+        <p lang="es">Síganos en las redes sociales para mantenerse conectado con nosotros durante toda la semana.</p>
+        <p lang="en">Follow us on social media to stay connected with us throughout the week.</p>
+
+        <div class="social-circles-container">
+            <a href="https://www.facebook.com/profile.php?id=61571522836318" target="_blank" rel="noopener noreferrer" class="social-circle circle-facebook" title="Facebook">
+                f
+            </a>
+            <a href="https://www.instagram.com/ibelfaroedcouch" target="_blank" rel="noopener noreferrer" class="social-circle circle-instagram" title="Instagram">
+                📷
+            </a>
+            <a href="https://wa.me/19563821051" target="_blank" rel="noopener noreferrer" class="social-circle circle-whatsapp" title="WhatsApp">
+                💬
+            </a>
+        </div>
+    </section>
+
+    <div class="bottom-action-bar">
+        <div class="action-item">
+            <span class="icon">✉️</span>
+            <h4 lang="es">¡Escríbanos!</h4>
+            <h4 lang="en">Get In Touch!</h4>
+            <a href="mailto:Ibelfaroed@gmail.com">Ibelfaroed@gmail.com</a>
+        </div>
+        <div class="action-item">
+            <span class="icon">📞</span>
+            <h4 lang="es">¡Llámenos!</h4>
+            <h4 lang="en">Call Us!</h4>
+            <a href="tel:9563821051">(956) 382-1051</a>
+        </div>
+        <div class="action-item">
+            <span class="icon">📍</span>
+            <h4 lang="es">Ubicación</h4>
+            <h4 lang="en">Location</h4>
+            <p>24211 Sunflower Ln, Edcouch, TX</p>
+        </div>
+        <div class="action-item">
+            <span class="icon">💳</span>
+            <h4 lang="es">Ofrendar</h4>
+            <h4 lang="en">Give Online</h4>
+            <a href="#ofrendar" lang="es">Dar en línea</a>
+            <a href="#ofrendar" lang="en">Give online</a>
+        </div>
+    </div>
+
+    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 1rem;">
+        <div style="background: white; border-radius: 12px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 6px solid var(--accent-red);">
+            
+            <button onclick="toggleAdminTab()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);">×</button>
+
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2 lang="es">Portal de Administración</h2>
+                <h2 lang="en">Administration Portal</h2>
+                <p lang="es">Acceso restringido. Solo para administradores de la Iglesia El Faro.</p>
+                <p lang="en">Restricted access. Only for El Faro Church administrators.</p>
+            </div>
+            
+            <div class="sermon-card" id="admin-login-container" style="max-width: 100%; box-shadow: none; border: 1px solid #cbd5e1; padding: 2rem;">
+                <h3 lang="es">Iniciar Sesión</h3>
+                <h3 lang="en">Login</h3>
+                
+                <div class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-group" style="text-align: left;">
+                        <label for="admin-user" lang="es">Usuario</label>
+                        <label for="admin-user" lang="en">Username</label>
+                        <input type="text" id="admin-user" placeholder="Ingrese su usuario asignado / Please enter your assigned username">
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <label for="admin-pass" lang="es">Contraseña</label>
+                        <label for="admin-pass" lang="en">Password</label>
+                        <input type="password" id="admin-pass" placeholder="Ingrese su contraseña / Please enter your password">
+                    </div>
+                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1rem;" lang="es">Acceder</button>
+                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1rem;" lang="en">Access</button>
+                    
+                    <p id="forgot-pass-msg" style="margin-top: 0.8rem; font-size: 0.85rem; text-align: left;">
+                        <a href="#" onclick="alert('Simulación / Simulation: Contact main admin to recover credentials.'); return false;" style="color: var(--navy-primary);" lang="es">¿Olvidó su usuario o contraseña?</a>
+                        <a href="#" onclick="alert('Simulation: Contact main admin to recover credentials.'); return false;" style="color: var(--navy-primary);" lang="en">Forgot username or password?</a>
+                    </p>
+
+                    <p id="login-error" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="es">Credenciales incorrectas.</p>
+                    <p id="login-error-en" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="en">Incorrect credentials.</p>
+                </div>
+            </div>
+
+            <div id="admin-dashboard-container" class="hidden">
+                <h3 id="admin-greeting" style="text-align: center; margin-bottom: 2rem; color: var(--navy-dark); font-size: 1.8rem;"></h3>
+                
+                <div class="contact-container" style="grid-template-columns: 1fr;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                        
+                        <div class="contact-box">
+                            <h3 lang="es">Gestión de Imágenes y Textos</h3>
+                            <h3 lang="en">Image & Text Management</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="es">Suba o elimine imágenes, o edite textos del sitio.</p>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="en">Upload/delete images or edit site text.</p>
+                            <input type="file" id="image-upload" accept="image/*" style="margin-bottom: 1rem; display: block;">
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: var(--navy-primary); color: var(--navy-dark);" onclick="alert('Simulación / Simulation: Action completed.')" lang="es">Guardar Cambios</button>
+                            <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: var(--navy-primary); color: var(--navy-dark);" onclick="alert('Simulación / Simulation: Action completed.')" lang="en">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <div class="contact-box" style="margin-bottom: 2rem;">
+                        <h3 lang="es">Editar las Secciones de Eventos</h3>
+                        <h3 lang="en">Edit the Event Sections</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="es">Modifique los detalles de los próximos eventos mostrados en el sitio web.</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="en">Modify the details of the upcoming events displayed on the website.</p>
+                        
+                        <select style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; font-family: inherit;">
+                            <option>Escuelita Bíblica de Vacaciones (VBS)</option>
+                            <option>Servicios de Avivamiento</option>
+                            <option>Cena y Convivio Comunitario</option>
+                        </select>
+                        <input type="text" placeholder="Nuevo Título del Evento / New Event Title" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
+                        <input type="text" placeholder="Nueva Fecha y Hora / New Date & Time" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
+                        <input type="text" placeholder="Nueva Ubicación / New Location" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
+                        
+                        <button class="btn btn-primary" onclick="alert('Simulación / Simulation: Event updated!')" lang="es">Actualizar Evento</button>
+                        <button class="btn btn-primary" onclick="alert('Simulación / Simulation: Event updated!')" lang="en">Update Event</button>
+                    </div>
+
+                    <div class="contact-box">
+                        <h3 lang="es">Registro de Ediciones (Audit Log - Hora Central)</h3>
+                        <h3 lang="en">Audit Log (Central Time Zone)</h3>
+                        <div style="overflow-x: auto;">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th lang="es">Usuario</th><th lang="en">User</th>
+                                        <th lang="es">Acción Realizada</th><th lang="en">Action Performed</th>
+                                        <th lang="es">Fecha y Hora (CST)</th><th lang="en">Timestamp (CST)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>IT_02</td>
+                                        <td>Actualizó la Biblioteca / Updated Library</td>
+                                        <td>08/05/2026 - 05:54 PM CST</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hermana_03</td>
+                                        <td>Subió imagen / Uploaded Image</td>
+                                        <td>08/03/2026 - 02:14 PM CST</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pastor_01</td>
+                                        <td>Descargó PDF / Downloaded PDF</td>
+                                        <td>08/01/2026 - 11:20 AM CST</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--navy-primary); color: var(--navy-dark);" lang="es">Cerrar Sesión</button>
+                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--navy-primary); color: var(--navy-dark);" lang="en">Logout</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p><strong lang="es">Iglesia Bautista El Faro</strong><strong lang="en">El Faro Baptist Church</strong> — 24211 Sunflower Ln, Edcouch, TX</p>
+        <p lang="es">© Todos los derechos reservados.</p>
+        <p lang="en">© All rights reserved.</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-es').classList.remove('active');
+            } else {
+                document.body.classList.remove('lang-en');
+                document.getElementById('btn-es').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            }
+        }
+
+        function toggleFaith() {
+            const content = document.getElementById("faith-content");
+            const btnEn = document.querySelector("#faith-btn span[lang='en']");
+            const btnEs = document.querySelector("#faith-btn span[lang='es']");
+            
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                btnEn.innerText = "READ LESS";
+                btnEs.innerText = "LEER MENOS";
+            } else {
+                content.style.display = "none";
+                btnEn.innerText = "READ MORE";
+                btnEs.innerText = "LEER MÁS";
+            }
+        }
+
+        function toggleAdminTab() {
+            const modal = document.getElementById('admin-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+            }
+        }
+
+        const adminUsers = {
+            "Pastor_01": { pass: "1234", name: "Pastor" },
+            "IT_02": { pass: "5678", name: "Jorge" },
+            "Hermana_03": { pass: "1011", name: "Hrna Alejandra" }
+        };
+
+        function loginAdmin() {
+            const user = document.getElementById('admin-user').value.trim();
+            const pass = document.getElementById('admin-pass').value.trim();
+            
+            if(adminUsers[user] && adminUsers[user].pass === pass) {
+                document.getElementById('admin-login-container').classList.add('hidden');
+                document.getElementById('login-error').classList.add('hidden');
+                document.getElementById('login-error-en').classList.add('hidden');
+                document.getElementById('admin-dashboard-container').classList.remove('hidden');
+                
+                const userName = adminUsers[user].name;
+                if(document.body.classList.contains('lang-en')) {
+                    document.getElementById('admin-greeting').innerText = "Hello " + userName;
+                } else {
+                    document.getElementById('admin-greeting').innerText = "Hola " + userName;
+                }
+                
+                document.getElementById('admin-user').value = '';
+                document.getElementById('admin-pass').value = '';
+            } else {
+                if(document.body.classList.contains('lang-en')) {
+                    document.getElementById('login-error-en').classList.remove('hidden');
+                    document.getElementById('login-error').classList.add('hidden');
+                } else {
+                    document.getElementById('login-error').classList.remove('hidden');
+                    document.getElementById('login-error-en').classList.add('hidden');
+                }
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('admin-dashboard-container').classList.add('hidden');
+            document.getElementById('admin-login-container').classList.remove('hidden');
+            document.getElementById('admin-greeting').innerText = '';
+        }
+    </script>
+</body>
+</html>

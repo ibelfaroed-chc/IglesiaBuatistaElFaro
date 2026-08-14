@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería / Gallery - Iglesia El Faro</title>
+    <style>
+        :root {
+            --navy-dark: #0b3d91; 
+            --navy-primary: #1e40af; 
+            --accent-red: #e11d48; 
+            --bg-light: #f8fafc; 
+            --card-bg: #ffffff; 
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Language Toggle CSS */
+        body [lang="en"] { display: none !important; }
+        body.lang-en [lang="es"] { display: none !important; }
+        body.lang-en [lang="en"] { display: block !important; }
+        
+        body.lang-en span[lang="en"], 
+        body.lang-en a[lang="en"], 
+        body.lang-en strong[lang="en"], 
+        body.lang-en label[lang="en"] { display: inline !important; }
+        
+        body.lang-en div[lang="en"].logo,
+        body.lang-en div[lang="en"].top-bar-info { display: flex !important; }
+
+        .lang-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--navy-dark);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.90rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--navy-dark);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Gallery Grid */
+        .section-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            color: var(--navy-dark);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-bg);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+            image-rendering: high-quality;
+            filter: contrast(1.03) saturate(1.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-dark);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📍 24211 Sunflower Ln, Edcouch, TX</span>
+            <span>📞 (956) 382-1051</span>
+        </div>
+        <div>
+            <span lang="es">Bienvenidos</span>
+            <span lang="en">Welcome</span>
+            <div style="display: inline-block; margin-left: 1rem;">
+                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-brand">
+            <a href="index.html" class="logo" lang="es">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                Iglesia Bautista <span>El Faro</span>
+            </a>
+            <a href="index.html" class="logo" lang="en">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                El Faro <span>Baptist Church</span>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+        </nav>
+    </header>
+
+    <div class="section-header">
+        <h1>
+            <span lang="es">Nuestra Comunidad</span>
+            <span lang="en">Our Community</span>
+        </h1>
+        <p>
+            <span lang="es">Momentos de compañerismo, adoración y familia en la Iglesia El Faro.</span>
+            <span lang="en">Moments of fellowship, worship, and family at Iglesia El Faro.</span>
+        </p>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-item"><img src="G1.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G2.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G3.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G4.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G5.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G6.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G7.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G8.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G9.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G10.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G11.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G12.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G13.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G14.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G15.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G16.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G18.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G19.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G20.jpg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G21.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G22.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G23.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G24.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G25.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G26.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G28.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G29.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="G30.jpeg" alt="Iglesia El Faro" loading="lazy"></div>
+    </div>
+
+    <footer>
+        <p><strong lang="es">Iglesia Bautista El Faro</strong><strong lang="en">El Faro Baptist Church</strong> — 24211 Sunflower Ln, Edcouch, TX</p>
+        <p>
+            <span lang="es">© Todos los derechos reservados.</span>
+            <span lang="en">© All rights reserved.</span>
+        </p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-es').classList.remove('active');
+            } else {
+                document.body.classList.remove('lang-en');
+                document.getElementById('btn-es').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

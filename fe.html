@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración de Fe - Iglesia El Faro</title>
+    <style>
+        :root {
+            --navy-dark: #0b3d91; 
+            --navy-primary: #1e40af; 
+            --accent-red: #e11d48; 
+            --accent-red-hover: #be123c; 
+            --whatsapp-green: #16a34a;
+            --facebook-blue: #1877F2;
+            --bg-light: #f8fafc; 
+            --card-bg: #ffffff; 
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Language Toggle CSS */
+        body [lang="en"] { display: none !important; }
+        body.lang-en [lang="es"] { display: none !important; }
+        body.lang-en [lang="en"] { display: block !important; }
+        
+        body.lang-en span[lang="en"], 
+        body.lang-en a[lang="en"], 
+        body.lang-en strong[lang="en"], 
+        body.lang-en label[lang="en"],
+        body.lang-en h1[lang="en"],
+        body.lang-en h2[lang="en"],
+        body.lang-en h3[lang="en"] { display: inline !important; }
+        
+        body.lang-en div[lang="en"].logo,
+        body.lang-en div[lang="en"].top-bar-info,
+        body.lang-en div[lang="en"].faith-content { display: block !important; }
+
+        .lang-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--navy-dark);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: var(--navy-dark);
+            color: #ffffff;
+            font-size: 0.85rem;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-bar-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy-dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a, .dropbtn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.90rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: var(--accent-red);
+        }
+
+        /* Dropdown Tab Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px; 
+            margin-bottom: -15px; 
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            background-color: rgba(70, 70, 70, 0.95);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.15);
+            color: #ffffff !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Statement of Faith Section */
+        .page-header {
+            background-color: var(--navy-primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-family: serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .faith-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--accent-red);
+        }
+
+        .faith-container h4 {
+            color: var(--navy-dark);
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .faith-container h4:first-child {
+            margin-top: 0;
+        }
+
+        .faith-container p {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: var(--navy-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--navy-primary);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--navy-dark);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        footer p { margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📍 24211 Sunflower Ln, Edcouch, TX</span>
+            <span>📞 (956) 382-1051</span>
+        </div>
+        <div>
+            <span lang="es">Bienvenidos</span>
+            <span lang="en">Welcome</span>
+            <div style="display: inline-block; margin-left: 1rem;">
+                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-brand">
+            <a href="El-Faro-Website_Test.html" class="logo" lang="es">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                Iglesia Bautista <span>El Faro</span>
+            </a>
+            <a href="El-Faro-Website_Test.html" class="logo" lang="en">
+                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
+                El Faro <span>Baptist Church</span>
+            </a>
+        </div>
+        <nav>
+            <a href="El-Faro-Website_Test.html#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+            
+            <div class="dropdown">
+                <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
+                <div class="dropdown-content">
+                    <a href="El-Faro-Website_Test.html#pasos"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                    <a href="El-Faro-Website_Test.html#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                    <a href="El-Faro-Website_Test.html#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                </div>
+            </div>
+            
+            <a href="El-Faro-Website_Test.html#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+            <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+            <a href="El-Faro-Website_Test.html#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+            <a href="El-Faro-Website_Test.html#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+            <a href="El-Faro-Website_Test.html#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1 lang="es">Declaración de Fe</h1>
+        <h1 lang="en">Statement of Faith</h1>
+        <p lang="es">Iglesia Bautista El Faro</p>
+        <p lang="en">El Faro Baptist Church</p>
+    </div>
+
+    <div class="faith-container">
+        <div lang="es" class="faith-content">
+            <h4>La Biblia</h4>
+            <p>Creemos que la Biblia es la Palabra de Dios revelada, y que es completa y verbalmente inspirada por Dios. Creemos que la Escritura es la inerrante e infalible Palabra de Dios, y se encuentra así en sus 66 libros desde Génesis hasta Apocalipsis. Creemos que Dios no solamente inspiró cada palabra, sino que también la preservó a través de los tiempos. Creemos que la Versión Reina Valera 1960 es la Palabra de Dios preservada para el pueblo Hispano-Parlante (Salmos 12:6-7; II Timoteo 3:15-17; I Pedro 1:23-25; II Pedro 1:19-21).</p>
+            
+            <h4>Dios</h4>
+            <p>Creemos en un sólo Dios, el cual es eterno, auto-existente, infinito e inmutable. Creemos que tiene una naturaleza, una esencia, una sustancia y que se ha manifestado al hombre en tres personas: el Padre, el Hijo y el Espíritu Santo (Deuteronomio 6:4; I Timoteo 1:17; Santiago 1:17; I Juan 4:4).</p>
+
+            <h4>Los Últimos Días</h4>
+            <p>Creemos en la interpretación literal de las Escrituras en su contexto gramatical e histórico. Creemos en el Rapto pre-tribulacional de los santos de la iglesia, seguido por los siete años de Tribulación. Creemos en el regreso pre-milenial de Cristo a la tierra y su literal reinado de mil años. Seguido a estos mil años es el juicio del Gran Trono Blanco y entonces el Cielo nuevo y tierra nueva (I Corintios 15:51-58: I Tesalonicenses 4:13-18; I Tesalonicenses 5:1-9; Apocalipsis 19-22).</p>
+
+            <h4>El Hijo</h4>
+            <p>Creemos que Jesucristo es el único Salvador de la humanidad. Creemos que Jesucristo es eternamente Dios y que posee todos los atributos de la Deidad. Creemos que el Señor Jesucristo nació de una virgen, que Él es Dios encarnado, y que el propósito de la encarnación fue revelar a Dios para redimir al hombre, y para reinar sobre el reino de Dios. Creemos que Jesucristo nunca renunció a ninguno de los atributos de su Deidad, sino que simplemente los guardó.</p>
+            <p>Creemos que vivió una vida perfecta, sin pecado, y que al final de ella la ofreció por la humanidad como un sacrificio sustitutivo por los pecados del hombre. Este sacrificio fue el pago justo a Dios por el perdón por el pecado. Este perdón fue activado por su muerte a través del derramamiento de su sangre en la Cruz y fue aceptado por Dios después de su resurrección. Creemos que Él ascendió al cielo después de su resurrección para estar sentado a la diestra del Padre, esperando por el tiempo para recibir a su iglesia en el Rapto, y regresar después de siete años a la tierra para gobernar y dirigir su Reino por 1,000 años (Salmos 2:7-9; Isaías 7:14; Isaías 9:6; Isaías 43:11; Miqueas 5:2; Mateo 1:25; Lucas 1:26-35; Juan 1:1; Juan 1:3; Juan 14; Juan 18; Juan 29; Romanos 3:19-25; Romanos 5:6-15; Filipenses 2:5-11; I Tesalonicenses 2:5; I Tesalonicenses 3:16; I Tesalonicenses 4:13-18; Tito 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Pedro 1:19; I Pedro 2:2; I Juan 1:3; Apocalipsis 20:1-6).</p>
+
+            <h4>El Pecado y la Salvación</h4>
+            <p>Creemos que todos los hombres nacen con la herencia del pecado natural recibida de parte de nuestro antecesor común Adán. Creemos que debido a esta naturaleza el hombre es un pecador por decisión, y que es totalmente incapaz de reformarse a sí mismo o dejar de pecar por su propio poder. Creemos que la única esperanza de salvación para el hombre es un cambio total de mente referente a su condición de pecado e inhabilidad de cambiarla, es volverse a Jesucristo como su único Salvador.</p>
+            <p>Creemos que solamente a través del sacrificio sustitutivo de Jesucristo en la Cruz el hombre puede ser perdonado de sus pecados. Creemos que todos los que rechazan a Jesucristo como su salvador ya están condenados al Lago de Fuego eternamente (Génesis 5:1-5; Hechos 4:19; Hechos 16:31; Romanos 3:10-23; Romanos 5:6-12; Romanos 6:23; Romanos 10:9-10; Efesios 2:8-9; Tito 3:5-6; Apocalipsis 20:11-14).</p>
+
+            <h4>El Espíritu Santo</h4>
+            <p>Creemos que El Espíritu Santo de Dios es una persona que tiene todos los atributos de la Deidad de Dios. Creemos que el Espíritu Santo ha estado siempre presente desde la creación de la raza humana. Sin embargo, creemos que Él ha tenido un ministerio especial que comenzó el día de Pentecostés y que continúa hasta el día del rapto de la iglesia. Su ministerio incluye el proveer convicción del pecado y redargüir hacia una vida de santidad. El Espíritu Santo fue enviado para regenerar, santificar, sellar, y llenar a todos aquellos que han recibido a Cristo como su Salvador y Señor (Juan 3:5-6; Juan 14:16; Hechos 1:5; Hechos 11:15; I Corintios 3:16; I Corintios 6:19-20; I Corintios 12:13).</p>
+
+            <h4>La Iglesia del Nuevo Testamento</h4>
+            <p>Creemos que la iglesia comenzó con el llamado de los doce apóstoles por Jesucristo y que fue empoderada en el día de Pentecostés. Creemos que la iglesia local es la única institución de parte de Dios para hacer su obra en este tiempo. Creemos que la iglesia local está compuesta por miembros que han sido salvos y bautizados de acuerdo a las instrucciones de Cristo, y que voluntariamente se reúnen juntos con el propósito de adorar a Dios, tener comunión con los hermanos, servir y recordar la Cena del Señor. Creemos que todos los creyentes serán llevados en el Rapto, justo antes de la Tribulación (Mateo 16:16-18; Hechos 1:15; Hechos 2:41-43; Hechos 11:15; Hechos 20:28; I Corintios 15:51-58; Efesios 1:12-14; Efesios 5:25-30; I Tesalonicenses 4:13-18; I Timoteo 3:4-15).</p>
+            
+            <div style="text-align: center;">
+                <a href="El-Faro-Website_Test.html#nosotros" class="back-btn">← Volver a Quiénes Somos</a>
+            </div>
+        </div>
+
+        <div lang="en" class="faith-content">
+            <h4>The Bible</h4>
+            <p>We believe the Bible is the revealed Word of God, and that it is fully and verbally inspired by God. We believe the Scripture is the inerrant and infallible Word of God, found in its 66 books from Genesis to Revelation. We believe God not only inspired every word, but also preserved it through the ages. We believe the Reina Valera 1960 version is the preserved Word of God for the Spanish-speaking people (Psalms 12:6-7; II Timothy 3:15-17; I Peter 1:23-25; II Peter 1:19-21).</p>
+            
+            <h4>God</h4>
+            <p>We believe in one God, who is eternal, self-existent, infinite and immutable. We believe He has one nature, one essence, one substance and has manifested Himself to man in three persons: the Father, the Son and the Holy Spirit (Deuteronomy 6:4; I Timothy 1:17; James 1:17; I John 4:4).</p>
+
+            <h4>The Last Days</h4>
+            <p>We believe in the literal interpretation of the Scriptures in their grammatical and historical context. We believe in the pre-tribulational Rapture of the church saints, followed by the seven years of Tribulation. We believe in the pre-millennial return of Christ to earth and His literal reign of a thousand years. Following these thousand years is the Great White Throne judgment and then the new Heaven and new earth (I Corinthians 15:51-58; I Thessalonians 4:13-18; I Thessalonians 5:1-9; Revelation 19-22).</p>
+
+            <h4>The Son</h4>
+            <p>We believe Jesus Christ is the only Savior of humanity. We believe Jesus Christ is eternally God and possesses all attributes of Deity. We believe the Lord Jesus Christ was born of a virgin, that He is God incarnate, and that the purpose of the incarnation was to reveal God to redeem man, and to rule over God's kingdom. We believe Jesus Christ never relinquished any of the attributes of His Deity, but merely laid them aside.</p>
+            <p>We believe He lived a perfect, sinless life, and at the end of it offered it for humanity as a substitutionary sacrifice for the sins of man. This sacrifice was the just payment to God for the forgiveness of sin. This forgiveness was activated by His death through the shedding of His blood on the Cross and was accepted by God after His resurrection. We believe He ascended to heaven after His resurrection to be seated at the right hand of the Father, waiting for the time to receive His church at the Rapture, and to return after seven years to the earth to rule and direct His Kingdom for 1,000 years (Psalms 2:7-9; Isaiah 7:14; Isaiah 9:6; Isaiah 43:11; Micah 5:2; Matthew 1:25; Luke 1:26-35; John 1:1; John 1:3; John 14; John 18; John 29; Romans 3:19-25; Romans 5:6-15; Philippians 2:5-11; I Thessalonians 2:5; I Thessalonians 3:16; I Thessalonians 4:13-18; Titus 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Peter 1:19; I Peter 2:2; I Juan 1:3; Revelation 20:1-6).</p>
+
+            <h4>Sin and Salvation</h4>
+            <p>We believe all men are born with the inheritance of natural sin received from our common ancestor Adam. We believe that because of this nature man is a sinner by choice, and is totally incapable of reforming himself or ceasing to sin by his own power. We believe the only hope of salvation for man is a total change of mind regarding his sinful condition and inability to change it, turning to Jesus Christ as his only Savior.</p>
+            <p>We believe only through the substitutionary sacrifice of Jesus Christ on the Cross can man be forgiven of his sins. We believe all who reject Jesus Christ as their savior are already condemned to the Lake of Fire eternally (Genesis 5:1-5; Acts 4:19; Acts 16:31; Romans 3:10-23; Romans 5:6-12; Romans 6:23; Romans 10:9-10; Ephesians 2:8-9; Titus 3:5-6; Revelation 20:11-14).</p>
+
+            <h4>The Holy Spirit</h4>
+            <p>We believe the Holy Spirit of God is a person who has all the attributes of the Deity of God. We believe the Holy Spirit has always been present since the creation of the human race. However, we believe He has had a special ministry that began on the day of Pentecost and continues until the day of the rapture of the church. His ministry includes providing conviction of sin and reproving toward a life of holiness. The Holy Spirit was sent to regenerate, sanctify, seal, and fill all those who have received Christ as their Savior and Lord (John 3:5-6; John 14:16; Acts 1:5; Acts 11:15; I Corinthians 3:16; I Corinthians 6:19-20; I Corinthians 12:13).</p>
+
+            <h4>The New Testament Church</h4>
+            <p>We believe the church began with the calling of the twelve apostles by Jesus Christ and was empowered on the day of Pentecost. We believe the local church is God's only institution to do His work in this time. We believe the local church is composed of members who have been saved and baptized according to Christ's instructions, and who voluntarily gather together for the purpose of worshipping God, having fellowship with the brethren, serving and remembering the Lord's Supper. We believe all believers will be taken in the Rapture, just prior to the Tribulation (Matthew 16:16-18; Acts 1:15; Acts 2:41-43; Acts 11:15; Acts 20:28; I Corinthians 15:51-58; Ephesians 1:12-14; Ephesians 5:25-30; I Thessalonians 4:13-18; I Timothy 3:4-15).</p>
+            
+            <div style="text-align: center;">
+                <a href="El-Faro-Website_Test.html#nosotros" class="back-btn">← Back to About Us</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong lang="es">Iglesia Bautista El Faro</strong><strong lang="en">El Faro Baptist Church</strong> — 24211 Sunflower Ln, Edcouch, TX</p>
+        <p lang="es">© Todos los derechos reservados.</p>
+        <p lang="en">© All rights reserved.</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('lang-en');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-es').classList.remove('active');
+            } else {
+                document.body.classList.remove('lang-en');
+                document.getElementById('btn-es').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
