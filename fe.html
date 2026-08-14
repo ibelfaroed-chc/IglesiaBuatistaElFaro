@@ -11,7 +11,6 @@
     
     <style>
         :root {
-            /* Paleta de colores estricta de la página principal */
             --navy-dark: #0f172a; 
             --navy-primary: #1e40af; 
             --accent-red: #e11d48;
@@ -24,17 +23,12 @@
             --text-muted: #64748b;
             --border-color: #e2e8f0;
             
-            /* Sombras profesionales */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg-light);
@@ -44,54 +38,48 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        /* Language Toggle CSS */
-        body [lang="en"] { display: none !important; }
+        /* Language Toggle - CSS REESCRITO PARA ESCALADO PERFECTO */
+        body:not(.lang-en) [lang="en"] { display: none !important; }
         body.lang-en [lang="es"] { display: none !important; }
-        body.lang-en [lang="en"] { display: block !important; }
-        body.lang-en span[lang="en"], body.lang-en a[lang="en"], body.lang-en strong[lang="en"] { display: inline !important; }
 
-        .lang-btn { 
-            background: transparent; 
-            color: rgba(255,255,255,0.8); 
-            border: 1px solid rgba(255,255,255,0.4); 
-            padding: 0.25rem 0.75rem; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-size: 0.75rem; 
-            margin-left: 0.5rem; 
-            transition: all 0.3s ease; 
-            letter-spacing: 0.5px;
+        /* HEADER UNIFICADO (Fondo Sólido para Subpáginas) */
+        .header-wrapper {
+            background-color: var(--navy-dark); 
+            width: 100%;
+            z-index: 1000;
         }
 
-        .lang-btn.active { 
-            background: white; 
-            color: var(--navy-dark); 
-            font-weight: 700; 
-            border-color: white;
-        }
-
+        .lang-btn { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.4); padding: 0.25rem 0.75rem; border-radius: 50px; cursor: pointer; font-size: 0.75rem; margin-left: 0.5rem; transition: all 0.3s ease; letter-spacing: 0.5px; }
+        .lang-btn.active { background: white; color: var(--navy-dark); font-weight: 700; border-color: white; }
         .lang-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.15); color: white; }
 
-        /* Top Announcement Bar */ 
-        .top-bar { 
-            background-color: var(--navy-dark); 
-            color: #f8fafc; 
-            font-size: 0.8rem; 
-            font-weight: 500; 
-            padding: 0.6rem 6%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 0.8rem; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .top-bar { border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.6rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .top-bar-info { display: flex; gap: 2rem; }
+        .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
 
-        /* Button to go back */
+        header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .header-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; text-decoration: none; }
+        .logo span { color: var(--accent-red); }
+        
+        nav { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 1rem; align-items: center; }
+        nav a, .dropbtn { color: #ffffff !important; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        nav a:hover, .dropdown:hover .dropbtn { color: var(--accent-red) !important; transform: translateY(-1px); }
+
+        .dropdown { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: -15px; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; min-width: 220px; box-shadow: var(--shadow-lg); z-index: 1000; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid #e2e8f0; }
+        .dropdown-content a { color: var(--navy-dark) !important; padding: 14px 20px; text-decoration: none; display: block; font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: background 0.2s; white-space: normal; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent-red) !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Botón para volver atrás (Ubicado en el área de contenido para máxima claridad) */
         .back-btn-container {
-            padding: 2rem 6% 0 6%; 
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 4% 0 4%; 
             text-align: left; 
-            background-color: transparent; 
         }
 
         .back-btn {
@@ -117,7 +105,7 @@
             box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
         }
 
-        /* Main Container & Grid Format */
+        /* Contenedor Principal y Grid */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -148,7 +136,6 @@
             font-weight: 300;
         }
 
-        /* Grid de Tarjetas Individuales */
         .cards-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -214,6 +201,21 @@
         footer p { margin-top: 0.5rem; }
         footer strong { color: white; font-weight: 600; }
 
+        /* REGLAS PARA PANTALLAS PEQUEÑAS */
+        @media (max-width: 1250px) {
+            header { padding: 1rem 2%; }
+            nav { gap: 0.8rem; }
+            nav a, .dropbtn { font-size: 0.75rem; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
+        }
+
+        @media (max-width: 1000px) {
+            header { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .header-brand { justify-content: center; width: 100%; }
+            nav { justify-content: center; flex-wrap: wrap; }
+        }
+
         @media (max-width: 900px) {
             h1 { font-size: 2.5rem; }
             .back-btn-container { text-align: center; }
@@ -221,19 +223,53 @@
         }
     </style>
 </head>
-<body class="es">
+<body>
 
-    <div class="top-bar">
-        <div>
-            <span lang="es"><i class="fa-solid fa-location-dot" style="margin-right: 5px;"></i> 24211 Sunflower Ln, Edcouch, TX</span>
-            <span lang="en"><i class="fa-solid fa-location-dot" style="margin-right: 5px;"></i> 24211 Sunflower Ln, Edcouch, TX</span>
-        </div>
-        <div>
-            <div style="display: inline-block; margin-left: 1rem;">
-                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
-                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-location-dot"></i> 24211 Sunflower Ln, Edcouch, TX</span>
+                <span><i class="fa-solid fa-phone"></i> (956) 382-1051</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <span lang="es">Bienvenidos</span>
+                <span lang="en">Welcome</span>
+                <div style="display: inline-block; margin-left: 1rem;">
+                    <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+                </div>
             </div>
         </div>
+
+        <header>
+            <div class="header-brand">
+                <a href="index.html" class="logo" lang="es">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    Iglesia Bautista <span>El Faro</span>
+                </a>
+                <a href="index.html" class="logo" lang="en">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    El Faro <span>Baptist Church</span>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+                <div class="dropdown">
+                    <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
+                    <div class="dropdown-content">
+                        <a href="index.html#visita"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                        <a href="index.html#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                        <a href="index.html#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                    </div>
+                </div>
+                <a href="index.html#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+                <a href="fe.html" style="color: var(--accent-red) !important;"><span lang="es">Nuestra Fe</span><span lang="en">Our Faith</span></a>
+                <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+                <a href="index.html#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+                <a href="index.html#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+                <a href="index.html#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
+            </nav>
+        </header>
     </div>
 
     <div class="back-btn-container">
@@ -323,7 +359,16 @@
     </footer>
 
     <script>
+        // Check if user previously selected a language on index.html
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('faro_language') || 'es';
+            setLanguage(savedLang);
+        });
+
         function setLanguage(lang) {
+            // Save choice to localStorage so it syncs automatically across pages
+            localStorage.setItem('faro_language', lang);
+            
             if (lang === 'en') {
                 document.body.classList.add('lang-en');
                 document.getElementById('btn-en').classList.add('active');
