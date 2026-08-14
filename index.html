@@ -3,860 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Faro Baptist Church - Edcouch, TX</title>
+    <title>Iglesia Bautista El Faro - Edcouch, TX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --navy-dark: #0b3d91; 
+            /* Paleta de colores estricta: Rojo, Blanco y Azul */
+            --navy-dark: #0f172a; 
             --navy-primary: #1e40af; 
-            --accent-red: #e11d48; 
+            --accent-red: #e11d48;
             --accent-red-hover: #be123c; 
-            --whatsapp-green: #16a34a;
+            --whatsapp-green: #16a34a; 
             --facebook-blue: #1877F2;
-            --bg-light: #f8fafc; 
+            --bg-light: #f1f5f9; 
             --card-bg: #ffffff; 
-            --text-main: #334155;
+            --text-main: #334155; 
             --text-muted: #64748b;
+            
+            /* Sombras profesionales */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            color: var(--text-main); 
+            background-color: var(--card-bg); 
+            line-height: 1.7; 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
         }
-
-        body {
-            color: var(--text-main);
-            background-color: var(--card-bg);
-            line-height: 1.6;
-        }
-
-        /* Language Toggle CSS - Default to Spanish (Hide English by default) */
-        body [lang="en"] { display: none !important; }
+        
+        /* Language Toggle - CSS REESCRITO PARA ESCALADO PERFECTO */
+        /* Si NO está el modo inglés activado, ocultar textos en inglés */
+        body:not(.lang-en) [lang="en"] { display: none !important; }
+        
+        /* Si SÍ está el modo inglés activado, ocultar textos en español */
         body.lang-en [lang="es"] { display: none !important; }
-        body.lang-en [lang="en"] { display: block !important; }
-        
-        body.lang-en span[lang="en"], 
-        body.lang-en a[lang="en"], 
-        body.lang-en strong[lang="en"], 
-        body.lang-en label[lang="en"] { display: inline !important; }
-        
-        body.lang-en div[lang="en"].logo,
-        body.lang-en div[lang="en"].top-bar-info { display: flex !important; }
 
-        .lang-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-            transition: all 0.2s;
-        }
-
-        .lang-btn.active {
-            background: white;
-            color: var(--navy-dark);
-            font-weight: bold;
-        }
-
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Top Announcement Bar */
-        .top-bar {
-            background-color: var(--navy-dark);
-            color: #ffffff;
-            font-size: 0.85rem;
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .top-bar-info {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .top-bar-info span {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--card-bg);
-            position: sticky;
+        /* ENVOLTORIO SUPERIOR PARA TRANSPARENCIA SOBRE EL HERO */
+        .header-wrapper {
+            position: absolute;
             top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            height: 45px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--navy-dark);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span {
-            color: var(--accent-red);
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        nav a, .dropbtn {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.90rem;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        nav a:hover, .dropdown:hover .dropbtn {
-            color: var(--accent-red);
-        }
-
-        /* Dropdown Tab Styles (WITH HOVER BRIDGE) */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px; 
-            margin-bottom: -15px; 
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%; 
-            background-color: rgba(70, 70, 70, 0.95);
-            min-width: 220px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1000;
-            border-radius: 4px;
-            overflow: hidden;
-            text-align: left;
-        }
-
-        .dropdown-content a {
-            color: #ffffff !important;
-            padding: 12px 20px;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-content a:hover {
-            background-color: rgba(255,255,255,0.15);
-            color: #ffffff !important;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(180deg, rgba(11, 61, 145, 0.85) 0%, rgba(11, 61, 145, 0.95) 100%),
-                        url('P01.jpg') center/cover no-repeat;
-            color: white;
-            text-align: center;
-            padding: 8rem 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto 2.5rem auto;
-            color: #e2e8f0;
-        }
-
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-red);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-red-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Editorial Split Sections */
-        .editorial-section {
-            max-width: 1200px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: flex-start;
-        }
-
-        .editorial-section.reverse {
-            direction: rtl;
-            align-items: center;
-        }
-
-        .editorial-section.reverse > * {
-            direction: ltr;
-        }
-
-        .editorial-content {
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .editorial-content h2 {
-            font-size: 3.2rem;
-            font-family: serif;
-            font-weight: 400;
-            color: #1a1a1a;
-            line-height: 1.15;
-            margin-bottom: 1.8rem;
-        }
-
-        .editorial-content h2 em {
-            font-style: italic;
-        }
-
-        .editorial-content p {
-            font-size: 1.1rem;
-            color: #333333;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .editorial-content p.italic-note {
-            font-style: italic;
-            font-size: 1.05rem;
-            color: #555555;
-            margin-bottom: 2rem;
-        }
-
-        .editorial-btn {
-            display: inline-block;
-            padding: 0.8rem 2.5rem;
-            border: 1px solid #1a1a1a;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .editorial-btn:hover {
-            background-color: #1a1a1a;
-            color: white;
-        }
-
-        .editorial-image-wrapper {
-            position: relative;
-            width: 100%;
-            margin-top: 2rem;
-        }
-
-        .editorial-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: -25px;
-            width: 100%;
-            height: 100%;
-            background-color: var(--accent-red);
-            z-index: 1;
-        }
-
-        .editorial-image-wrapper.right-box::before {
-            top: 25px;
-            left: 25px;
-        }
-
-        .editorial-image-wrapper img {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Connect / Social Section */
-        .connect-section {
-            padding: 6rem 2rem;
-            text-align: center;
-            background-color: #ffffff;
-        }
-
-        .connect-section h2 {
-            font-size: 3rem;
-            font-family: serif;
-            font-weight: 400;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-        }
-
-        .connect-section h2 em {
-            font-style: italic;
-            color: var(--navy-primary);
-        }
-
-        .connect-section > p {
-            color: var(--text-muted);
-            margin-bottom: 3.5rem;
-            font-size: 1.05rem;
-        }
-
-        .social-circles-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 5rem;
-        }
-
-        .social-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: white;
-            font-size: 3.5rem;
-            font-weight: bold;
-            overflow: hidden;
-        }
-
-        .social-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-circle:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .circle-facebook {
-            background-color: var(--facebook-blue);
-        }
-
-        .circle-whatsapp {
-            background-color: var(--whatsapp-green);
-        }
-
-        .circle-instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
-
-        /* Bottom Action Bar */
-        .bottom-action-bar {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .action-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .action-item span.icon {
-            font-size: 1.8rem;
-        }
-
-        .action-item h4 {
-            font-family: serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        .action-item a, .action-item p {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .action-item a:hover {
-            text-decoration: underline;
-            opacity: 1;
-        }
-
-        /* Upcoming Events Section Styled with Blue Background */
-        .events-section {
-            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%);
-            color: #ffffff;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .events-section h2 {
-            font-size: 3rem;
-            font-family: serif;
-            font-weight: 400;
-            margin-bottom: 4rem;
-            letter-spacing: 1px;
-            color: #ffffff;
-        }
-
-        .events-section h2 em {
-            font-style: italic;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto 4rem auto;
-        }
-
-        .event-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(10px);
-        }
-
-        .event-img-container {
-            width: 100%;
-            height: 260px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-        }
-
-        .event-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .event-card:hover .event-img-container img {
-            transform: scale(1.03);
-        }
-
-        .event-title {
-            font-size: 1.35rem;
-            font-family: serif;
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
-            line-height: 1.3;
-        }
-
-        .event-meta {
-            font-size: 0.9rem;
-            color: #e2e8f0;
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Full Google Calendar Embed Container */
-        .calendar-embed-container {
-            max-width: 1100px;
-            margin: 3rem auto 0 auto;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Common Layout Extras */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1150px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--navy-dark);
-            font-weight: 800;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-top: 0.5rem;
-        }
-
-        .bg-light-section {
-            background-color: var(--bg-light);
-        }
-
-        .ministry-grid, .visit-grid {
-            display: grid;
-            gap: 2rem;
-            justify-content: center;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .ministry-card, .visit-card {
-            background: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            height: 100%;
-        }
-
-        .ministry-card {
-            border-top: 4px solid var(--navy-primary);
-        }
-
-        .ministry-card h3, .visit-card h3 {
-            color: var(--navy-dark);
-            margin-bottom: 0.75rem;
-        }
-
-        .ministry-details {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-        }
-
-        .ministry-details li {
-            font-size: 0.9rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-main);
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        .ministry-details li::before {
-            content: "•";
-            color: var(--accent-red);
-            position: absolute;
             left: 0;
-            font-weight: bold;
-        }
-
-        .sermon-card {
-            background: var(--card-bg);
-            padding: 3.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .sermon-card h3 {
-            color: var(--navy-dark);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .sermon-card p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .ministry-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .contact-box {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.4rem;
-            color: var(--navy-primary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-top: 0.2rem;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-
-        .map-wrapper {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             width: 100%;
-            height: 500px;
-            border: 1px solid #e2e8f0;
-            background: #ffffff;
+            z-index: 1000;
         }
 
-        .map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
-        }
+        /* Barras y Navegación */
+        .lang-btn { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.4); padding: 0.25rem 0.75rem; border-radius: 50px; cursor: pointer; font-size: 0.75rem; margin-left: 0.5rem; transition: all 0.3s ease; letter-spacing: 0.5px; }
+        .lang-btn.active { background: white; color: var(--navy-dark); font-weight: 700; border-color: white; }
+        .lang-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.15); color: white; }
+
+        .top-bar { background-color: rgba(15, 23, 42, 0.6); border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .top-bar-info { display: flex; gap: 2rem; }
+        .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
+
+        /* HEADER MODIFICADO PARA ESCALAR PERFECTAMENTE */
+        header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .header-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .logo span { color: var(--accent-red); }
         
+        nav { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 1rem; align-items: center; }
+        nav a, .dropbtn { color: #ffffff !important; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        nav a:hover, .dropdown:hover .dropbtn { color: var(--accent-red) !important; transform: translateY(-1px); }
+
+        .dropdown { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: -15px; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; min-width: 220px; box-shadow: var(--shadow-lg); z-index: 1000; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid #e2e8f0; }
+        .dropdown-content a { color: var(--navy-dark) !important; padding: 14px 20px; text-decoration: none; display: block; font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: background 0.2s; white-space: normal; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent-red) !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* NUEVA SECCIÓN HERO - Estilo Minimalista Centrado y Fluido */
+        .hero { 
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('') center/cover no-repeat; 
+            background-color: var(--navy-dark); 
+            color: white; 
+            text-align: center; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 8rem 4% 4rem 4%; 
+        }
+        /* Utilizamos "clamp" para que el tamaño de fuente se adapte a cualquier pantalla suavemente */
+        .hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.05; max-width: 900px; text-transform: uppercase; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: 700px; margin: 0 auto 3rem auto; color: #cbd5e1; font-weight: 300; line-height: 1.6; }
+        
+        /* Botones Profesionales (Centrados) */
+        .btn-group { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
+        .btn { display: inline-flex; justify-content: center; align-items: center; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; }
+        .btn-primary { background-color: var(--accent-red); color: white; box-shadow: var(--shadow-md); }
+        .btn-primary:hover { background-color: var(--accent-red-hover); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4); color: white;}
+        .btn-outline { border: 2px solid #ffffff; color: #ffffff; background: transparent; }
+        .btn-outline:hover { background-color: #ffffff; color: var(--navy-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); }
+
+        /* Editorial Sections */
+        .editorial-section { max-width: 1250px; margin: 8rem auto; padding: 0 4%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .editorial-section.reverse { direction: rtl; }
+        .editorial-section.reverse > * { direction: ltr; }
+        .editorial-content { padding: 2rem 0; text-align: left; }
+        .editorial-content h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 300; color: var(--navy-dark); line-height: 1.1; margin-bottom: 1.5rem; }
+        .editorial-content h2 em { font-style: italic; color: var(--accent-red); }
+        .editorial-content p { font-size: 1.1rem; color: var(--text-main); margin-bottom: 1.8rem; line-height: 1.8; font-weight: 300; }
+        .editorial-content p.italic-note { font-style: italic; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2.5rem; border-left: 3px solid var(--accent-red); padding-left: 1rem; }
+        
+        .editorial-btn { display: inline-block; padding: 0.9rem 2.5rem; border: 2px solid var(--navy-dark); border-radius: 50px; text-decoration: none; color: var(--navy-dark); font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s ease; background: transparent; cursor: pointer; }
+        .editorial-btn:hover { background-color: var(--navy-dark); color: white; transform: translateY(-2px); }
+        
+        .editorial-image-wrapper { position: relative; width: 100%; background-color: #e2e8f0; border-radius: 16px; }
+        .editorial-image-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; border: 2px solid var(--accent-red); border-radius: 16px; z-index: 1; transition: all 0.3s ease; }
+        .editorial-image-wrapper.right-box::before { top: 20px; left: 20px; border-color: var(--navy-primary); }
+        .editorial-image-wrapper:hover::before { transform: translate(10px, 10px); }
+        .editorial-image-wrapper.right-box:hover::before { transform: translate(-10px, -10px); }
+        .editorial-image-wrapper img { position: relative; z-index: 2; width: 100%; height: auto; min-height: 400px; max-height: 550px; object-fit: cover; display: block; border-radius: 16px; box-shadow: var(--shadow-lg); }
+
+        /* Secciones Generales */
+        .section { padding: 7rem 4%; max-width: 1250px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-header h2 { font-family: 'Merriweather', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); color: var(--navy-dark); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+        .section-header h2 em { font-style: italic; font-weight: 300; color: var(--accent-red); }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; }
+        .bg-light-section { background-color: var(--bg-light); max-width: 100%; border-radius: 0; }
+
+        /* Tarjetas de Ministerios y Eventos */
+        .ministry-grid, .visit-grid { display: grid; gap: 2.5rem; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .ministry-card, .visit-card { background: var(--card-bg); padding: 3rem 2.5rem; border-radius: 20px; border: 1px solid #e2e8f0; text-align: center; box-shadow: var(--shadow-md); height: 100%; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .ministry-card:hover, .visit-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .ministry-card { border-top: 5px solid var(--navy-primary); }
+        .ministry-card h3, .visit-card h3 { font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem; }
+        .ministry-desc { color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+        .ministry-icon { font-size: 3rem; margin-bottom: 1.5rem; color: var(--navy-primary); }
+        
+        /* Eventos Section */
+        .events-section { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); color: #ffffff; padding: 7rem 4%; text-align: center; }
+        .events-section h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 700; margin-bottom: 4rem; color: #ffffff; }
+        .events-section h2 em { font-style: italic; font-weight: 300; color: #94a3b8; }
+        .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1250px; margin: 0 auto 5rem auto; }
+        .event-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: left; display: flex; flex-direction: column; backdrop-filter: blur(12px); transition: transform 0.3s ease, background 0.3s ease; }
+        .event-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.08); }
+        .event-img-container { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; background-color: rgba(255,255,255,0.1); }
+        .event-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .event-card:hover .event-img-container img { transform: scale(1.05); }
+        .event-title { font-size: 1.3rem; font-family: 'Merriweather', serif; font-weight: 700; margin-bottom: 1rem; color: #ffffff; line-height: 1.4; }
+        .event-meta { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; font-weight: 300; }
+        .event-meta i { color: var(--accent-red); width: 16px; text-align: center; }
+
+        .calendar-embed-container { max-width: 1100px; margin: 0 auto; background: #ffffff; border-radius: 20px; padding: 1rem; box-shadow: var(--shadow-lg); }
+
+        /* Ofrendar / Sermon Card */
+        .sermon-card { background: var(--card-bg); padding: 4rem 3rem; border-radius: 24px; box-shadow: var(--shadow-md); border: 1px solid #e2e8f0; text-align: center; max-width: 800px; margin: 0 auto; transition: box-shadow 0.3s ease; }
+        .sermon-card:hover { box-shadow: var(--shadow-lg); }
+        .sermon-card h3 { font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .sermon-card p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; font-weight: 300; }
+
+        /* Formularios y Contacto */
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .contact-box { background: var(--card-bg); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-md); border: 1px solid #e2e8f0; text-align: center; }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; text-align: left; }
+        .form-group label { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--navy-dark); }
+        .form-group input, .form-group textarea { padding: 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; font-family: inherit; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-primary); box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); }
+
+        .map-wrapper { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); width: 100%; height: 500px; border: 1px solid #e2e8f0; background: #ffffff; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
+        
+        /* Redes Sociales */
+        .connect-section { padding: 8rem 4%; text-align: center; background-color: #ffffff; }
+        .connect-section h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 300; color: var(--navy-dark); margin-bottom: 1.5rem; }
+        .connect-section h2 em { font-style: italic; color: var(--navy-primary); font-weight: 700; }
+        .connect-section > p { color: var(--text-muted); margin-bottom: 4rem; font-size: 1.2rem; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .social-circles-container { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 3rem; }
+        .social-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease; color: white; font-size: 3rem; overflow: hidden; }
+        .social-circle:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .circle-facebook { background-color: var(--facebook-blue); }
+        .circle-whatsapp { background-color: var(--whatsapp-green); }
+        .circle-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        /* Action Bar Inferior */
+        .bottom-action-bar { background-color: var(--navy-dark); color: white; padding: 5rem 4%; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; text-align: center; border-top: 4px solid var(--accent-red); }
+        .action-item { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .action-item span.icon { font-size: 2.5rem; color: var(--accent-red); margin-bottom: 0.5rem; }
+        .action-item h4 { font-family: 'Merriweather', serif; font-size: 1.3rem; font-weight: 700; color: #f8fafc; }
+        .action-item a, .action-item p { color: #cbd5e1; text-decoration: none; font-size: 1rem; font-weight: 300; transition: color 0.2s ease; }
+        .action-item a:hover { color: white; }
+
+        footer { background-color: #020617; color: #94a3b8; text-align: center; padding: 3rem 4%; font-size: 0.95rem; font-weight: 300; }
+        footer p { margin-top: 0.5rem; }
+        footer strong { color: white; font-weight: 600; }
+
+        /* Clases base requeridas por el JS */
         .hidden { display: none !important; }
         
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .admin-table th, .admin-table td {
-            padding: 0.75rem;
-            border: 1px solid #cbd5e1;
-            text-align: left;
-        }
+        /* ADMIN UI - SIN CAMBIOS LÓGICOS */
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.9rem; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .admin-table th, .admin-table td { padding: 1rem; border: 1px solid #e2e8f0; text-align: left; }
+        .admin-table th { background-color: var(--navy-dark); color: white; font-weight: 600; }
+        .admin-table tr:nth-child(even) { background-color: #f8fafc; }
 
-        .admin-table th {
-            background-color: var(--navy-dark);
-            color: white;
-        }
+        .text-tab-btn { background: transparent; border: 1px solid var(--navy-primary); color: var(--navy-primary); padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all 0.2s; white-space: nowrap; font-size: 0.85rem; }
+        .text-tab-btn.active, .text-tab-btn:hover { background: var(--navy-primary); color: white; }
+        .main-tab-btn { padding: 0.8rem 2rem; font-size: 0.95rem; border-radius: 50px; }
 
-        footer {
-            background-color: var(--navy-dark);
-            color: #e2e8f0;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            font-size: 0.9rem;
+        .admin-edit-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; background: white; display: flex; flex-direction: column; gap: 0.8rem; position: relative; box-shadow: var(--shadow-sm); }
+        .admin-edit-card input { padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
+        .delete-btn { position: absolute; right: 15px; top: 15px; background: #fee2e2; color: var(--accent-red); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight:bold; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+        .delete-btn:hover { background: var(--accent-red); color: white; }
+
+        /* REGLAS PARA PANTALLAS PEQUEÑAS Y LAPTOPS */
+        @media (max-width: 1250px) {
+            header { padding: 1rem 2%; }
+            nav { gap: 0.8rem; }
+            nav a, .dropbtn { font-size: 0.75rem; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
         }
 
-        footer p { margin-top: 0.5rem; }
+        @media (max-width: 1000px) {
+            header { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .header-brand { justify-content: center; width: 100%; }
+            nav { justify-content: center; flex-wrap: wrap; }
+        }
 
-        @media (max-width: 900px) {
-            .editorial-section, .editorial-section.reverse {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                direction: ltr;
-            }
+        @media (max-width: 768px) {
+            .editorial-section, .editorial-section.reverse { grid-template-columns: 1fr; gap: 3rem; direction: ltr; text-align: center; }
+            .editorial-content { text-align: center; }
+            .hero { align-items: center; text-align: center; }
+            .btn-group { justify-content: center; }
+            .section { padding: 5rem 4%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="top-bar-info">
-            <span>📍 24211 Sunflower Ln, Edcouch, TX</span>
-            <span>📞 (956) 382-1051</span>
-        </div>
-        <div>
-            <span lang="es">Bienvenidos</span>
-            <span lang="en">Welcome</span>
-            <div style="display: inline-block; margin-left: 1rem;">
-                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
-                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-location-dot"></i> 24211 Sunflower Ln, Edcouch, TX</span>
+                <span><i class="fa-solid fa-phone"></i> (956) 382-1051</span>
             </div>
-        </div>
-    </div>
-
-    <header>
-        <div class="header-brand">
-            <div class="logo" lang="es">
-                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
-                Iglesia Bautista <span>El Faro</span>
-            </div>
-            <div class="logo" lang="en">
-                <img src="Logo.jpg" alt="El Faro Logo" class="logo-img">
-                El Faro <span>Baptist Church</span>
-            </div>
-        </div>
-        <nav>
-            <a href="#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
-            
-            <div class="dropdown">
-                <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
-                <div class="dropdown-content">
-                    <a href="#pasos"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
-                    <a href="#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
-                    <a href="#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+            <div style="display: flex; align-items: center;">
+                <span lang="es">Bienvenidos</span>
+                <span lang="en">Welcome</span>
+                <div style="display: inline-block; margin-left: 1rem;">
+                    <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
                 </div>
             </div>
-            
-            <a href="#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
-            
-            <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
-            
-            <a href="#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
-            <a href="#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
-            <a href="#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
-            
-            <a onclick="toggleAdminTab()" style="color: var(--accent-red); font-weight: bold; cursor: pointer;">
-                <span lang="es">Administración</span><span lang="en">Admin</span>
-            </a>
-        </nav>
-    </header>
+        </div>
+
+        <header>
+            <div class="header-brand">
+                <div class="logo" lang="es">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    Iglesia Bautista <span>El Faro</span>
+                </div>
+                <div class="logo" lang="en">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    El Faro <span>Baptist Church</span>
+                </div>
+            </div>
+            <nav>
+                <a href="#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+                <div class="dropdown">
+                    <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
+                    <div class="dropdown-content">
+                        <a href="#visita"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                        <a href="#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                        <a href="#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                    </div>
+                </div>
+                <a href="#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+                <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+                <a href="#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+                <a href="#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+                <a href="#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
+                <a onclick="toggleAdminTab()" style="color: white !important; font-weight: 700; cursor: pointer; padding: 0.5rem 1.2rem; border-radius: 50px; background: var(--accent-red); transition: all 0.3s; white-space: nowrap;">
+                    <span lang="es">Admin</span><span lang="en">Admin</span>
+                </a>
+            </nav>
+        </header>
+    </div>
 
     <section class="hero" id="inicio">
-        <h1 lang="es">Un Lugar Para Usted y Su Familia</h1>
-        <h1 lang="en">A Place For You And Your Family</h1>
-        
-        <p lang="es">Una iglesia muy amigable que ama a Dios. Le invitamos a acompañarnos en nuestros servicios y crecer juntos en la fe.</p>
-        <p lang="en">A very friendly church that loves God. We invite you to join us in our services and grow together in faith.</p>
+        <h1 lang="es">Iglesia Bautista<br>El Faro</h1>
+        <h1 lang="en">El Faro<br>Baptist Church</h1>
+        <p id="text-hero-es" lang="es">Una iglesia muy amigable que ama a Dios. Le invitamos a acompañarnos en nuestros servicios y crecer juntos en la fe.</p>
+        <p id="text-hero-en" lang="en">A very friendly church that loves God. We invite you to join us in our services and grow together in faith.</p>
         
         <div class="btn-group">
             <a href="#pasos" class="btn btn-primary" lang="es">Planifique Su Visita</a>
             <a href="#pasos" class="btn btn-primary" lang="en">Plan Your Visit</a>
+            
+            <a href="#nosotros" class="btn btn-outline" lang="es">Conozca Más</a>
+            <a href="#nosotros" class="btn btn-outline" lang="en">Learn More</a>
         </div>
     </section>
 
     <section class="editorial-section" id="visita">
         <div class="editorial-content">
-            <h2 lang="es">Bienvenidos a<br>Iglesia El Faro</h2>
-            <h2 lang="en">Welcome to<br>El Faro Church</h2>
-            
-            <p lang="es">Somos una iglesia amigable en Edcouch, TX, observando ritmos bíblicos de oración y comunidad que conducen al crecimiento espiritual personal.</p>
-            <p lang="en">We are a friendly church in Edcouch, TX, observing biblical rhythms of prayer and community that lead to personal spiritual growth.</p>
-            
+            <h2 lang="es">Bienvenidos a<br><em>Iglesia El Faro</em></h2>
+            <h2 lang="en">Welcome to<br><em>El Faro Church</em></h2>
+            <p id="text-edit1-es" lang="es">Somos una iglesia amigable en Edcouch, TX, observando ritmos bíblicos de oración y comunidad que conducen al crecimiento espiritual personal.</p>
+            <p id="text-edit1-en" lang="en">We are a friendly church in Edcouch, TX, observing biblical rhythms of prayer and community that lead to personal spiritual growth.</p>
             <p class="italic-note" lang="es">Conozca más sobre nuestra iglesia y prácticas espirituales.</p>
             <p class="italic-note" lang="en">Learn more about our church and spiritual practices.</p>
-            
-            <a href="#nosotros" class="editorial-btn">
-                <span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span>
-            </a>
+            <a href="#nosotros" class="editorial-btn"><span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span></a>
         </div>
         <div class="editorial-image-wrapper">
-            <img src="P04.jpg" alt="El Faro Church Scene 1">
+            <img src="" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
         </div>
     </section>
 
@@ -864,62 +329,28 @@
         <div class="editorial-content">
             <h2 lang="es">Nos encantaría<br>conocerle</h2>
             <h2 lang="en">We'd love to get<br>to know <em>you</em></h2>
-            
-            <p lang="es">Nuestro ministerio está arraigado en la dirección espiritual y la amistad, que son esencialmente conversaciones sobre la vida y la oración.</p>
-            <p lang="en">Our ministry is rooted in spiritual direction and friendships, which are essentially conversations about life and prayer.</p>
-            
+            <p id="text-edit2-es" lang="es">Nuestro ministerio está arraigado en la dirección espiritual y la amistad, que son esencialmente conversaciones sobre la vida y la oración.</p>
+            <p id="text-edit2-en" lang="en">Our ministry is rooted in spiritual direction and friendships, which are essentially conversations about life and prayer.</p>
             <p class="italic-note" lang="es">Comuníquese con alguien de nuestro equipo pastoral para iniciar una conversación.</p>
             <p class="italic-note" lang="en">Reach out to someone on our Pastoral Team to start a conversation.</p>
-            
             <a href="#contacto" class="editorial-btn" lang="es">Conéctese con Nosotros</a>
             <a href="#contacto" class="editorial-btn" lang="en">Connect With Us</a>
         </div>
         <div class="editorial-image-wrapper right-box">
-            <img src="P05.jpg" alt="El Faro Church Scene 2">
+            <img src="" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
         </div>
     </section>
 
     <section class="events-section" id="eventos">
         <h2 lang="es">Próximos <em>Eventos</em></h2>
         <h2 lang="en">Upcoming <em>Events</em></h2>
+        <div class="events-grid" id="public-events-grid"></div>
         
-        <div class="events-grid">
-            <div class="event-card">
-                <div class="event-img-container">
-                    <img src="P01.jpg" alt="Vacation Bible School">
-                </div>
-                <h3 class="event-title" lang="es">Escuelita Bíblica de Vacaciones (VBS)</h3>
-                <h3 class="event-title" lang="en">Vacation Bible School (VBS)</h3>
-                <p class="event-meta">📅 August 15, 2026 6:00 PM</p>
-                <p class="event-meta">📍 El Faro Baptist Church</p>
-            </div>
-
-            <div class="event-card">
-                <div class="event-img-container">
-                    <img src="P02.jpg" alt="Revival Services">
-                </div>
-                <h3 class="event-title" lang="es">Servicios de Avivamiento</h3>
-                <h3 class="event-title" lang="en">Revival Services</h3>
-                <p class="event-meta">📅 August 22, 2026 7:00 PM</p>
-                <p class="event-meta">📍 El Faro Baptist Church</p>
-            </div>
-
-            <div class="event-card">
-                <div class="event-img-container">
-                    <img src="P03.jpg" alt="Community Dinner">
-                </div>
-                <h3 class="event-title" lang="es">Cena y Convivio Comunitario</h3>
-                <h3 class="event-title" lang="en">Community Dinner and Fellowship</h3>
-                <p class="event-meta">📅 August 29, 2026 5:00 PM</p>
-                <p class="event-meta">📍 <span lang="es">Ubicación Variada / Edcouch</span><span lang="en">Location Varies / Edcouch</span></p>
-            </div>
-        </div>
-
         <div class="calendar-embed-container">
-            <h3 style="color: var(--navy-dark); margin-bottom: 1rem; font-family: serif; text-align: center;" lang="es">Calendario Completo de Google</h3>
-            <h3 style="color: var(--navy-dark); margin-bottom: 1rem; font-family: serif; text-align: center;" lang="en">Full Google Calendar</h3>
-            <div style="width: 100%; height: 650px; border-radius: 12px; overflow: hidden;">
-                <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FChicago" width="100%" height="650" frameborder="0" scrolling="yes" style="border:0;"></iframe>
+            <h3 style="color: var(--navy-dark); margin-bottom: 1.5rem; font-family: 'Merriweather', serif; font-size: 1.8rem; text-align: center;" lang="es">Calendario Completo de Google</h3>
+            <h3 style="color: var(--navy-dark); margin-bottom: 1.5rem; font-family: 'Merriweather', serif; font-size: 1.8rem; text-align: center;" lang="en">Full Google Calendar</h3>
+            <div style="width: 100%; height: 650px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0;">
+                <iframe src="https://calendar.google.com/calendar/embed?src=ibelfaroed%40gmail.com&ctz=America%2FChicago" width="100%" height="650" frameborder="0" scrolling="yes" style="border:0;" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -931,188 +362,87 @@
             <p lang="es">Conozca nuestra historia y doctrina bíblica.</p>
             <p lang="en">Learn about our story and biblical doctrine.</p>
         </div>
-        
         <div class="visit-grid" style="margin-bottom: 4rem;">
-            <div class="visit-card" style="border-top: 4px solid var(--navy-primary);">
-                <div class="ministry-icon">📖</div>
+            <div class="visit-card" style="border-top: 5px solid var(--navy-primary);">
+                <div class="ministry-icon"><i class="fa-solid fa-book-bible"></i></div>
                 <h3 lang="es">Declaración de Fe</h3>
                 <h3 lang="en">Statement of Faith</h3>
-                <p lang="es">Creemos en el Evangelio, la salvación por gracia, el bautismo del creyente y que las Escrituras son la palabra inerrante de Dios.</p>
-                <p lang="en">We believe in the Gospel, salvation by grace, believer's baptism, and that the Scriptures are the inerrant word of God.</p>
-                
-                <button onclick="toggleFaith()" id="faith-btn" class="editorial-btn" style="margin-top: 1.5rem; padding: 0.6rem 1.5rem; font-size: 0.75rem;">
-                    <span lang="es">LEER MÁS</span><span lang="en">READ MORE</span>
-                </button>
+                <p class="ministry-desc" lang="es">Creemos en el Evangelio, la salvación por gracia, el bautismo del creyente y que las Escrituras son la palabra inerrante de Dios.</p>
+                <p class="ministry-desc" lang="en">We believe in the Gospel, salvation by grace, believer's baptism, and that the Scriptures are the inerrant word of God.</p>
+                <a href="fe.html" class="editorial-btn" style="margin-top: 2rem; padding: 0.8rem 1.8rem; font-size: 0.8rem;"><span lang="es">LEER MÁS</span><span lang="en">READ MORE</span></a>
             </div>
-            <div class="visit-card" style="border-top: 4px solid var(--accent-red);">
-                <div class="ministry-icon">📍</div>
+            <div class="visit-card" style="border-top: 5px solid var(--accent-red);">
+                <div class="ministry-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <h3 lang="es">Nuestra Historia</h3>
                 <h3 lang="en">Our Story</h3>
-                <p lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, sirviendo fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
-                <p lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community with the love of Christ throughout the years.</p>
-            </div>
-        </div>
-
-        <div id="faith-content" style="display: none; background: var(--card-bg); padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 4rem;">
-            <h3 lang="es" style="color: var(--navy-primary); margin-bottom: 1rem;">Declaración de Fe – Iglesia El Faro</h3>
-            <h3 lang="en" style="color: var(--navy-primary); margin-bottom: 1rem;">Statement of Faith – El Faro Church</h3>
-
-            <div lang="es">
-                <h4>La Biblia</h4>
-                <p>Creemos que la Biblia es la Palabra de Dios revelada, y que es completa y verbalmente inspirada por Dios. Creemos que la Escritura es la inerrante e infalible Palabra de Dios, y se encuentra así en sus 66 libros desde Génesis hasta Apocalipsis. Creemos que Dios no solamente inspiró cada palabra, sino que también la preservó a través de los tiempos. Creemos que la Versión Reina Valera 1960 es la Palabra de Dios preservada para el pueblo Hispano-Parlante (Salmos 12:6-7; II Timoteo 3:15-17; I Pedro 1:23-25; II Pedro 1:19-21).</p>
-                
-                <h4>Dios</h4>
-                <p>Creemos en un sólo Dios, el cual es eterno, auto-existente, infinito e inmutable. Creemos que tiene una naturaleza, una esencia, una sustancia y que se ha manifestado al hombre en tres personas: el Padre, el Hijo y el Espíritu Santo (Deuteronomio 6:4; I Timoteo 1:17; Santiago 1:17; I Juan 4:4).</p>
-
-                <h4>Los Últimos Días</h4>
-                <p>Creemos en la interpretación literal de las Escrituras en su contexto gramatical e histórico. Creemos en el Rapto pre-tribulacional de los santos de la iglesia, seguido por los siete años de Tribulación. Creemos en el regreso pre-milenial de Cristo a la tierra y su literal reinado de mil años. Seguido a estos mil años es el juicio del Gran Trono Blanco y entonces el Cielo nuevo y tierra nueva (I Corintios 15:51-58: I Tesalonicenses 4:13-18; I Tesalonicenses 5:1-9; Apocalipsis 19-22).</p>
-
-                <h4>El Hijo</h4>
-                <p>Creemos que Jesucristo es el único Salvador de la humanidad. Creemos que Jesucristo es eternamente Dios y que posee todos los atributos de la Deidad. Creemos que el Señor Jesucristo nació de una virgen, que Él es Dios encarnado, y que el propósito de la encarnación fue revelar a Dios para redimir al hombre, y para reinar sobre el reino de Dios. Creemos que Jesucristo nunca renunció a ninguno de los atributos de su Deidad, sino que simplemente los guardó.</p>
-                <p>Creemos que vivió una vida perfecta, sin pecado, y que al final de ella la ofreció por la humanidad como un sacrificio sustitutivo por los pecados del hombre. Este sacrificio fue el pago justo a Dios por el perdón por el pecado. Este perdón fue activado por su muerte a través del derramamiento de su sangre en la Cruz y fue aceptado por Dios después de su resurrección. Creemos que Él ascendió al cielo después de su resurrección para estar sentado a la diestra del Padre, esperando por el tiempo para recibir a su iglesia en el Rapto, y regresar después de siete años a la tierra para gobernar y dirigir su Reino por 1,000 años (Salmos 2:7-9; Isaías 7:14; Isaías 9:6; Isaías 43:11; Miqueas 5:2; Mateo 1:25; Lucas 1:26-35; Juan 1:1; Juan 1:3; Juan 14; Juan 18; Juan 29; Romanos 3:19-25; Romanos 5:6-15; Filipenses 2:5-11; I Tesalonicenses 2:5; I Tesalonicenses 3:16; I Tesalonicenses 4:13-18; Tito 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Pedro 1:19; I Pedro 2:2; I Juan 1:3; Apocalipsis 20:1-6).</p>
-
-                <h4>El Pecado y la Salvación</h4>
-                <p>Creemos que todos los hombres nacen con la herencia del pecado natural recibida de parte de nuestro antecesor común Adán. Creemos que debido a esta naturaleza el hombre es un pecador por decisión, y que es totalmente incapaz de reformarse a sí mismo o dejar de pecar por su propio poder. Creemos que la única esperanza de salvación para el hombre es un cambio total de mente referente a su condición de pecado e inhabilidad de cambiarla, es volverse a Jesucristo como su único Salvador.</p>
-                <p>Creemos que solamente a través del sacrificio sustitutivo de Jesucristo en la Cruz el hombre puede ser perdonado de sus pecados. Creemos que todos los que rechazan a Jesucristo como su salvador ya están condenados al Lago de Fuego eternamente (Génesis 5:1-5; Hechos 4:19; Hechos 16:31; Romanos 3:10-23; Romanos 5:6-12; Romanos 6:23; Romanos 10:9-10; Efesios 2:8-9; Tito 3:5-6; Apocalipsis 20:11-14).</p>
-
-                <h4>El Espíritu Santo</h4>
-                <p>Creemos que El Espíritu Santo de Dios es una persona que tiene todos los atributos de la Deidad de Dios. Creemos que el Espíritu Santo ha estado siempre presente desde la creación de la raza humana. Sin embargo, creemos que Él ha tenido un ministerio especial que comenzó el día de Pentecostés y que continúa hasta el día del rapto de la iglesia. Su ministerio incluye el proveer convicción del pecado y redargüir hacia una vida de santidad. El Espíritu Santo fue enviado para regenerar, santificar, sellar, y llenar a todos aquellos que han recibido a Cristo como su Salvador y Señor (Juan 3:5-6; Juan 14:16; Hechos 1:5; Hechos 11:15; I Corintios 3:16; I Corintios 6:19-20; I Corintios 12:13).</p>
-
-                <h4>La Iglesia del Nuevo Testamento</h4>
-                <p>Creemos que la iglesia comenzó con el llamado de los doce apóstoles por Jesucristo y que fue empoderada en el día de Pentecostés. Creemos que la iglesia local es la única institución de parte de Dios para hacer su obra en este tiempo. Creemos que la iglesia local está compuesta por miembros que han sido salvos y bautizados de acuerdo a las instrucciones de Cristo, y que voluntariamente se reúnen juntos con el propósito de adorar a Dios, tener comunión con los hermanos, servir y recordar la Cena del Señor. Creemos que todos los creyentes serán llevados en el Rapto, justo antes de la Tribulación (Mateo 16:16-18; Hechos 1:15; Hechos 2:41-43; Hechos 11:15; Hechos 20:28; I Corintios 15:51-58; Efesios 1:12-14; Efesios 5:25-30; I Tesalonicenses 4:13-18; I Timoteo 3:4-15).</p>
-            </div>
-
-            <div lang="en">
-                <h4>The Bible</h4>
-                <p>We believe the Bible is the revealed Word of God, and that it is fully and verbally inspired by God. We believe the Scripture is the inerrant and infallible Word of God, found in its 66 books from Genesis to Revelation. We believe God not only inspired every word, but also preserved it through the ages. We believe the Reina Valera 1960 version is the preserved Word of God for the Spanish-speaking people (Psalms 12:6-7; II Timothy 3:15-17; I Peter 1:23-25; II Peter 1:19-21).</p>
-                
-                <h4>God</h4>
-                <p>We believe in one God, who is eternal, self-existent, infinite and immutable. We believe He has one nature, one essence, one substance and has manifested Himself to man in three persons: the Father, the Son and the Holy Spirit (Deuteronomy 6:4; I Timothy 1:17; James 1:17; I John 4:4).</p>
-
-                <h4>The Last Days</h4>
-                <p>We believe in the literal interpretation of the Scriptures in their grammatical and historical context. We believe in the pre-tribulational Rapture of the church saints, followed by the seven years of Tribulation. We believe in the pre-millennial return of Christ to earth and His literal reign of a thousand years. Following these thousand years is the Great White Throne judgment and then the new Heaven and new earth (I Corinthians 15:51-58; I Thessalonians 4:13-18; I Thessalonians 5:1-9; Revelation 19-22).</p>
-
-                <h4>The Son</h4>
-                <p>We believe Jesus Christ is the only Savior of humanity. We believe Jesus Christ is eternally God and possesses all attributes of Deity. We believe the Lord Jesus Christ was born of a virgin, that He is God incarnate, and that the purpose of the incarnation was to reveal God to redeem man, and to rule over God's kingdom. We believe Jesus Christ never relinquished any of the attributes of His Deity, but merely laid them aside.</p>
-                <p>We believe He lived a perfect, sinless life, and at the end of it offered it for humanity as a substitutionary sacrifice for the sins of man. This sacrifice was the just payment to God for the forgiveness of sin. This forgiveness was activated by His death through the shedding of His blood on the Cross and was accepted by God after His resurrection. We believe He ascended to heaven after His resurrection to be seated at the right hand of the Father, waiting for the time to receive His church at the Rapture, and to return after seven years to the earth to rule and direct His Kingdom for 1,000 years (Psalms 2:7-9; Isaiah 7:14; Isaiah 9:6; Isaiah 43:11; Micah 5:2; Matthew 1:25; Luke 1:26-35; John 1:1; John 1:3; John 14; John 18; John 29; Romans 3:19-25; Romans 5:6-15; Philippians 2:5-11; I Thessalonians 2:5; I Thessalonians 3:16; I Thessalonians 4:13-18; Titus 2:10-15; Hebrews 7:26; Hebrews 9:24-28; I Peter 1:19; I Peter 2:2; I Juan 1:3; Revelation 20:1-6).</p>
-
-                <h4>Sin and Salvation</h4>
-                <p>We believe all men are born with the inheritance of natural sin received from our common ancestor Adam. We believe that because of this nature man is a sinner by choice, and is totally incapable of reforming himself or ceasing to sin by his own power. We believe the only hope of salvation for man is a total change of mind regarding his sinful condition and inability to change it, turning to Jesus Christ as his only Savior.</p>
-                <p>We believe only through the substitutionary sacrifice of Jesus Christ on the Cross can man be forgiven of his sins. We believe all who reject Jesus Christ as their savior are already condemned to the Lake of Fire eternally (Genesis 5:1-5; Acts 4:19; Acts 16:31; Romans 3:10-23; Romans 5:6-12; Romans 6:23; Romans 10:9-10; Ephesians 2:8-9; Titus 3:5-6; Revelation 20:11-14).</p>
-
-                <h4>The Holy Spirit</h4>
-                <p>We believe the Holy Spirit of God is a person who has all the attributes of the Deity of God. We believe the Holy Spirit has always been present since the creation of the human race. However, we believe He has had a special ministry that began on the day of Pentecost and continues until the day of the rapture of the church. His ministry includes providing conviction of sin and reproving toward a life of holiness. The Holy Spirit was sent to regenerate, sanctify, seal, and fill all those who have received Christ as their Savior and Lord (John 3:5-6; John 14:16; Acts 1:5; Acts 11:15; I Corinthians 3:16; I Corinthians 6:19-20; I Corinthians 12:13).</p>
-
-                <h4>The New Testament Church</h4>
-                <p>We believe the church began with the calling of the twelve apostles by Jesus Christ and was empowered on the day of Pentecost. We believe the local church is God's only institution to do His work in this time. We believe the local church is composed of members who have been saved and baptized according to Christ's instructions, and who voluntarily gather together for the purpose of worshipping God, having fellowship with the brethren, serving and remembering the Lord's Supper. We believe all believers will be taken in the Rapture, just prior to the Tribulation (Matthew 16:16-18; Acts 1:15; Acts 2:41-43; Acts 11:15; Acts 20:28; I Corinthians 15:51-58; Ephesians 1:12-14; Ephesians 5:25-30; I Thessalonians 4:13-18; I Timothy 3:4-15).</p>
+                <p class="ministry-desc" lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, sirviendo fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
+                <p class="ministry-desc" lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community with the love of Christ throughout the years.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="equipo">
+    <section class="section bg-light-section" id="equipo">
         <div class="section-header">
             <h2 lang="es">Conoce Nuestro Equipo</h2>
             <h2 lang="en">Meet Our Team</h2>
             <p lang="es">El liderazgo pastoral y ministerial de nuestra iglesia.</p>
             <p lang="en">The pastoral and ministerial leadership of our church.</p>
         </div>
-        
-        <div style="max-width: 400px; margin: 0 auto 2.5rem auto;">
-            <div class="ministry-card" style="border-top: 4px solid var(--accent-red);">
-                <div style="width: 120px; height: 120px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                    <img src="P10-Pastor.jpg" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3>Pastor Neil Arias</h3>
-                <p style="color: var(--text-muted);" lang="es">Pastor Principal</p>
-                <p style="color: var(--text-muted);" lang="en">Lead Pastor</p>
-            </div>
-        </div>
-
-        <div class="ministry-grid" style="max-width: 700px; margin: 0 auto;">
-            <div class="ministry-card">
-                <div style="width: 100px; height: 100px; margin: 0 auto 1rem auto; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                    <img src="Gobber.png" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3>Andres de la Garza</h3>
-                <p style="color: var(--text-muted);" lang="es">Diácono</p>
-                <p style="color: var(--text-muted);" lang="en">Deacon</p>
-            </div>
-            <div class="ministry-card">
-                <div class="ministry-icon">👤</div>
-                <h3>Refugio Castillo</h3>
-                <p style="color: var(--text-muted);" lang="es">Diácono</p>
-                <p style="color: var(--text-muted);" lang="en">Deacon</p>
-            </div>
-        </div>
+        <div id="public-team-container"></div>
     </section>
 
-    <section class="section bg-light-section" id="ministerios">
+    <section class="section" id="ministerios">
         <div class="section-header">
             <h2 lang="es">Nuestros Ministerios</h2>
             <h2 lang="en">Our Ministries</h2>
             <p lang="es">Conozca las diferentes áreas donde servimos a nuestra comunidad.</p>
             <p lang="en">Learn about the different areas where we serve our community.</p>
         </div>
-        
         <div class="ministry-grid">
             <div class="ministry-card">
-                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
-                    <img src="P14-Guarderia.jpeg" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
+                    <img src="" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Guardería</h3>
                 <h3 lang="en">Nursery</h3>
-                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Nuestras instalaciones de guardería, respaldadas por un dedicado equipo de voluntarias, ofrecen un entorno higiénico y protegido para el cuidado de bebés y niños de hasta tres años.</p>
-                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">Our nursery facilities, supported by a dedicated team of volunteers, offer a hygienic and protected environment for the care of babies and toddlers up to three years old.</p>
+                <p id="text-min-guarderia-es" class="ministry-desc" lang="es">Nuestras instalaciones de guardería, respaldadas por un dedicado equipo de voluntarias, ofrecen un entorno higiénico y protegido para el cuidado de bebés y niños de hasta tres años.</p>
+                <p id="text-min-guarderia-en" class="ministry-desc" lang="en">Our nursery facilities, supported by a dedicated team of volunteers, offer a hygienic and protected environment for the care of babies and toddlers up to three years old.</p>
             </div>
-
             <div class="ministry-card">
-                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
-                    <img src="P09-Ninos.jpg" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
+                    <img src="" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Ministerio de Niños</h3>
                 <h3 lang="en">Children's Ministry</h3>
-                <p class="ministry-desc" lang="es" style="font-size:0.85rem; margin-bottom:1rem;">Contamos con un programa integral cuidadosamente adaptado para el desarrollo espiritual infantil. Durante las clases de Escuela Dominical, los estudiantes disfrutan de un entorno de aprendizaje que incluye historias bíblicas, memorización de versículos y tiempos de alabanza.</p>
-                <p class="ministry-desc" lang="en" style="font-size:0.85rem; margin-bottom:1rem;">We have a comprehensive program carefully adapted for children's spiritual development. During Sunday School classes, students enjoy a learning environment that includes Bible stories, verse memorization, and times of worship.</p>
-                <ul class="ministry-details">
-                    <li><strong lang="es">Edades:</strong><strong lang="en">Ages:</strong> 6-12</li>
-                    <li><strong lang="es">Domingo en la mañana:</strong><strong lang="en">Sunday Morning:</strong> 9:30am-10:30am</li>
-                    <li><strong lang="es">Club de Niños (Domingo tarde):</strong><strong lang="en">Kids Club (Sunday Afternoon):</strong> 5:00pm-7:00pm</li>
-                </ul>
+                <p id="text-min-ninos-es" class="ministry-desc" lang="es">Contamos con un programa integral cuidadosamente adaptado para el desarrollo espiritual infantil. Durante las clases de Escuela Dominical, los estudiantes disfrutan de un entorno de aprendizaje que incluye historias bíblicas, memorización de versículos y tiempos de alabanza.</p>
+                <p id="text-min-ninos-en" class="ministry-desc" lang="en">We have a comprehensive program carefully adapted for children's spiritual development. During Sunday School classes, students enjoy a learning environment that includes Bible stories, verse memorization, and times of worship.</p>
             </div>
-            
             <div class="ministry-card">
-                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
-                    <img src="P08-Jovenes.jpeg" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
+                    <img src="" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Jóvenes</h3>
                 <h3 lang="en">Youth Ministry</h3>
-                <p class="ministry-desc" lang="es" style="font-size:0.85rem; margin-bottom:1rem;">El ministerio juvenil ofrece estudios bíblicos orientados a inspirar a los adolescentes a dedicar sus vidas al servicio de Dios. Nuestros líderes están plenamente capacitados para brindar apoyo y guía, utilizando las Escrituras como el pilar fundamental para superar los desafíos propios de la juventud. Este desarrollo espiritual se complementa con eventos especiales cada mes y la oportunidad de alabar a Dios integrándose al coro juvenil de manera semanal.</p>
-                <p class="ministry-desc" lang="en" style="font-size:0.85rem; margin-bottom:1rem;">The youth ministry offers Bible studies aimed at inspiring teens to dedicate their lives to serving God. Our leaders are fully trained to provide support and guidance, using the Scriptures as the fundamental pillar to overcome the challenges of youth. This spiritual development is complemented by special monthly events and the opportunity to praise God by joining the youth choir weekly.</p>
-                <ul class="ministry-details">
-                    <li><strong lang="es">Edades:</strong><strong lang="en">Ages:</strong> 13+</li>
-                    <li><strong lang="es">Domingo en la mañana:</strong><strong lang="en">Sunday Morning:</strong> 9:30am-10:30am</li>
-                    <li><strong lang="es">Miércoles en la tarde:</strong><strong lang="en">Wednesday Evening:</strong> 7:00pm-8:30pm</li>
-                </ul>
+                <p id="text-min-jovenes-es" class="ministry-desc" lang="es">El ministerio juvenil ofrece estudios bíblicos orientados a inspirar a los adolescentes a dedicar sus vidas al servicio de Dios.</p>
+                <p id="text-min-jovenes-en" class="ministry-desc" lang="en">The youth ministry offers Bible studies aimed at inspiring teens to dedicate their lives to serving God.</p>
             </div>
-            
             <div class="ministry-card">
-                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
-                    <img src="P12-Damas.jpeg" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
+                    <img src="" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Damas</h3>
                 <h3 lang="en">Women's Ministries</h3>
-                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Un espacio dedicado a que las mujeres aprendan y apliquen los principios de la Palabra de Dios. Las damas disfrutarán de estudios enriquecedores y conferencias que les proporcionarán un fundamento bíblico sólido, capacitándolas para ser pilares espirituales y verdaderas edificadoras de sus vidas y familias.</p>
-                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">A space dedicated for women to learn and apply the principles of God's Word. Ladies will enjoy enriching studies and conferences that will provide a solid biblical foundation, empowering them to be spiritual pillars and true builders of their lives and families.</p>
+                <p id="text-min-damas-es" class="ministry-desc" lang="es">Un espacio dedicado a que las mujeres aprendan y apliquen los principios de la Palabra de Dios.</p>
+                <p id="text-min-damas-en" class="ministry-desc" lang="en">A space dedicated for women to learn and apply the principles of God's Word.</p>
             </div>
-            
             <div class="ministry-card">
-                <div style="width: 100%; aspect-ratio: 1 / 1; margin-bottom: 1rem; border-radius: 8px; overflow: hidden;">
-                    <img src="P13-Varones.jpeg" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
+                    <img src="" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Varones</h3>
                 <h3 lang="en">Men's Ministries</h3>
-                <p class="ministry-desc" lang="es" style="font-size:0.9rem;">Una hermandad enfocada en que los hombres sean instruidos en los principios fundamentales de las Escrituras. A través de estudios bíblicos y conferencias, los varones reciben las herramientas necesarias para fortalecer su fe, guiando y estableciendo un fundamento fuerte para el bienestar integral de sus hogares.</p>
-                <p class="ministry-desc" lang="en" style="font-size:0.9rem;">A brotherhood focused on instructing men in the fundamental principles of the Scriptures. Through Bible studies and conferences, men receive the necessary tools to strengthen their faith, guiding and establishing a strong foundation for the overall well-being of their homes.</p>
+                <p id="text-min-varones-es" class="ministry-desc" lang="es">Una hermandad enfocada en que los hombres sean instruidos en los principios fundamentales de las Escrituras.</p>
+                <p id="text-min-varones-en" class="ministry-desc" lang="en">A brotherhood focused on instructing men in the fundamental principles of the Scriptures.</p>
             </div>
         </div>
     </section>
@@ -1124,117 +454,104 @@
             <p lang="es">Le guiamos paso a paso para que crezca más profundamente en su camino de fe.</p>
             <p lang="en">We guide you step-by-step to grow deeper in your faith journey.</p>
         </div>
-        
-        <div class="ministry-grid" style="gap: 3rem; margin-bottom: 3rem;">
+        <div class="ministry-grid" style="gap: 4rem; margin-bottom: 4rem;">
             <div style="text-align: center;">
-                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="P15-Bautismo.jpg" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
+                    <img src="" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Bautismo</h3>
-                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Baptism</h3>
-                <p lang="es">Dé el siguiente paso de obediencia pública en su fe cristiana.</p>
-                <p lang="en">Take the next step of public obedience in your Christian faith.</p>
+                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Bautismo</h3>
+                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Baptism</h3>
+                <p class="ministry-desc" id="text-step-bautismo-es" lang="es">Dé el siguiente paso de obediencia pública en su fe cristiana.</p>
+                <p class="ministry-desc" id="text-step-bautismo-en" lang="en">Take the next step of public obedience in your Christian faith.</p>
             </div>
             <div style="text-align: center;">
-                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="P16-Discipulado.jpg" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
+                    <img src="" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Clases de Discipulado</h3>
-                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Discipleship Classes</h3>
-                <p lang="es">Fundamentos sólidos para nuevos creyentes y futuros miembros.</p>
-                <p lang="en">Solid foundations for new believers and future members.</p>
+                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Clases de Discipulado</h3>
+                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Discipleship Classes</h3>
+                <p class="ministry-desc" id="text-step-discipulado-es" lang="es">Fundamentos sólidos para nuevos creyentes y futuros miembros.</p>
+                <p class="ministry-desc" id="text-step-discipulado-en" lang="en">Solid foundations for new believers and future members.</p>
             </div>
             <div style="text-align: center;">
-                <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="P17-Visita_A_Casa.jpg" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
+                    <img src="" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 lang="es" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Visita a Su Casa</h3>
-                <h3 lang="en" style="color: var(--navy-dark); margin-bottom: 0.75rem;">Home Visit</h3>
-                <p lang="es">Queremos conocerle mejor y orar por su familia personalmente.</p>
-                <p lang="en">We want to get to know you better and pray for your family personally.</p>
+                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Visita a Su Casa</h3>
+                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Home Visit</h3>
+                <p class="ministry-desc" id="text-step-visita-es" lang="es">Queremos conocerle mejor y orar por su familia personalmente.</p>
+                <p class="ministry-desc" id="text-step-visita-en" lang="en">We want to get to know you better and pray for your family personally.</p>
             </div>
         </div>
-
-        <div class="contact-box" id="contacto" style="margin-top: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; border-top: 4px solid var(--navy-primary); padding: 0;">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUJ2GnrqRqq9gQTPMWXAJ-m0WDny7uX_olK2tzYz2LQrnx8w/viewform?embedded=true" width="100%" height="1241" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        
+        <div class="contact-box" id="contacto" style="margin-top: 4rem; max-width: 900px; margin-left: auto; margin-right: auto; border-top: 5px solid var(--navy-primary); padding: 0; overflow: hidden;">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUJ2GnrqRqq9gQTPMWXAJ-m0WDny7uX_olK2tzYz2LQrnx8w/viewform?embedded=true" width="100%" height="1241" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
         </div>
     </section>
 
     <section class="section" id="ofrendar">
-        <div class="section-header" style="text-align: center;">
+        <div class="section-header">
             <h2 lang="es">Ofrendar y Diezmar en Línea</h2>
             <h2 lang="en">Online Giving</h2>
             <p lang="es">"Cada uno dé como propuso en su corazón: no con tristeza ni por obligación, porque Dios ama al dador alegre." - 2 Corintios 9:7</p>
             <p lang="en">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
         </div>
-        
-        <div class="sermon-card" style="max-width: 800px; margin: 0 auto; text-align: center; border-top: 4px solid var(--accent-red); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <div style="margin-bottom: 1.5rem;">
-                <img src="P06-Ofrenda.jpeg" alt="Giving QR Code" style="width: 200px; height: 200px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div class="sermon-card" style="border-top: 5px solid var(--accent-red); display: flex; flex-direction: column; align-items: center;">
+            <div style="margin-bottom: 2.5rem; background-color: #f8fafc; padding: 1rem; width: 240px; height: 240px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+                <img src="" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
             </div>
-            <h3 lang="es" style="text-align: center; width: 100%;">Apoye la Misión</h3>
-            <h3 lang="en" style="text-align: center; width: 100%;">Support the Mission</h3>
-            <p lang="es" style="margin-bottom: 1.5rem; text-align: center; width: 100%;">Escanee el código QR con su teléfono para ofrendar de manera rápida y segura. Su generosidad nos ayuda a continuar compartiendo el Evangelio y sirviendo a nuestra comunidad de Edcouch.</p>
-            <p lang="en" style="margin-bottom: 1.5rem; text-align: center; width: 100%;">Scan the QR code with your phone to give quickly and securely. Your generosity helps us continue sharing the Gospel and serving our Edcouch community.</p>
+            <h3 lang="es">Apoye la Misión</h3>
+            <h3 lang="en">Support the Mission</h3>
+            <p id="text-ofrendar-es" lang="es">Escanee el código QR con su teléfono para ofrendar de manera rápida y segura. Su generosidad nos ayuda a continuar compartiendo el Evangelio y sirviendo a nuestra comunidad de Edcouch.</p>
+            <p id="text-ofrendar-en" lang="en">Scan the QR code with your phone to give quickly and securely. Your generosity helps us continue sharing the Gospel and serving our Edcouch community.</p>
         </div>
     </section>
 
-    <section class="section bg-light-section" id="contacto-mapa">
+    <section class="section bg-light-section" id="contacto-mapa" style="padding-bottom: 0;">
         <div class="section-header">
-            <h2 lang="es">Ubicación</h2>
-            <h2 lang="en">Location</h2>
-            <p lang="es">Encuéntrenos fácilmente. ¡Le esperamos!</p>
-            <p lang="en">Find us easily. We look forward to welcoming you.</p>
+            <h2 lang="es">Nuestra Ubicación</h2>
+            <h2 lang="en">Our Location</h2>
+            <p lang="es">Encuéntrenos fácilmente. ¡Le esperamos con los brazos abiertos!</p>
+            <p lang="en">Find us easily. We look forward to welcoming you with open arms!</p>
         </div>
-        <div class="map-wrapper">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8!2d-97.9782!3d26.2945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjY_MTcnNDAuMiJOIDk3wrA1OCc0MS41Ilc!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus&q=24211+Sunflower+Ln,+Edcouch,+TX" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
+        <div class="map-wrapper" style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none;">
+            <iframe src="https://maps.google.com/maps?q=24211%20Sunflower%20Ln,%20Edcouch,%20TX&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <section class="connect-section" id="conecta">
         <h2 lang="es">Conéctese <em>Con Nosotros</em></h2>
         <h2 lang="en">Connect <em>With Us</em></h2>
-        <p lang="es">Síganos en las redes sociales para mantenerse conectado con nosotros durante toda la semana.</p>
-        <p lang="en">Follow us on social media to stay connected with us throughout the week.</p>
-
+        <p lang="es">Síganos en nuestras redes sociales para mantenerse al tanto de mensajes, eventos y comunidad durante toda la semana.</p>
+        <p lang="en">Follow us on our social media channels to stay up to date with messages, events, and community throughout the week.</p>
         <div class="social-circles-container">
-            <a href="https://www.facebook.com/profile.php?id=61571522836318" target="_blank" rel="noopener noreferrer" class="social-circle circle-facebook" title="Facebook">
-                f
-            </a>
-            <a href="https://www.instagram.com/ibelfaroedcouch" target="_blank" rel="noopener noreferrer" class="social-circle circle-instagram" title="Instagram">
-                📷
-            </a>
-            <a href="https://wa.me/19563821051" target="_blank" rel="noopener noreferrer" class="social-circle circle-whatsapp" title="WhatsApp">
-                💬
-            </a>
+            <a href="https://www.facebook.com/profile.php?id=61571522836318" target="_blank" rel="noopener noreferrer" class="social-circle circle-facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ibelfaroedcouch" target="_blank" rel="noopener noreferrer" class="social-circle circle-instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/19563821051" target="_blank" rel="noopener noreferrer" class="social-circle circle-whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </section>
 
     <div class="bottom-action-bar">
         <div class="action-item">
-            <span class="icon">✉️</span>
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
             <h4 lang="es">¡Escríbanos!</h4>
             <h4 lang="en">Get In Touch!</h4>
             <a href="mailto:Ibelfaroed@gmail.com">Ibelfaroed@gmail.com</a>
         </div>
         <div class="action-item">
-            <span class="icon">📞</span>
+            <span class="icon"><i class="fa-solid fa-phone"></i></span>
             <h4 lang="es">¡Llámenos!</h4>
             <h4 lang="en">Call Us!</h4>
             <a href="tel:9563821051">(956) 382-1051</a>
         </div>
         <div class="action-item">
-            <span class="icon">📍</span>
+            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
             <h4 lang="es">Ubicación</h4>
             <h4 lang="en">Location</h4>
-            <p>24211 Sunflower Ln, Edcouch, TX</p>
+            <p>24211 Sunflower Ln<br>Edcouch, TX</p>
         </div>
         <div class="action-item">
-            <span class="icon">💳</span>
+            <span class="icon"><i class="fa-solid fa-credit-card"></i></span>
             <h4 lang="es">Ofrendar</h4>
             <h4 lang="en">Give Online</h4>
             <a href="#ofrendar" lang="es">Dar en línea</a>
@@ -1242,121 +559,288 @@
         </div>
     </div>
 
-    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 1rem;">
-        <div style="background: white; border-radius: 12px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 6px solid var(--accent-red);">
+    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center; padding: 1rem;">
+        <div style="background: white; border-radius: 20px; max-width: 1000px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative; box-shadow: var(--shadow-lg); border-top: 6px solid var(--accent-red);">
             
-            <button onclick="toggleAdminTab()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);">×</button>
+            <button onclick="toggleAdminTab()" style="position: absolute; top: 1.5rem; right: 2rem; background: #f1f5f9; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); width: 40px; height: 40px; border-radius: 50%; transition: all 0.2s;">×</button>
 
-            <div class="section-header" style="margin-bottom: 2rem;">
-                <h2 lang="es">Portal de Administración</h2>
-                <h2 lang="en">Administration Portal</h2>
+            <div class="section-header" style="margin-bottom: 2.5rem;">
+                <h2 lang="es" style="font-family: 'Inter', sans-serif;">Portal de Administración</h2>
+                <h2 lang="en" style="font-family: 'Inter', sans-serif;">Administration Portal</h2>
                 <p lang="es">Acceso restringido. Solo para administradores de la Iglesia El Faro.</p>
                 <p lang="en">Restricted access. Only for El Faro Church administrators.</p>
             </div>
             
-            <div class="sermon-card" id="admin-login-container" style="max-width: 100%; box-shadow: none; border: 1px solid #cbd5e1; padding: 2rem;">
-                <h3 lang="es">Iniciar Sesión</h3>
-                <h3 lang="en">Login</h3>
-                
+            <div class="sermon-card" id="admin-login-container" style="max-width: 500px; padding: 2.5rem; border-radius: 16px;">
+                <h3 lang="es" style="font-family: 'Inter', sans-serif; font-weight: 700;">Iniciar Sesión</h3>
+                <h3 lang="en" style="font-family: 'Inter', sans-serif; font-weight: 700;">Login</h3>
                 <div class="contact-form" onsubmit="event.preventDefault();">
-                    <div class="form-group" style="text-align: left;">
+                    <div class="form-group">
                         <label for="admin-user" lang="es">Usuario</label>
                         <label for="admin-user" lang="en">Username</label>
-                        <input type="text" id="admin-user" placeholder="Ingrese su usuario asignado / Please enter your assigned username">
+                        <input type="text" id="admin-user" placeholder="Ingrese su usuario / Enter your username">
                     </div>
-                    <div class="form-group" style="text-align: left;">
+                    <div class="form-group">
                         <label for="admin-pass" lang="es">Contraseña</label>
                         <label for="admin-pass" lang="en">Password</label>
-                        <input type="password" id="admin-pass" placeholder="Ingrese su contraseña / Please enter your password">
+                        <input type="password" id="admin-pass" placeholder="Ingrese su contraseña / Enter your password">
                     </div>
-                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1rem;" lang="es">Acceder</button>
-                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1rem;" lang="en">Access</button>
-                    
-                    <p id="forgot-pass-msg" style="margin-top: 0.8rem; font-size: 0.85rem; text-align: left;">
-                        <a href="#" onclick="alert('Simulación / Simulation: Contact main admin to recover credentials.'); return false;" style="color: var(--navy-primary);" lang="es">¿Olvidó su usuario o contraseña?</a>
-                        <a href="#" onclick="alert('Simulation: Contact main admin to recover credentials.'); return false;" style="color: var(--navy-primary);" lang="en">Forgot username or password?</a>
-                    </p>
-
+                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1.5rem;" lang="es">Acceder al Sistema</button>
+                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1.5rem;" lang="en">Access System</button>
                     <p id="login-error" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="es">Credenciales incorrectas.</p>
                     <p id="login-error-en" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="en">Incorrect credentials.</p>
                 </div>
             </div>
 
             <div id="admin-dashboard-container" class="hidden">
-                <h3 id="admin-greeting" style="text-align: center; margin-bottom: 2rem; color: var(--navy-dark); font-size: 1.8rem;"></h3>
-                
-                <div class="contact-container" style="grid-template-columns: 1fr;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                        
-                        <div class="contact-box">
-                            <h3 lang="es">Gestión de Imágenes y Textos</h3>
-                            <h3 lang="en">Image & Text Management</h3>
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="es">Suba o elimine imágenes, o edite textos del sitio.</p>
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="en">Upload/delete images or edit site text.</p>
-                            <input type="file" id="image-upload" accept="image/*" style="margin-bottom: 1rem; display: block;">
-                            <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: var(--navy-primary); color: var(--navy-dark);" onclick="alert('Simulación / Simulation: Action completed.')" lang="es">Guardar Cambios</button>
-                            <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: var(--navy-primary); color: var(--navy-dark);" onclick="alert('Simulación / Simulation: Action completed.')" lang="en">Save Changes</button>
-                        </div>
-                    </div>
-
-                    <div class="contact-box" style="margin-bottom: 2rem;">
-                        <h3 lang="es">Editar las Secciones de Eventos</h3>
-                        <h3 lang="en">Edit the Event Sections</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="es">Modifique los detalles de los próximos eventos mostrados en el sitio web.</p>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;" lang="en">Modify the details of the upcoming events displayed on the website.</p>
-                        
-                        <select style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; font-family: inherit;">
-                            <option>Escuelita Bíblica de Vacaciones (VBS)</option>
-                            <option>Servicios de Avivamiento</option>
-                            <option>Cena y Convivio Comunitario</option>
-                        </select>
-                        <input type="text" placeholder="Nuevo Título del Evento / New Event Title" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
-                        <input type="text" placeholder="Nueva Fecha y Hora / New Date & Time" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
-                        <input type="text" placeholder="Nueva Ubicación / New Location" style="width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px;">
-                        
-                        <button class="btn btn-primary" onclick="alert('Simulación / Simulation: Event updated!')" lang="es">Actualizar Evento</button>
-                        <button class="btn btn-primary" onclick="alert('Simulación / Simulation: Event updated!')" lang="en">Update Event</button>
-                    </div>
-
-                    <div class="contact-box">
-                        <h3 lang="es">Registro de Ediciones (Audit Log - Hora Central)</h3>
-                        <h3 lang="en">Audit Log (Central Time Zone)</h3>
-                        <div style="overflow-x: auto;">
-                            <table class="admin-table">
-                                <thead>
-                                    <tr>
-                                        <th lang="es">Usuario</th><th lang="en">User</th>
-                                        <th lang="es">Acción Realizada</th><th lang="en">Action Performed</th>
-                                        <th lang="es">Fecha y Hora (CST)</th><th lang="en">Timestamp (CST)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>IT_02</td>
-                                        <td>Actualizó la Biblioteca / Updated Library</td>
-                                        <td>08/05/2026 - 05:54 PM CST</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hermana_03</td>
-                                        <td>Subió imagen / Uploaded Image</td>
-                                        <td>08/03/2026 - 02:14 PM CST</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pastor_01</td>
-                                        <td>Descargó PDF / Downloaded PDF</td>
-                                        <td>08/01/2026 - 11:20 AM CST</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <h3 id="admin-greeting" style="text-align: center; margin-bottom: 2rem; color: var(--navy-dark); font-size: 2rem; font-weight: 700;"></h3>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
+                    <button id="btn-tab-content" class="btn btn-primary main-tab-btn" onclick="switchMainDashboardTab('content')">Sitio Web / Website</button>
+                    <button id="btn-tab-security" class="btn btn-outline main-tab-btn" style="display: none; border-color: var(--accent-red); color: var(--accent-red); background: transparent;" onclick="switchMainDashboardTab('security')"><i class="fa-solid fa-lock" style="margin-right: 8px;"></i> Seguridad / Security</button>
                 </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--navy-primary); color: var(--navy-dark);" lang="es">Cerrar Sesión</button>
-                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--navy-primary); color: var(--navy-dark);" lang="en">Logout</button>
+
+                <div id="dashboard-content">
+                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
+                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Descripciones</h3>
+                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Descriptions</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">¡Solo escriba en su idioma preferido! El sistema lo traducirá y guardará automáticamente.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Just type in your preferred language! The system will automatically translate and save.</p>
+                        
+                        <div style="display: flex; gap: 0.8rem; margin-bottom: 2rem; overflow-x: auto; padding-bottom: 1rem; border-bottom: 2px solid #e2e8f0;">
+                            <button class="text-tab-btn active" onclick="showTextTab('tab-text-hero', this)">Inicio / Hero</button>
+                            <button class="text-tab-btn" onclick="showTextTab('tab-text-edit', this)">Bienvenidos</button>
+                            <button class="text-tab-btn" onclick="showTextTab('tab-text-min', this)">Ministerios</button>
+                            <button class="text-tab-btn" onclick="showTextTab('tab-text-step', this)">Pasos / Steps</button>
+                            <button class="text-tab-btn" onclick="showTextTab('tab-text-give', this)">Ofrendar</button>
+                        </div>
+
+                        <div id="tab-text-hero" class="text-tab-content" style="display: block;">
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Inicio / Hero</h4>
+                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
+                                <textarea id="input-text-hero" rows="4" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-hero', 'text-hero')">Actualizar / Update</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-text-edit" class="text-tab-content" style="display: none;">
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Texto 1 (Iglesia El Faro)</h4>
+                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
+                                <textarea id="input-text-edit1" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-edit1', 'text-edit1')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Texto 2 (Conocerle)</h4>
+                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
+                                <textarea id="input-text-edit2" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-edit2', 'text-edit2')">Actualizar / Update</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-text-min" class="text-tab-content" style="display: none;">
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Guardería / Nursery</h4>
+                                <textarea id="input-text-min-guarderia" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-guarderia', 'text-min-guarderia')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Niños / Children</h4>
+                                <textarea id="input-text-min-ninos" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-ninos', 'text-min-ninos')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Jóvenes / Youth</h4>
+                                <textarea id="input-text-min-jovenes" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-jovenes', 'text-min-jovenes')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Damas / Women</h4>
+                                <textarea id="input-text-min-damas" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-damas', 'text-min-damas')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Varones / Men</h4>
+                                <textarea id="input-text-min-varones" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-varones', 'text-min-varones')">Actualizar / Update</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-text-step" class="text-tab-content" style="display: none;">
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Bautismo / Baptism</h4>
+                                <textarea id="input-text-step-bautismo" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-bautismo', 'text-step-bautismo')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Clases de Discipulado / Discipleship</h4>
+                                <textarea id="input-text-step-discipulado" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-discipulado', 'text-step-discipulado')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Visita a Casa / Home Visit</h4>
+                                <textarea id="input-text-step-visita" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-visita', 'text-step-visita')">Actualizar / Update</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-text-give" class="text-tab-content" style="display: none;">
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Ofrendar / Giving</h4>
+                                <textarea id="input-text-ofrendar" rows="4" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-ofrendar', 'text-ofrendar')">Actualizar / Update</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; text-align: left;">
+                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Imágenes Principales</h3>
+                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Main Images</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Cambie las fotos utilizadas en las diferentes secciones de la página principal.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Change the photos used in the different sections of the main page.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Inicio / Hero Fondo</h4>
+                                <input type="file" id="upload-inicio-hero" accept="image/*" style="border: none; padding: 0;">
+                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="updateMainImage('inicio-hero', 'upload-inicio-hero')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Bienvenidos / Imagen 1</h4>
+                                <input type="file" id="upload-edit-1" accept="image/*" style="border: none; padding: 0;">
+                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="updateMainImage('img-edit-1', 'upload-edit-1')">Actualizar / Update</button>
+                            </div>
+                            <div class="admin-edit-card">
+                                <h4 style="color: var(--navy-dark); font-size: 1.05rem;">Bienvenidos / Imagen 2</h4>
+                                <input type="file" id="upload-edit-2" accept="image/*" style="border: none; padding: 0;">
+                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="updateMainImage('img-edit-2', 'upload-edit-2')">Actualizar / Update</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
+                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
+                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Team</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Agregue o elimine miembros de su equipo libremente. Los títulos y descripciones se traducen automáticamente.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Add or remove team members freely. Titles and descriptions auto-translate.</p>
+                        <div id="admin-team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                        <div class="contact-box" style="text-align: left; padding: 2rem;">
+                            <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Galería</h3>
+                            <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Gallery</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;" lang="es">Suba nuevas fotos o haga clic en la X para eliminar las guardadas.</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;" lang="en">Upload new photos or click X to delete saved ones.</p>
+                            
+                            <div class="admin-edit-card" style="margin-bottom: 1.5rem; border-style: dashed; background: #f8fafc;">
+                                <strong style="color: var(--navy-dark);" lang="es">Subir Nuevas Fotos:</strong>
+                                <strong style="color: var(--navy-dark);" lang="en">Upload New Photos:</strong>
+                                <input type="file" id="gallery-upload" accept="image/*" multiple style="border: none; padding: 0; cursor: pointer;">
+                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="uploadToGallery()" lang="es">Subir a Galería</button>
+                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="uploadToGallery()" lang="en">Upload to Gallery</button>
+                            </div>
+
+                            <div class="admin-edit-card" style="border-style: dashed;">
+                                <strong style="color: var(--navy-dark);" lang="es">Imágenes Guardadas:</strong>
+                                <strong style="color: var(--navy-dark);" lang="en">Saved Images:</strong>
+                                <div id="admin-gallery-thumbnails" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; max-height: 250px; overflow-y: auto; padding: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
+                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Eventos</h3>
+                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Events</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Los detalles del evento se traducirán automáticamente a ambos idiomas al guardar.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Event details will automatically translate to both languages when saved.</p>
+
+                        <div class="admin-edit-card" style="margin-bottom: 2rem; border-style: dashed; border-color: var(--whatsapp-green); background: #f0fdf4;">
+                            <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">+ Agregar Nuevo Evento:</strong>
+                            <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="en">+ Add New Event:</strong>
+                            <input type="text" id="new-event-title" placeholder="Título del Evento / Event Title (Auto-translates)">
+                            <input type="text" id="new-event-date" placeholder="Fecha y Hora / Date & Time (ej. August 15, 6:00 PM)">
+                            <input type="text" id="new-event-loc" placeholder="Ubicación / Location (Auto-translates)">
+                            
+                            <label style="font-size: 0.9rem; margin-top: 0.5rem;">Imagen del Evento / Event Image:</label>
+                            <input type="file" id="new-event-img" accept="image/*" style="border: none; padding: 0;">
+                            
+                            <button class="btn btn-primary" style="padding: 0.8rem; background-color: var(--whatsapp-green); margin-top: 0.5rem;" onclick="addNewEvent()">Agregar y Traducir Evento</button>
+                        </div>
+
+                        <div style="font-weight: 700; color: var(--navy-dark); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">Eventos Actuales / Current Events:</div>
+                        <div id="admin-events-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
+                    </div>
+
+                </div>
+
+                <div id="dashboard-security" style="display: none;">
+                    
+                    <div class="sermon-card" id="security-pin-container" style="max-width: 500px; margin: 0 auto; border-top: 5px solid var(--accent-red); padding: 3rem 2rem;">
+                        <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif;" lang="es">Portal de Seguridad</h3>
+                        <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif;" lang="en">Admin Security Portal</h3>
+                        
+                        <p style="color: var(--text-main); font-weight: 700; margin-bottom: 1rem;" lang="es">¡Atención! Usted está intentando acceder a los controles de Seguridad avanzados.</p>
+                        <p style="color: var(--text-main); font-weight: 700; margin-bottom: 1rem;" lang="en">Warning! You are attempting to access advanced Security controls.</p>
+                        
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Por favor, ingrese el PIN de Administrador Maestro para continuar.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Please enter the Master Admin PIN to continue.</p>
+
+                        <div class="contact-form" onsubmit="event.preventDefault();" style="max-width: 300px; margin: 0 auto;">
+                            <input type="password" id="security-pin-input" placeholder="0000" maxlength="4" style="text-align: center; font-size: 2rem; letter-spacing: 1rem; padding: 1rem; border-radius: 12px;">
+                            <button type="button" onclick="verifySecurityPin()" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; background-color: var(--accent-red); font-size: 1rem;" lang="es">Acceder</button>
+                            <button type="button" onclick="verifySecurityPin()" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; background-color: var(--accent-red); font-size: 1rem;" lang="en">Access</button>
+                            
+                            <p id="pin-error-msg" class="hidden" style="color: var(--accent-red); font-weight: bold; margin-top: 1rem; font-size: 0.9rem;" lang="es">PIN Incorrecto.</p>
+                            <p id="pin-error-msg-en" class="hidden" style="color: var(--accent-red); font-weight: bold; margin-top: 1rem; font-size: 0.9rem;" lang="en">Incorrect PIN.</p>
+                        </div>
+                    </div>
+
+                    <div id="security-content-container" class="hidden">
+                        <div class="contact-box" style="margin-bottom: 2.5rem; padding: 2rem; background-color: #fef2f2; border: 1px solid #fca5a5; text-align: left;">
+                            <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif; font-size: 1.5rem;" lang="es">Gestión de Administradores</h3>
+                            <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif; font-size: 1.5rem;" lang="en">Admin Account Management</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Solo el Pastor y TI tienen acceso a esta sección de seguridad.</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Only the Pastor and IT have access to this security section.</p>
+                            
+                            <div class="admin-edit-card" style="margin-bottom: 2rem; border-style: dashed; border-color: var(--accent-red);">
+                                <strong style="color: var(--accent-red); margin-bottom: 1rem; font-size: 1.05rem;" lang="es">Agregar Nuevo Admin:</strong>
+                                <strong style="color: var(--accent-red); margin-bottom: 1rem; font-size: 1.05rem;" lang="en">Add New Admin:</strong>
+                                <input type="text" id="new-admin-realname" placeholder="Nombre de la Persona / Real Name">
+                                <input type="text" id="new-admin-user" placeholder="Nombre de Usuario / Username">
+                                <input type="text" id="new-admin-pass" placeholder="Contraseña / Password">
+                                <button class="btn btn-primary" style="padding: 0.8rem; margin-top: 0.5rem; background-color: var(--accent-red);" onclick="addNewAdmin()">Agregar Admin / Add Admin</button>
+                            </div>
+                            
+                            <strong style="color: var(--accent-red); font-size: 1.1rem; display: block; margin-bottom: 1rem;" lang="es">Cuentas Actuales / Current Accounts:</strong>
+                            <div id="admin-accounts-list" style="display: grid; gap: 1rem;"></div>
+                        </div>
+
+                        <div class="contact-box" style="padding: 2rem; text-align: left;">
+                            <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Registro de Ediciones (En Vivo)</h3>
+                            <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Live Audit Log</h3>
+                            <div style="overflow-x: auto; max-height: 400px; overflow-y: auto; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                <table class="admin-table" style="margin-top: 0; border: none; box-shadow: none;">
+                                    <thead style="position: sticky; top: 0; z-index: 10;">
+                                        <tr>
+                                            <th lang="es">Usuario</th><th lang="en">User</th>
+                                            <th lang="es">Acción Realizada</th><th lang="en">Action Performed</th>
+                                            <th lang="es">Fecha y Hora</th><th lang="en">Timestamp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="audit-log-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div style="text-align: center; margin-top: 4rem;">
+                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--text-muted); color: var(--text-muted); padding: 0.8rem 3rem;" lang="es"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Cerrar Sesión</button>
+                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--text-muted); color: var(--text-muted); padding: 0.8rem 3rem;" lang="en"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Logout</button>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -1367,6 +851,673 @@
     </footer>
 
     <script>
+        // --- LIVE AUDIT LOG SYSTEM ---
+        let currentUser = "Desconocido"; 
+        let currentUserUsername = ""; 
+        let auditLogs = JSON.parse(localStorage.getItem('faro_audit_logs')) || [];
+
+        function addLog(actionEs, actionEn) {
+            const now = new Date();
+            const timeStr = now.toLocaleDateString() + " " + now.toLocaleTimeString();
+            const logEntry = {
+                user: currentUser,
+                actionEs: actionEs,
+                actionEn: actionEn,
+                timestamp: timeStr
+            };
+            auditLogs.unshift(logEntry); 
+            if(auditLogs.length > 20) auditLogs.pop();
+            
+            localStorage.setItem('faro_audit_logs', JSON.stringify(auditLogs));
+            renderAuditLog();
+        }
+
+        function renderAuditLog() {
+            const tbody = document.getElementById('audit-log-body');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+            
+            const isEn = document.body.classList.contains('lang-en');
+
+            if(auditLogs.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:gray; padding: 2rem;">Sin registros / No logs</td></tr>`;
+                return;
+            }
+
+            auditLogs.forEach(log => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${log.user}</strong></td>
+                    <td>${isEn ? log.actionEn : log.actionEs}</td>
+                    <td style="color: #64748b; font-size: 0.85rem;">${log.timestamp}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // --- TRANSLATION API ---
+        async function translateText(text, targetLang) {
+            if (!text) return "";
+            try {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                return data[0].map(item => item[0]).join(''); 
+            } catch (error) {
+                console.error("Translation error:", error);
+                return text; 
+            }
+        }
+
+        // --- DYNAMIC ADMIN MANAGER ---
+        const defaultAdmins = [
+            { user: "Pastor_01", pass: "1234", name: "Pastor Neil" },
+            { user: "IT_02", pass: "5678", name: "Jorge" },
+            { user: "Hermana_03", pass: "1011", name: "Hrna Alejandra" }
+        ];
+
+        let globalAdmins = JSON.parse(localStorage.getItem('faro_admins'));
+        if(!globalAdmins || globalAdmins.length === 0) {
+            globalAdmins = defaultAdmins;
+            localStorage.setItem('faro_admins', JSON.stringify(globalAdmins));
+        }
+
+        function renderAdminAccounts() {
+            const list = document.getElementById('admin-accounts-list');
+            if(!list) return;
+            list.innerHTML = '';
+            
+            globalAdmins.forEach(adm => {
+                const row = document.createElement('div');
+                row.style = "display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: white; box-shadow: var(--shadow-sm);";
+                row.innerHTML = `
+                    <div style="font-size: 0.95rem;">
+                        <strong style="color: var(--navy-dark); font-size: 1.05rem;">${adm.name}</strong> <br>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">User: ${adm.user} • Pass: ${adm.pass}</span>
+                    </div>
+                    <button onclick="deleteAdmin('${adm.user}')" class="delete-btn" style="position:relative; right:0; top:0;">×</button>
+                `;
+                list.appendChild(row);
+            });
+        }
+
+        function addNewAdmin() {
+            const realname = document.getElementById('new-admin-realname').value.trim();
+            const user = document.getElementById('new-admin-user').value.trim();
+            const pass = document.getElementById('new-admin-pass').value.trim();
+
+            if(!realname || !user || !pass) {
+                alert("Complete todos los campos. / Please fill all fields.");
+                return;
+            }
+            
+            const exists = globalAdmins.find(a => a.user === user);
+            if(exists) {
+                alert("Ese usuario ya existe. / Username already exists.");
+                return;
+            }
+
+            globalAdmins.push({ user: user, pass: pass, name: realname });
+            localStorage.setItem('faro_admins', JSON.stringify(globalAdmins));
+            
+            document.getElementById('new-admin-realname').value = '';
+            document.getElementById('new-admin-user').value = '';
+            document.getElementById('new-admin-pass').value = '';
+            
+            renderAdminAccounts();
+            addLog(`Creó nueva cuenta admin: ${user}`, `Created new admin account: ${user}`);
+            alert("Administrador agregado. / Admin added.");
+        }
+
+        function deleteAdmin(usernameToDelete) {
+            if(globalAdmins.length <= 1) {
+                alert("Debe quedar al menos un administrador. / You must keep at least one admin.");
+                return;
+            }
+            if(usernameToDelete === currentUserUsername) {
+                alert("No puede borrar la cuenta que está usando. / You cannot delete the account you are currently using.");
+                return;
+            }
+            if(confirm("¿Seguro que desea eliminar a este administrador? / Sure you want to delete this admin?")) {
+                globalAdmins = globalAdmins.filter(a => a.user !== usernameToDelete);
+                localStorage.setItem('faro_admins', JSON.stringify(globalAdmins));
+                renderAdminAccounts();
+                addLog(`Borró cuenta admin: ${usernameToDelete}`, `Deleted admin account: ${usernameToDelete}`);
+            }
+        }
+
+        // --- MASTER ADMIN DASHBOARD TABS ---
+        function switchMainDashboardTab(tabName) {
+            document.getElementById('dashboard-content').style.display = (tabName === 'content') ? 'block' : 'none';
+            document.getElementById('btn-tab-content').className = (tabName === 'content') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
+            
+            document.getElementById('dashboard-security').style.display = (tabName === 'security') ? 'block' : 'none';
+            document.getElementById('btn-tab-security').className = (tabName === 'security') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
+        }
+
+        // --- MASTER SECURITY PIN VERIFICATION ---
+        let isSecurityUnlocked = false;
+        const MASTER_PIN = "0000"; // Cambiar aquí para actualizar el código PIN
+
+        function verifySecurityPin() {
+            const pin = document.getElementById('security-pin-input').value.trim();
+            if(pin === MASTER_PIN) {
+                isSecurityUnlocked = true;
+                
+                document.getElementById('security-pin-container').classList.add('hidden');
+                document.getElementById('security-content-container').classList.remove('hidden');
+                
+                document.getElementById('pin-error-msg').classList.add('hidden');
+                document.getElementById('pin-error-msg-en').classList.add('hidden');
+                document.getElementById('security-pin-input').value = "";
+                
+                addLog(`Accedió exitosamente a controles avanzados.`, `Successfully accessed advanced security controls.`);
+            } else {
+                if(document.body.classList.contains('lang-en')) {
+                    document.getElementById('pin-error-msg-en').classList.remove('hidden');
+                    document.getElementById('pin-error-msg').classList.add('hidden');
+                } else {
+                    document.getElementById('pin-error-msg').classList.remove('hidden');
+                    document.getElementById('pin-error-msg-en').classList.add('hidden');
+                }
+            }
+        }
+
+        // --- COMPRESS IMAGE ENGINE ---
+        function compressImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = event => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const MAX_WIDTH = 800; 
+                        const MAX_HEIGHT = 800; 
+                        let width = img.width;
+                        let height = img.height;
+
+                        if (width > height) {
+                            if (width > MAX_WIDTH) {
+                                height *= MAX_WIDTH / width;
+                                width = MAX_WIDTH;
+                            }
+                        } else {
+                            if (height > MAX_HEIGHT) {
+                                width *= MAX_HEIGHT / height;
+                                height = MAX_HEIGHT;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+                        resolve(dataUrl);
+                    };
+                    img.onerror = error => reject(error);
+                };
+                reader.onerror = error => reject(error);
+            });
+        }
+        // --- FIN COMPRESS IMAGE ENGINE ---
+
+        // --- NEW DYNAMIC TEAM MANAGER ---
+        let globalTeam = [];
+        
+        function initTeam() {
+            const savedData = localStorage.getItem('faro_team');
+            if (savedData) {
+                globalTeam = JSON.parse(savedData);
+            } else {
+                globalTeam = [
+                    { id: 1, name: "Pastor Neil Arias", roleEs: "Pastor Principal", roleEn: "Lead Pastor", descEs: "Apasionado por guiar a la comunidad y predicar la Palabra.", descEn: "Passionate about guiding the community and preaching the Word.", img: "" },
+                    { id: 2, name: "Andres de la Garza", roleEs: "Diácono", roleEn: "Deacon", descEs: "Dedicado a servir a nuestra congregación con amor.", descEn: "Dedicated to serving our congregation with love.", img: "" },
+                    { id: 3, name: "Refugio Castillo", roleEs: "Diácono", roleEn: "Deacon", descEs: "Dedicado a servir a nuestra congregación con amor.", descEn: "Dedicated to serving our congregation with love.", img: "" }
+                ];
+                localStorage.setItem('faro_team', JSON.stringify(globalTeam));
+            }
+            renderPublicTeam();
+        }
+
+        function renderPublicTeam() {
+            const publicGrid = document.getElementById('public-team-container');
+            if(!publicGrid) return;
+            publicGrid.innerHTML = '';
+            
+            if(globalTeam.length > 0) {
+                const p = globalTeam[0]; 
+                const topDiv = document.createElement('div');
+                topDiv.style = "max-width: 450px; margin: 0 auto 3.5rem auto;";
+                topDiv.innerHTML = `
+                    <div class="ministry-card" style="border-top: 5px solid var(--accent-red);">
+                        <div style="width: 140px; height: 140px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                            <img src="${p.img}" style="width: 100%; height: 100%; object-fit: cover; ${p.img ? '' : 'display:none;'}" loading="lazy">
+                        </div>
+                        <h3>${p.name}</h3>
+                        <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">${p.roleEs}</h4>
+                        <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">${p.roleEn}</h4>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="es">${p.descEs}</p>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="en">${p.descEn}</p>
+                    </div>
+                `;
+                publicGrid.appendChild(topDiv);
+            }
+
+            if(globalTeam.length > 1) {
+                const subGrid = document.createElement('div');
+                subGrid.className = 'ministry-grid';
+                subGrid.style = "max-width: 1100px; margin: 0 auto;";
+                
+                for(let i = 1; i < globalTeam.length; i++) {
+                    const m = globalTeam[i];
+                    const card = document.createElement('div');
+                    card.className = 'ministry-card';
+                    card.style.borderTop = "none";
+                    card.innerHTML = `
+                        <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                            <img src="${m.img}" style="width: 100%; height: 100%; object-fit: cover; ${m.img ? '' : 'display:none;'}" loading="lazy">
+                        </div>
+                        <h3 style="font-size: 1.3rem;">${m.name}</h3>
+                        <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">${m.roleEs}</h4>
+                        <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">${m.roleEn}</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">${m.descEs}</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">${m.descEn}</p>
+                    `;
+                    subGrid.appendChild(card);
+                }
+                publicGrid.appendChild(subGrid);
+            }
+        }
+
+        function renderAdminTeam() {
+            const grid = document.getElementById('admin-team-grid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            
+            const isEn = document.body.classList.contains('lang-en');
+
+            globalTeam.forEach((m, index) => {
+                const div = document.createElement('div');
+                div.className = 'admin-edit-card';
+                div.innerHTML = `
+                    <button onclick="deleteTeamMember(${m.id})" class="delete-btn" title="Borrar / Delete">×</button>
+                    <h4 style="color: var(--navy-dark); font-size: 1.1rem;">${index + 1}. Miembro / Member</h4>
+                    
+                    <label style="font-size: 0.85rem; color: var(--text-muted);">Nombre / Name</label>
+                    <input type="text" id="edit-team-name-${m.id}" value="${m.name}">
+                    
+                    <label style="font-size: 0.85rem; color: var(--text-muted);">Título o Rol (Auto-translates)</label>
+                    <input type="text" id="edit-team-role-${m.id}" value="${isEn ? m.roleEn : m.roleEs}">
+                    
+                    <div style="display:flex; gap: 1rem; align-items:center; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                        <img src="${m.img}" style="width:50px; height:50px; object-fit:cover; border-radius:50%; background:#e2e8f0; border: 2px solid white;" onerror="this.style.display='none'">
+                        <input type="file" id="edit-team-img-${m.id}" accept="image/*" style="border:none; padding:0;">
+                    </div>
+                    
+                    <label style="font-size: 0.85rem; color: var(--text-muted);">Descripción (Auto-translates)</label>
+                    <textarea id="edit-team-desc-${m.id}" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;">${isEn ? m.descEn : m.descEs}</textarea>
+                    
+                    <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateTeamMember(${m.id})">Actualizar / Update</button>
+                `;
+                grid.appendChild(div);
+            });
+
+            const addDiv = document.createElement('div');
+            addDiv.className = 'admin-edit-card';
+            addDiv.style.borderStyle = 'dashed';
+            addDiv.style.borderColor = 'var(--whatsapp-green)';
+            addDiv.style.backgroundColor = '#f0fdf4';
+            addDiv.innerHTML = `
+                <h4 style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 0.5rem;">+ Nuevo Miembro / New</h4>
+                <label style="font-size: 0.85rem;">Nombre / Name</label>
+                <input type="text" id="new-team-name" placeholder="Nombre Completo">
+                <label style="font-size: 0.85rem;">Título o Rol (Auto-translates)</label>
+                <input type="text" id="new-team-role" placeholder="Rol / Role">
+                <label style="font-size: 0.85rem;">Foto / Picture</label>
+                <input type="file" id="new-team-img" accept="image/*" style="border:none; padding:0;">
+                <label style="font-size: 0.85rem;">Descripción (Auto-translates)</label>
+                <textarea id="new-team-desc" rows="3" placeholder="Descripción" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem; background-color: var(--whatsapp-green);" onclick="addTeamMember()">Agregar / Add</button>
+            `;
+            grid.appendChild(addDiv);
+        }
+
+        async function addTeamMember() {
+            const name = document.getElementById('new-team-name').value.trim();
+            const role = document.getElementById('new-team-role').value.trim();
+            const desc = document.getElementById('new-team-desc').value.trim();
+            const fileInput = document.getElementById('new-team-img');
+
+            if(!name) { alert("Agregue un nombre. / Please add a name."); return; }
+            document.body.style.cursor = 'wait';
+
+            const roleEs = await translateText(role, 'es');
+            const roleEn = await translateText(role, 'en');
+            const descEs = await translateText(desc, 'es');
+            const descEn = await translateText(desc, 'en');
+
+            let imgData = "";
+            if (fileInput.files && fileInput.files[0]) {
+                imgData = await compressImage(fileInput.files[0]);
+            }
+
+            globalTeam.push({
+                id: Date.now(), name: name,
+                roleEs: roleEs, roleEn: roleEn,
+                descEs: descEs, descEn: descEn, img: imgData
+            });
+
+            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
+            renderPublicTeam();
+            renderAdminTeam();
+            addLog(`Agregó miembro al equipo: ${name}`, `Added team member: ${name}`);
+            document.body.style.cursor = 'default';
+            alert("¡Miembro Agregado! / Member Added!");
+        }
+
+        async function updateTeamMember(id) {
+            const index = globalTeam.findIndex(m => m.id === id);
+            if(index === -1) return;
+
+            const name = document.getElementById(`edit-team-name-${id}`).value;
+            const role = document.getElementById(`edit-team-role-${id}`).value;
+            const desc = document.getElementById(`edit-team-desc-${id}`).value;
+            const fileInput = document.getElementById(`edit-team-img-${id}`);
+
+            document.body.style.cursor = 'wait';
+
+            globalTeam[index].name = name;
+            globalTeam[index].roleEs = await translateText(role, 'es');
+            globalTeam[index].roleEn = await translateText(role, 'en');
+            globalTeam[index].descEs = await translateText(desc, 'es');
+            globalTeam[index].descEn = await translateText(desc, 'en');
+
+            if (fileInput.files && fileInput.files[0]) {
+                globalTeam[index].img = await compressImage(fileInput.files[0]);
+            }
+
+            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
+            renderPublicTeam();
+            renderAdminTeam();
+            addLog(`Actualizó al miembro: ${name}`, `Updated team member: ${name}`);
+            document.body.style.cursor = 'default';
+            alert("¡Miembro Actualizado! / Member Updated!");
+        }
+
+        function deleteTeamMember(id) {
+            if(confirm("¿Seguro que desea eliminar este miembro? / Sure you want to delete this member?")) {
+                const member = globalTeam.find(m => m.id === id);
+                const memName = member ? member.name : "Desconocido";
+                
+                globalTeam = globalTeam.filter(m => m.id !== id);
+                localStorage.setItem('faro_team', JSON.stringify(globalTeam));
+                renderPublicTeam();
+                renderAdminTeam();
+                addLog(`Eliminó al miembro: ${memName}`, `Deleted team member: ${memName}`);
+            }
+        }
+
+        // --- DYNAMIC EVENTS SYSTEM START ---
+        let globalEvents = [];
+
+        function initEvents() {
+            const savedData = localStorage.getItem('faro_events');
+            
+            if (savedData) {
+                globalEvents = JSON.parse(savedData);
+            } else {
+                globalEvents = [
+                    { id: Date.now() + 1, titleEs: "Escuelita Bíblica de Vacaciones (VBS)", titleEn: "Vacation Bible School (VBS)", dateEs: "15 de Agosto, 2026 6:00 PM", dateEn: "August 15, 2026 6:00 PM", locEs: "Iglesia Bautista El Faro", locEn: "El Faro Baptist Church", img: "" },
+                    { id: Date.now() + 2, titleEs: "Servicios de Avivamiento", titleEn: "Revival Services", dateEs: "22 de Agosto, 2026 7:00 PM", dateEn: "August 22, 2026 7:00 PM", locEs: "Iglesia Bautista El Faro", locEn: "El Faro Baptist Church", img: "" },
+                    { id: Date.now() + 3, titleEs: "Cena y Convivio Comunitario", titleEn: "Community Dinner and Fellowship", dateEs: "29 de Agosto, 2026 5:00 PM", dateEn: "August 29, 2026 5:00 PM", locEs: "Ubicación Variada / Edcouch", locEn: "Location Varies / Edcouch", img: "" }
+                ];
+                localStorage.setItem('faro_events', JSON.stringify(globalEvents));
+            }
+
+            renderPublicEvents();
+        }
+
+        function renderPublicEvents() {
+            const publicGrid = document.getElementById('public-events-grid');
+            if(!publicGrid) return;
+            publicGrid.innerHTML = '';
+
+            globalEvents.forEach(ev => {
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.innerHTML = `
+                    <div class="event-img-container">
+                        <img src="${ev.img}" onerror="this.style.display='none'" style="${ev.img ? '' : 'display:none;'}" loading="lazy">
+                    </div>
+                    <h3 class="event-title" lang="es">${ev.titleEs}</h3>
+                    <h3 class="event-title" lang="en">${ev.titleEn}</h3>
+                    <p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs || ev.date}</p>
+                    <p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn || ev.date}</p>
+                    <p class="event-meta" lang="es"><i class="fa-solid fa-location-dot"></i> ${ev.locEs}</p>
+                    <p class="event-meta" lang="en"><i class="fa-solid fa-location-dot"></i> ${ev.locEn}</p>
+                `;
+                publicGrid.appendChild(card);
+            });
+        }
+
+        function renderAdminEvents() {
+            const adminList = document.getElementById('admin-events-list');
+            if(!adminList) return;
+            adminList.innerHTML = '';
+
+            if (globalEvents.length === 0) {
+                adminList.innerHTML = '<p style="font-size:0.95rem; color:gray; font-style: italic;">No hay eventos guardados. / No saved events.</p>';
+                return;
+            }
+
+            const isEn = document.body.classList.contains('lang-en');
+
+            globalEvents.forEach(ev => {
+                const card = document.createElement('div');
+                card.className = 'admin-edit-card';
+                card.innerHTML = `
+                    <button onclick="deleteEvent(${ev.id})" class="delete-btn" title="Borrar / Delete">×</button>
+                    
+                    <div style="display:flex; gap: 1rem; align-items:center; margin-bottom: 0.5rem;">
+                        <img src="${ev.img}" style="width:80px; height:60px; object-fit:cover; border-radius:6px; background:#e2e8f0; border: 1px solid #cbd5e1;" onerror="this.style.display='none'">
+                        <input type="file" id="edit-ev-img-${ev.id}" accept="image/*" style="font-size:0.85rem; width:100%; border:none; padding:0;">
+                    </div>
+
+                    <input type="text" id="edit-ev-title-${ev.id}" value="${isEn ? ev.titleEn : ev.titleEs}" placeholder="Título / Title">
+                    <input type="text" id="edit-ev-date-${ev.id}" value="${isEn ? (ev.dateEn || ev.date) : (ev.dateEs || ev.date)}" placeholder="Fecha / Date">
+                    <input type="text" id="edit-ev-loc-${ev.id}" value="${isEn ? ev.locEn : ev.locEs}" placeholder="Ubicación / Location">
+                    
+                    <button class="btn btn-primary" style="padding:0.6rem; font-size:0.9rem; margin-top:0.5rem;" onclick="updateEvent(${ev.id})">Actualizar / Update</button>
+                `;
+                adminList.appendChild(card);
+            });
+        }
+
+        async function addNewEvent() {
+            const title = document.getElementById('new-event-title').value.trim();
+            const date = document.getElementById('new-event-date').value.trim();
+            const loc = document.getElementById('new-event-loc').value.trim();
+            const fileInput = document.getElementById('new-event-img');
+
+            if(!title) {
+                alert("Por favor agregue un título. / Please add a title.");
+                return;
+            }
+
+            document.body.style.cursor = 'wait';
+
+            const titleEs = await translateText(title, 'es');
+            const titleEn = await translateText(title, 'en');
+            const dateEs = await translateText(date, 'es');
+            const dateEn = await translateText(date, 'en');
+            const locEs = await translateText(loc, 'es');
+            const locEn = await translateText(loc, 'en');
+
+            let imgData = "";
+            if (fileInput.files && fileInput.files[0]) {
+                imgData = await compressImage(fileInput.files[0]);
+            }
+
+            const newEv = {
+                id: Date.now(),
+                titleEs: titleEs,
+                titleEn: titleEn,
+                dateEs: dateEs,
+                dateEn: dateEn,
+                locEs: locEs,
+                locEn: locEn,
+                img: imgData
+            };
+
+            globalEvents.push(newEv);
+            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
+            
+            document.getElementById('new-event-title').value = "";
+            document.getElementById('new-event-date').value = "";
+            document.getElementById('new-event-loc').value = "";
+            fileInput.value = "";
+
+            renderPublicEvents();
+            renderAdminEvents();
+            addLog(`Agregó el evento: ${titleEs}`, `Added event: ${titleEn}`);
+            document.body.style.cursor = 'default';
+            alert("¡Evento Agregado! / Event Added!");
+        }
+
+        async function updateEvent(id) {
+            const index = globalEvents.findIndex(ev => ev.id === id);
+            if(index === -1) return;
+
+            const title = document.getElementById(`edit-ev-title-${id}`).value;
+            const date = document.getElementById(`edit-ev-date-${id}`).value;
+            const loc = document.getElementById(`edit-ev-loc-${id}`).value;
+
+            document.body.style.cursor = 'wait';
+
+            globalEvents[index].titleEs = await translateText(title, 'es');
+            globalEvents[index].titleEn = await translateText(title, 'en');
+            globalEvents[index].dateEs = await translateText(date, 'es');
+            globalEvents[index].dateEn = await translateText(date, 'en');
+            globalEvents[index].locEs = await translateText(loc, 'es');
+            globalEvents[index].locEn = await translateText(loc, 'en');
+
+            const fileInput = document.getElementById(`edit-ev-img-${id}`);
+            if (fileInput.files && fileInput.files[0]) {
+                globalEvents[index].img = await compressImage(fileInput.files[0]);
+            }
+
+            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
+            renderPublicEvents();
+            renderAdminEvents();
+            addLog(`Actualizó el evento: ${title}`, `Updated event: ${title}`);
+            document.body.style.cursor = 'default';
+            alert("¡Evento Actualizado y Traducido! / Event Updated & Translated!");
+        }
+
+        function deleteEvent(id) {
+            if(confirm("¿Seguro que desea eliminar este evento? / Are you sure you want to delete this event?")) {
+                const event = globalEvents.find(e => e.id === id);
+                const evTitle = event ? event.titleEs : "Desconocido";
+
+                globalEvents = globalEvents.filter(ev => ev.id !== id);
+                localStorage.setItem('faro_events', JSON.stringify(globalEvents));
+                renderPublicEvents();
+                renderAdminEvents();
+                addLog(`Eliminó el evento: ${evTitle}`, `Deleted event: ${evTitle}`);
+            }
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initEvents();
+            initTeam(); 
+            renderAuditLog();
+
+            // Load Main Static Images
+            const imageIds = [
+                'img-edit-1', 'img-edit-2',
+                'img-min-guarderia', 'img-min-ninos', 'img-min-jovenes', 'img-min-damas', 'img-min-varones',
+                'img-step-bautismo', 'img-step-discipulado', 'img-step-visita', 'img-ofrendar-qr'
+            ];
+            imageIds.forEach(id => {
+                const savedImg = localStorage.getItem('faro_main_' + id);
+                if (savedImg && document.getElementById(id)) {
+                    document.getElementById(id).src = savedImg;
+                }
+            });
+            const savedHero = localStorage.getItem('faro_main_inicio-hero');
+            if (savedHero) {
+                document.getElementById('inicio').style.backgroundImage = `linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('${savedHero}')`;
+            }
+
+            // Load Custom Static Texts
+            const textIds = [
+                'text-hero-es', 'text-hero-en', 'text-edit1-es', 'text-edit1-en', 'text-edit2-es', 'text-edit2-en',
+                'text-min-guarderia-es', 'text-min-guarderia-en', 'text-min-ninos-es', 'text-min-ninos-en',
+                'text-min-jovenes-es', 'text-min-jovenes-en', 'text-min-damas-es', 'text-min-damas-en',
+                'text-min-varones-es', 'text-min-varones-en', 'text-step-bautismo-es', 'text-step-bautismo-en',
+                'text-step-discipulado-es', 'text-step-discipulado-en', 'text-step-visita-es', 'text-step-visita-en',
+                'text-ofrendar-es', 'text-ofrendar-en'
+            ];
+            textIds.forEach(id => {
+                const savedText = localStorage.getItem('faro_text_' + id);
+                if (savedText && document.getElementById(id)) {
+                    document.getElementById(id).innerText = savedText;
+                }
+            });
+        });
+
+        // PREFILL ALL ADMIN TEXT FORMS SO YOU DONT LOSE TEXT
+        function populateAdminFields() {
+            const isEn = document.body.classList.contains('lang-en');
+            const suffix = isEn ? '-en' : '-es';
+            
+            const simpleTextIds = [
+                'text-hero', 'text-edit1', 'text-edit2', 
+                'text-min-guarderia', 'text-min-ninos', 'text-min-jovenes', 'text-min-damas', 'text-min-varones',
+                'text-step-bautismo', 'text-step-discipulado', 'text-step-visita', 'text-ofrendar'
+            ];
+            simpleTextIds.forEach(id => {
+                const inputEl = document.getElementById('input-' + id);
+                const displayEl = document.getElementById(id + suffix);
+                if (inputEl && displayEl) {
+                    inputEl.value = displayEl.innerText;
+                }
+            });
+        }
+
+        function showTextTab(tabId, btnElement) {
+            document.querySelectorAll('.text-tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.text-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            if(btnElement) btnElement.classList.add('active');
+        }
+
+        async function updateSectionText(inputId, targetPrefix) {
+            const text = document.getElementById(inputId).value.trim();
+            if(!text) { alert("Por favor escriba un texto. / Please enter text."); return; }
+            document.body.style.cursor = 'wait';
+
+            const textEs = await translateText(text, 'es');
+            const textEn = await translateText(text, 'en');
+
+            localStorage.setItem('faro_text_' + targetPrefix + '-es', textEs);
+            localStorage.setItem('faro_text_' + targetPrefix + '-en', textEn);
+            
+            const elEs = document.getElementById(targetPrefix + '-es');
+            if(elEs) elEs.innerText = textEs;
+            const elEn = document.getElementById(targetPrefix + '-en');
+            if(elEn) elEn.innerText = textEn;
+
+            addLog(`Actualizó el texto de la sección: ${targetPrefix}`, `Updated section text: ${targetPrefix}`);
+            document.body.style.cursor = 'default';
+            alert("¡Éxito! Texto actualizado y traducido. / Success! Text updated & translated.");
+        }
+
         function setLanguage(lang) {
             if (lang === 'en') {
                 document.body.classList.add('lang-en');
@@ -1377,21 +1528,11 @@
                 document.getElementById('btn-es').classList.add('active');
                 document.getElementById('btn-en').classList.remove('active');
             }
-        }
-
-        function toggleFaith() {
-            const content = document.getElementById("faith-content");
-            const btnEn = document.querySelector("#faith-btn span[lang='en']");
-            const btnEs = document.querySelector("#faith-btn span[lang='es']");
             
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-                btnEn.innerText = "READ LESS";
-                btnEs.innerText = "LEER MENOS";
-            } else {
-                content.style.display = "none";
-                btnEn.innerText = "READ MORE";
-                btnEs.innerText = "LEER MÁS";
+            if(document.getElementById('admin-dashboard-container') && !document.getElementById('admin-dashboard-container').classList.contains('hidden')) {
+                populateAdminFields();
+                renderAdminEvents();
+                renderAdminTeam();
             }
         }
 
@@ -1404,31 +1545,45 @@
             }
         }
 
-        const adminUsers = {
-            "Pastor_01": { pass: "1234", name: "Pastor" },
-            "IT_02": { pass: "5678", name: "Jorge" },
-            "Hermana_03": { pass: "1011", name: "Hrna Alejandra" }
-        };
-
         function loginAdmin() {
             const user = document.getElementById('admin-user').value.trim();
             const pass = document.getElementById('admin-pass').value.trim();
             
-            if(adminUsers[user] && adminUsers[user].pass === pass) {
+            const foundAdmin = globalAdmins.find(a => a.user === user && a.pass === pass);
+
+            if(foundAdmin) {
+                currentUser = foundAdmin.name; 
+                currentUserUsername = foundAdmin.user; 
+
                 document.getElementById('admin-login-container').classList.add('hidden');
                 document.getElementById('login-error').classList.add('hidden');
                 document.getElementById('login-error-en').classList.add('hidden');
                 document.getElementById('admin-dashboard-container').classList.remove('hidden');
                 
-                const userName = adminUsers[user].name;
                 if(document.body.classList.contains('lang-en')) {
-                    document.getElementById('admin-greeting').innerText = "Hello " + userName;
+                    document.getElementById('admin-greeting').innerText = "Welcome, " + currentUser;
                 } else {
-                    document.getElementById('admin-greeting').innerText = "Hola " + userName;
+                    document.getElementById('admin-greeting').innerText = "Bienvenido, " + currentUser;
+                }
+
+                if(currentUserUsername === 'Pastor_01' || currentUserUsername === 'IT_02') {
+                    document.getElementById('btn-tab-security').style.display = 'inline-block';
+                } else {
+                    document.getElementById('btn-tab-security').style.display = 'none';
                 }
                 
+                switchMainDashboardTab('content');
+
                 document.getElementById('admin-user').value = '';
                 document.getElementById('admin-pass').value = '';
+                
+                addLog(`Inició sesión en el sistema.`, `Logged into the system.`);
+
+                populateAdminFields(); 
+                renderAdminGallery();
+                renderAdminEvents(); 
+                renderAdminTeam();
+                renderAdminAccounts();
             } else {
                 if(document.body.classList.contains('lang-en')) {
                     document.getElementById('login-error-en').classList.remove('hidden');
@@ -1441,9 +1596,115 @@
         }
 
         function logoutAdmin() {
+            addLog(`Cerró sesión.`, `Logged out.`);
+            currentUser = "Desconocido";
+            currentUserUsername = "";
+            isSecurityUnlocked = false; 
+
             document.getElementById('admin-dashboard-container').classList.add('hidden');
             document.getElementById('admin-login-container').classList.remove('hidden');
             document.getElementById('admin-greeting').innerText = '';
+            
+            // Reset PIN lock state for next login
+            document.getElementById('security-pin-container').classList.remove('hidden');
+            document.getElementById('security-content-container').classList.add('hidden');
+            document.getElementById('security-pin-input').value = '';
+            document.getElementById('pin-error-msg').classList.add('hidden');
+            document.getElementById('pin-error-msg-en').classList.add('hidden');
+        }
+
+        async function updateMainImage(targetId, inputId) {
+            const fileInput = document.getElementById(inputId);
+            if (!fileInput.files || fileInput.files.length === 0) { alert("Seleccione una imagen. / Select an image."); return; }
+            try {
+                let compressedImage = await compressImage(fileInput.files[0]);
+                localStorage.setItem('faro_main_' + targetId, compressedImage);
+                if (targetId === 'inicio-hero') {
+                    document.getElementById('inicio').style.backgroundImage = `linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('${compressedImage}')`;
+                } else {
+                    document.getElementById(targetId).src = compressedImage;
+                }
+                addLog(`Actualizó imagen principal: ${targetId}`, `Updated main image: ${targetId}`);
+                alert("¡Éxito! Imagen actualizada. / Success! Image updated.");
+                fileInput.value = ""; 
+            } catch (error) {
+                alert("Error de memoria. / Memory error.");
+            }
+        }
+
+        async function uploadToGallery() {
+            const fileInput = document.getElementById('gallery-upload');
+            const files = fileInput.files;
+            
+            if (files.length === 0) return;
+
+            let savedImages = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
+            for(let i = 0; i < files.length; i++) {
+                try {
+                    let compressedImage = await compressImage(files[i]);
+                    savedImages.push(compressedImage);
+                } catch (err) { }
+            }
+            try {
+                localStorage.setItem('faro_custom_gallery', JSON.stringify(savedImages));
+                addLog(`Subió ${files.length} imágenes a la galería.`, `Uploaded ${files.length} images to gallery.`);
+                alert("¡Éxito! Imágenes subidas. / Success! Images uploaded.");
+                fileInput.value = ""; 
+                renderAdminGallery(); 
+            } catch (error) {
+                alert("Error de Memoria. Suba menos fotos a la vez. / Memory Error.");
+            }
+        }
+
+        function renderAdminGallery() {
+            const container = document.getElementById('admin-gallery-thumbnails');
+            if (!container) return;
+            container.innerHTML = '';
+            let savedImages = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
+            
+            if (savedImages.length === 0) {
+                container.innerHTML = '<p style="font-size: 0.95rem; color: #64748b; font-style: italic;">No hay imágenes cargadas. / No uploaded images.</p>';
+                return;
+            }
+
+            savedImages.forEach((imgData, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.style.position = 'relative';
+                wrapper.style.width = '90px';
+                wrapper.style.height = '90px';
+                wrapper.style.boxShadow = 'var(--shadow-sm)';
+                wrapper.style.borderRadius = '8px';
+
+                const img = document.createElement('img');
+                img.src = imgData;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '8px';
+
+                const delBtn = document.createElement('button');
+                delBtn.innerHTML = '×';
+                delBtn.className = 'delete-btn';
+                delBtn.style.top = '-8px';
+                delBtn.style.right = '-8px';
+                delBtn.style.fontSize = '14px';
+                delBtn.style.width = '24px';
+                delBtn.style.height = '24px';
+                delBtn.title = 'Eliminar / Delete';
+                delBtn.onclick = function() { deleteSpecificImage(index); };
+
+                wrapper.appendChild(img);
+                wrapper.appendChild(delBtn);
+                container.appendChild(wrapper);
+            });
+        }
+
+        function deleteSpecificImage(indexToRemove) {
+            let savedImages = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
+            savedImages.splice(indexToRemove, 1);
+            localStorage.setItem('faro_custom_gallery', JSON.stringify(savedImages));
+            addLog(`Eliminó una imagen de la galería.`, `Deleted an image from the gallery.`);
+            renderAdminGallery();
         }
     </script>
 </body>
