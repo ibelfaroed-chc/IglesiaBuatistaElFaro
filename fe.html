@@ -15,132 +15,341 @@
             --navy-primary: #1e40af; 
             --accent-red: #e11d48;
             --accent-red-hover: #be123c; 
+            --whatsapp-green: #16a34a; 
+            --facebook-blue: #1877F2;
             --bg-light: #f1f5f9; 
             --card-bg: #ffffff; 
             --text-main: #334155; 
             --text-muted: #64748b;
+            --border-color: #e2e8f0;
             
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
-        
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            color: var(--text-main); 
-            background-color: var(--bg-light); 
-            line-height: 1.8; 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        /* Language Toggle CSS */
+        /* Language Toggle - CSS REESCRITO PARA ESCALADO PERFECTO */
         body:not(.lang-en) [lang="en"] { display: none !important; }
         body.lang-en [lang="es"] { display: none !important; }
 
-        .top-bar { background-color: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
-        .top-bar-info { display: flex; gap: 2rem; }
-        .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
+        /* HEADER UNIFICADO (Fondo Sólido para Subpáginas) */
+        .header-wrapper {
+            background-color: var(--navy-dark); 
+            width: 100%;
+            z-index: 1000;
+        }
 
         .lang-btn { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.4); padding: 0.25rem 0.75rem; border-radius: 50px; cursor: pointer; font-size: 0.75rem; margin-left: 0.5rem; transition: all 0.3s ease; letter-spacing: 0.5px; }
         .lang-btn.active { background: white; color: var(--navy-dark); font-weight: 700; border-color: white; }
         .lang-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.15); color: white; }
 
-        header { background-color: var(--navy-dark); display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo-img { height: 45px; width: auto; object-fit: contain; border-radius: 8px; }
-        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .top-bar { border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.6rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .top-bar-info { display: flex; gap: 2rem; }
+        .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
+
+        header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .header-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; text-decoration: none; }
         .logo span { color: var(--accent-red); }
+        
+        nav { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 1rem; align-items: center; }
+        nav a, .dropbtn { color: #ffffff !important; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        nav a:hover, .dropdown:hover .dropbtn { color: var(--accent-red) !important; transform: translateY(-1px); }
 
-        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
-        .back-btn:hover { color: var(--accent-red); }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: -15px; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; min-width: 220px; box-shadow: var(--shadow-lg); z-index: 1000; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid #e2e8f0; }
+        .dropdown-content a { color: var(--navy-dark) !important; padding: 14px 20px; text-decoration: none; display: block; font-weight: 600; border-bottom: 1px solid #f1f5f9; transition: background 0.2s; white-space: normal; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent-red) !important; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        .faith-header { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); color: white; text-align: center; padding: 6rem 4% 4rem 4%; }
-        .faith-header h1 { font-family: 'Merriweather', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
-        .faith-header p { color: #cbd5e1; font-size: 1.1rem; font-weight: 300; max-width: 600px; margin: 0 auto; }
+        /* Botón para volver atrás (Ubicado en el área de contenido para máxima claridad) */
+        .back-btn-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 4% 0 4%; 
+            text-align: left; 
+        }
 
-        .faith-container { max-width: 1000px; margin: -3rem auto 6rem auto; padding: 0 4%; position: relative; z-index: 10; }
-        .faith-card { background: var(--card-bg); padding: 3.5rem; border-radius: 24px; box-shadow: var(--shadow-lg); border: 1px solid #e2e8f0; margin-bottom: 2.5rem; border-top: 5px solid var(--navy-primary); }
-        .faith-card h3 { font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.6rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-        .faith-card h3 i { color: var(--accent-red); font-size: 1.3rem; }
-        .faith-card p { color: var(--text-main); font-size: 1.05rem; line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+        .back-btn {
+            display: inline-flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 0.9rem 2.5rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            letter-spacing: 0.5px; 
+            border: none; 
+            color: white !important; 
+            background-color: var(--accent-red);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
 
-        footer { background-color: #020617; color: #94a3b8; text-align: center; padding: 3rem 4%; font-size: 0.95rem; font-weight: 300; }
+        .back-btn:hover {
+            background-color: var(--accent-red-hover); 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Contenedor Principal y Grid */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 4% 5rem 4%;
+        }
+
+        .header-title-box {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            color: var(--navy-dark);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .doctrine-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--navy-primary);
+        }
+        
+        .doctrine-card:nth-child(even) {
+            border-top: 5px solid var(--accent-red);
+        }
+
+        .doctrine-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .doctrine-card h3 {
+            color: var(--navy-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Merriweather', serif;
+        }
+
+        .doctrine-card h3 i {
+            color: var(--accent-red);
+            font-size: 1.6rem;
+        }
+
+        .doctrine-card:nth-child(even) h3 i {
+            color: var(--navy-primary);
+        }
+
+        .doctrine-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            text-align: left;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020617; 
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 3rem 4%; 
+            font-size: 0.95rem; 
+            font-weight: 300; 
+            margin-top: 2rem; 
+        }
         footer p { margin-top: 0.5rem; }
         footer strong { color: white; font-weight: 600; }
 
-        @media (max-width: 768px) {
-            .faith-card { padding: 2rem 1.5rem; }
+        /* REGLAS PARA PANTALLAS PEQUEÑAS */
+        @media (max-width: 1250px) {
+            header { padding: 1rem 2%; }
+            nav { gap: 0.8rem; }
+            nav a, .dropbtn { font-size: 0.75rem; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
+        }
+
+        @media (max-width: 1000px) {
+            header { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .header-brand { justify-content: center; width: 100%; }
+            nav { justify-content: center; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 900px) {
+            h1 { font-size: 2.5rem; }
+            .back-btn-container { text-align: center; }
+            .doctrine-card { padding: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="top-bar-info">
-            <span><i class="fa-solid fa-location-dot"></i> 24211 Sunflower Ln, Edcouch, TX</span>
-            <span><i class="fa-solid fa-phone"></i> (956) 382-1051</span>
-        </div>
-        <div style="display: flex; align-items: center;">
-            <span lang="es">Bienvenidos</span>
-            <span lang="en">Welcome</span>
-            <div style="display: inline-block; margin-left: 1rem;">
-                <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
-                <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    <div class="header-wrapper">
+        <div class="top-bar">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-location-dot"></i> 24211 Sunflower Ln, Edcouch, TX</span>
+                <span><i class="fa-solid fa-phone"></i> (956) 382-1051</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <span lang="es">Bienvenidos</span>
+                <span lang="en">Welcome</span>
+                <div style="display: inline-block; margin-left: 1rem;">
+                    <button onclick="setLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+                </div>
             </div>
         </div>
+
+        <header>
+            <div class="header-brand">
+                <a href="index.html" class="logo" lang="es">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    Iglesia Bautista <span>El Faro</span>
+                </a>
+                <a href="index.html" class="logo" lang="en">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    El Faro <span>Baptist Church</span>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+                <div class="dropdown">
+                    <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
+                    <div class="dropdown-content">
+                        <a href="index.html#visita"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                        <a href="index.html#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                        <a href="index.html#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                    </div>
+                </div>
+                <a href="index.html#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+                <a href="fe.html" style="color: var(--accent-red) !important;"><span lang="es">Nuestra Fe</span><span lang="en">Our Faith</span></a>
+                <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+                <a href="index.html#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+                <a href="index.html#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+                <a href="index.html#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
+            </nav>
+        </header>
     </div>
 
-    <header>
-        <a href="index.html" class="logo" lang="es">
-            <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
-            Iglesia Bautista <span>El Faro</span>
+    <div class="back-btn-container">
+        <a href="index.html#nosotros" class="back-btn">
+            <span lang="es"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Volver a Quiénes Somos</span>
+            <span lang="en"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to About Us</span>
         </a>
-        <a href="index.html" class="logo" lang="en">
-            <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
-            El Faro <span>Baptist Church</span>
-        </a>
-        <a href="index.html" class="back-btn">
-            <i class="fa-solid fa-arrow-left"></i> <span lang="es">Volver al Inicio</span><span lang="en">Back to Home</span>
-        </a>
-    </header>
-
-    <div class="faith-header">
-        <h1 lang="es">Declaración de Fe</h1>
-        <h1 lang="en">Statement of Faith</h1>
-        <p lang="es">Conozca los fundamentos doctrinales y bíblicos sobre los cuales se cimenta nuestra iglesia.</p>
-        <p lang="en">Learn about the doctrinal and biblical foundations upon which our church is built.</p>
     </div>
 
-    <div class="faith-container">
+    <div class="container">
+        <div class="header-title-box">
+            <h1>
+                <span lang="es">Declaración de Fe</span>
+                <span lang="en">Statement of Faith</span>
+            </h1>
+            <p class="intro-text">
+                <span lang="es">En los siguientes párrafos usted podrá informarse de manera general en lo que creemos como Iglesia. Ante todo, nosotros creemos en la Biblia y enseñamos que es la verdad perfecta inspirada por Dios. Cada una de las creencias y enseñanzas se deriva directamente de la Palabra de Dios.</span>
+                <span lang="en">In the following paragraphs, you can learn generally what we believe as a Church. Above all, we believe in the Bible and teach that it is the perfect truth inspired by God. Every belief and teaching is derived directly from God's Word.</span>
+            </p>
+        </div>
         
-        <div class="faith-card">
-            <h3 lang="es"><i class="fa-solid fa-book-bible"></i> Las Sagradas Escrituras</h3>
-            <h3 lang="en"><i class="fa-solid fa-book-bible"></i> The Holy Scriptures</h3>
-            <p lang="es">Creemos que la Biblia es la Palabra de Dios escrita, inspirada por el Espíritu Santo, inerrante en los originales, y la regla suprema e infalible de fe y conducta (2 Timoteo 3:16-17; 2 Pedro 1:20-21).</p>
-            <p lang="en">We believe the Bible is the written Word of God, inspired by the Holy Spirit, inerrant in the originals, and the supreme and infallible rule of faith and conduct (2 Timothy 3:16-17; 2 Peter 1:20-21).</p>
-        </div>
+        <div class="cards-grid">
+            
+            <div class="doctrine-card">
+                <h3><i class="fas fa-book-bible"></i> <span lang="es">La Biblia</span><span lang="en">The Bible</span></h3>
+                <p>
+                    <span lang="es">Creemos que la Biblia es la Palabra de Dios revelada, y que es completa y verbalmente inspirada por Dios. Creemos que la Escritura es la inerrante e infalible Palabra de Dios, y se encuentra así en sus 66 libros desde Génesis hasta Apocalipsis. Creemos que Dios no solamente inspiró cada palabra, sino que también la preservó a través de los tiempos. Creemos que la Versión Reina Valera 1960 es la Palabra de Dios preservada para el pueblo Hispano-Parlante (Salmos 12:6-7; II Timoteo 3:15-17; I Pedro 1:23-25; II Pedro 1:19-21).</span>
+                    <span lang="en">We believe that the Bible is the revealed Word of God, and that it is completely and verbally inspired by God. We believe that Scripture is the inerrant and infallible Word of God, found in its 66 books from Genesis to Revelation. We believe that God not only inspired every word, but also preserved it through the ages. (Psalms 12:6-7; 2 Timothy 3:15-17; 1 Peter 1:23-25; 2 Peter 1:19-21).</span>
+                </p>
+            </div>
 
-        <div class="faith-card">
-            <h3 lang="es"><i class="fa-solid fa-shield-halved"></i> Dios Trino</h3>
-            <h3 lang="en"><i class="fa-solid fa-shield-halved"></i> The Triune God</h3>
-            <p lang="es">Creemos en un solo Dios vivo y verdadero, eterno, existente en tres personas: Padre, Hijo y Espíritu Santo, iguales en poder y gloria (Deuteronomio 6:4; Mateo 28:19; 2 Corintios 13:14).</p>
-            <p lang="en">We believe in one living and true God, eternal, existing in three persons: Father, Son, and Holy Spirit, equal in power and glory (Deuteronomy 6:4; Matthew 28:19; 2 Corinthians 13:14).</p>
-        </div>
+            <div class="doctrine-card">
+                <h3><i class="fas fa-shield-halved"></i> <span lang="es">Dios</span><span lang="en">God</span></h3>
+                <p>
+                    <span lang="es">Creemos en un sólo Dios, el cual es eterno, auto-existente, infinito e inmutable. Creemos que tiene una naturaleza, una esencia, una sustancia y que se ha manifestado al hombre en tres personas: el Padre, el Hijo y el Espíritu Santo (Deuteronomio 6:4; I Timoteo 1:17; Santiago 1:17; I Juan 4:4).</span>
+                    <span lang="en">We believe in one God, who is eternal, self-existent, infinite, and immutable. We believe He has one nature, one essence, one substance, and has manifested Himself to man in three persons: the Father, the Son, and the Holy Spirit (Deuteronomy 6:4; 1 Timothy 1:17; James 1:17; 1 John 4:4).</span>
+                </p>
+            </div>
 
-        <div class="faith-card">
-            <h3 lang="es"><i class="fa-solid fa-heart-pulse"></i> Jesucristo y la Salvación</h3>
-            <h3 lang="en"><i class="fa-solid fa-heart-pulse"></i> Jesus Christ and Salvation</h3>
-            <p lang="es">Creemos en la divinidad de Jesucristo, su nacimiento virginal, su vida sin pecado, sus milagros, su muerte vicaria y expiatoria en la cruz, su resurrección corporal y su futura segunda venida. La salvación es un don gratuito de Dios recibido solo por la gracia a través de la fe en Cristo (Efesios 2:8-9; Romanos 10:9-10).</p>
-            <p lang="en">We believe in the deity of Jesus Christ, His virgin birth, His sinless life, His miracles, His vicarious and atoning death on the cross, His bodily resurrection, and His future second coming. Salvation is a free gift of God received only by grace through faith in Christ (Ephesians 2:8-9; Romans 10:9-10).</p>
-        </div>
+            <div class="doctrine-card">
+                <h3><i class="fas fa-hourglass-half"></i> <span lang="es">Los Últimos Días</span><span lang="en">The Last Days</span></h3>
+                <p>
+                    <span lang="es">Creemos en la interpretación literal de las Escrituras en su contexto gramatical e histórico. Creemos en el Rapto pre-tribulacional de los santos de la iglesia, seguido por los siete años de Tribulación. Creemos en el regreso pre-milenial de Cristo a la tierra y su literal reinado de mil años. Seguido a estos mil años es el juicio del Gran Trono Blanco y entonces el Cielo nuevo y tierra nueva (I Corintios 15:51-58; I Tesalonicenses 4:13-18; I Tesalonicenses 5:1-9; Apocalipsis 19-22).</span>
+                    <span lang="en">We believe in the literal interpretation of Scriptures in their grammatical and historical context. We believe in the pre-tribulation Rapture of the church saints, followed by the seven years of Tribulation. We believe in the pre-millennial return of Christ to earth and His literal thousand-year reign (1 Corinthians 15:51-58; 1 Thessalonians 4:13-18; Revelation 19-22).</span>
+                </p>
+            </div>
 
-        <div class="faith-card">
-            <h3 lang="es"><i class="fa-solid fa-users"></i> La Iglesia</h3>
-            <h3 lang="en"><i class="fa-solid fa-users"></i> The Church</h3>
-            <p lang="es">Creemos que la iglesia local es una congregación de creyentes bautizados, unidos en la fe y el pacto del evangelio, cuyo propósito es adorar a Dios, edificar a los santos y proclamar el Evangelio a todo el mundo (Mateo 28:19-20; Hechos 2:41-47).</p>
-            <p lang="en">We believe that the local church is a congregation of baptized believers, united in faith and the covenant of the gospel, whose purpose is to worship God, edify the saints, and proclaim the Gospel to the whole world (Matthew 28:19-20; Acts 2:41-47).</p>
-        </div>
+            <div class="doctrine-card">
+                <h3><i class="fas fa-cross"></i> <span lang="es">El Hijo</span><span lang="en">The Son</span></h3>
+                <p>
+                    <span lang="es">Creemos que Jesucristo es el único Salvador de la humanidad. Creemos que Jesucristo es eternamente Dios y que posee todos los atributos de la Deidad. Creemos que el Señor Jesucristo nació de una virgen, que Él es Dios encarnado, y que el propósito de la encarnación fue revelar a Dios para redimir al hombre, y para reinar sobre el reino de Dios. Creemos que vivió una vida perfecta, sin pecado, y que la ofreció como un sacrificio sustitutivo por los pecados del hombre a través del derramamiento de su sangre en la Cruz (Salmos 2:7-9; Isaías 7:14; Juan 1:1; Romanos 3:19-25; Filipenses 2:5-11).</span>
+                    <span lang="en">We believe that Jesus Christ is the only Savior of humanity. We believe that Jesus Christ is eternally God and possesses all the attributes of Deity. We believe He was born of a virgin, lived a perfect, sinless life, and offered Himself as a substitutionary sacrifice for man's sins through the shedding of His blood on the Cross (Psalm 2:7-9; Isaiah 7:14; John 1:1; Romans 3:19-25; Philippians 2:5-11).</span>
+                </p>
+            </div>
 
+            <div class="doctrine-card">
+                <h3><i class="fas fa-heart-pulse"></i> <span lang="es">El Pecado y la Salvación</span><span lang="en">Sin and Salvation</span></h3>
+                <p>
+                    <span lang="es">Creemos que todos los hombres nacen con la herencia del pecado natural recibida de parte de nuestro antecesor común Adán. Creemos que debido a esta naturaleza el hombre es un pecador por decisión, y que es totalmente incapaz de reformarse a sí mismo o dejar de pecar por su propio poder. Creemos que la única esperanza de salvación es volverse a Jesucristo como único Salvador a través de Su sacrificio sustitutivo en la Cruz (Génesis 5:1-5; Romanos 3:10-23; Romanos 6:23; Efesios 2:8-9).</span>
+                    <span lang="en">We believe all men are born with a nature of natural sin inherited from Adam, making man a sinner by choice and entirely incapable of reforming himself. We believe the only hope of salvation is turning to Jesus Christ as the only Savior through His substitutionary sacrifice (Genesis 5:1-5; Romans 3:10-23; Romans 6:23; Ephesians 2:8-9).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-dove"></i> <span lang="es">El Espíritu Santo</span><span lang="en">The Holy Spirit</span></h3>
+                <p>
+                    <span lang="es">Creemos que El Espíritu Santo de Dios es una persona que tiene todos los atributos de la Deidad. Su ministerio especial comenzó el día de Pentecostés y continúa hasta el día del rapto. Su ministerio incluye proveer convicción del pecado y redargüir hacia una vida de santidad, regenerando, santificando, sellando y llenando a todos aquellos que han recibido a Cristo (Juan 3:5-6; Hechos 1:5; I Corintios 6:19-20; I Corintios 12:13).</span>
+                    <span lang="en">We believe the Holy Spirit is a person possessing all attributes of Deity. His special ministry began on Pentecost and continues until the rapture, providing conviction of sin, regeneration, sanctification, and sealing all believers (John 3:5-6; Acts 1:5; 1 Corinthians 6:19-20; 1 Corinthians 12:13).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-church"></i> <span lang="es">La Iglesia del Nuevo Testamento</span><span lang="en">The New Testament Church</span></h3>
+                <p>
+                    <span lang="es">Creemos que la iglesia comenzó con el llamado de los doce apóstoles por Jesucristo y que fue empoderada en el día de Pentecostés. Creemos que la iglesia local es la única institución de parte de Dios para hacer su obra en este tiempo, compuesta por miembros que han sido salvos y bautizados que voluntariamente se reúnen para adorar a Dios y recordar la Cena del Señor (Mateo 16:16-18; Hechos 2:41-43; Efesios 5:25-30; I Tesalonicenses 4:13-18).</span>
+                    <span lang="en">We believe the church began with the calling of the twelve apostles and was empowered on Pentecost. We believe the local church is God's sole institution for His work today, composed of saved and baptized members who gather to worship and remember the Lord's Supper (Matthew 16:16-18; Acts 2:41-43; Ephesians 5:25-30).</span>
+                </p>
+            </div>
+
+        </div>
     </div>
 
     <footer>
@@ -150,18 +359,14 @@
     </footer>
 
     <script>
+        // Check if user previously selected a language on index.html
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('faro_language') || 'es';
             setLanguage(savedLang);
-            
-            // Check if a custom logo was saved on the main page, and apply it here too!
-            const savedLogo = localStorage.getItem('faro_main_logo');
-            if (savedLogo) {
-                document.querySelectorAll('.logo-img').forEach(img => img.src = savedLogo);
-            }
         });
 
         function setLanguage(lang) {
+            // Save choice to localStorage so it syncs automatically across pages
             localStorage.setItem('faro_language', lang);
             
             if (lang === 'en') {
