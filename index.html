@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
     <style>
         :root {
             /* Paleta de colores estricta: Rojo, Blanco y Azul */
@@ -40,10 +43,7 @@
         }
         
         /* Language Toggle - CSS REESCRITO PARA ESCALADO PERFECTO */
-        /* Si NO está el modo inglés activado, ocultar textos en inglés */
         body:not(.lang-en) [lang="en"] { display: none !important; }
-        
-        /* Si SÍ está el modo inglés activado, ocultar textos en español */
         body.lang-en [lang="es"] { display: none !important; }
 
         /* ENVOLTORIO SUPERIOR PARA TRANSPARENCIA SOBRE EL HERO */
@@ -82,7 +82,7 @@
         .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent-red) !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* NUEVA SECCIÓN HERO - Estilo Minimalista Centrado y Fluido */
+        /* NUEVA SECCIÓN HERO */
         .hero { 
             background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('') center/cover no-repeat; 
             background-color: var(--navy-dark); 
@@ -95,11 +95,9 @@
             align-items: center; 
             padding: 8rem 4% 4rem 4%; 
         }
-        /* Utilizamos "clamp" para que el tamaño de fuente se adapte a cualquier pantalla suavemente */
         .hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.05; max-width: 900px; text-transform: uppercase; }
         .hero p { font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: 700px; margin: 0 auto 3rem auto; color: #cbd5e1; font-weight: 300; line-height: 1.6; }
         
-        /* Botones Profesionales (Centrados) */
         .btn-group { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
         .btn { display: inline-flex; justify-content: center; align-items: center; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; }
         .btn-primary { background-color: var(--accent-red); color: white; box-shadow: var(--shadow-md); }
@@ -205,7 +203,7 @@
         /* Clases base requeridas por el JS */
         .hidden { display: none !important; }
         
-        /* ADMIN UI - SIN CAMBIOS LÓGICOS */
+        /* ADMIN UI */
         .admin-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.9rem; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
         .admin-table th, .admin-table td { padding: 1rem; border: 1px solid #e2e8f0; text-align: left; }
         .admin-table th { background-color: var(--navy-dark); color: white; font-weight: 600; }
@@ -594,8 +592,10 @@
 
             <div id="admin-dashboard-container" class="hidden">
                 <h3 id="admin-greeting" style="text-align: center; margin-bottom: 2rem; color: var(--navy-dark); font-size: 2rem; font-weight: 700;"></h3>
+                
                 <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
                     <button id="btn-tab-content" class="btn btn-primary main-tab-btn" onclick="switchMainDashboardTab('content')">Sitio Web / Website</button>
+                    <button id="btn-tab-cloud" class="btn btn-outline main-tab-btn" style="border-color: #3b82f6; color: #3b82f6; background: transparent;" onclick="switchMainDashboardTab('cloud')"><i class="fa-solid fa-cloud" style="margin-right: 8px;"></i> Nube / Cloud</button>
                     <button id="btn-tab-security" class="btn btn-outline main-tab-btn" style="display: none; border-color: var(--accent-red); color: var(--accent-red); background: transparent;" onclick="switchMainDashboardTab('security')"><i class="fa-solid fa-lock" style="margin-right: 8px;"></i> Seguridad / Security</button>
                 </div>
 
@@ -865,6 +865,35 @@
                     </div>
 
                 </div>
+                
+                <div id="dashboard-cloud" style="display: none;">
+                    <div class="contact-box" style="padding: 3rem; background-color: #eff6ff; border: 2px solid #bfdbfe; text-align: center;">
+                        <span style="font-size: 4rem; color: #3b82f6; display: block; margin-bottom: 1rem;"><i class="fa-brands fa-google-drive"></i></span>
+                        <h3 style="color: #1d4ed8; font-family: 'Inter', sans-serif; font-size: 2rem; margin-bottom: 1rem;" lang="es">Sincronización con Google Cloud</h3>
+                        <h3 style="color: #1d4ed8; font-family: 'Inter', sans-serif; font-size: 2rem; margin-bottom: 1rem;" lang="en">Google Cloud Sync</h3>
+                        
+                        <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 2rem;" lang="es">Guarda y protege todos los cambios de tu sitio web de forma permanente en el Google Drive oficial de la iglesia.</p>
+                        <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 2rem;" lang="en">Save and protect all your website changes permanently in the church's official Google Drive.</p>
+
+                        <button id="btn-cloud-connect" class="btn btn-primary" style="background-color: #3b82f6; font-size: 1.1rem; padding: 1rem 3rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;" onclick="authenticateGoogle()">
+                            <i class="fa-solid fa-link" style="margin-right: 8px;"></i> <span lang="es">Conectar con Google</span><span lang="en">Connect with Google</span>
+                        </button>
+                        
+                        <p id="cloud-status" style="font-weight: bold; margin-bottom: 2rem; color: #64748b;" lang="es">Estado: Desconectado 🔴</p>
+                        <p id="cloud-status-en" style="font-weight: bold; margin-bottom: 2rem; color: #64748b; display: none;" lang="en">Status: Disconnected 🔴</p>
+
+                        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; border-top: 1px solid #bfdbfe; padding-top: 2rem;">
+                            <button class="btn btn-primary" style="background-color: #10b981; font-size: 1rem;" onclick="saveToDrive()">
+                                <i class="fa-solid fa-cloud-arrow-up" style="margin-right: 8px;"></i> 
+                                <span lang="es">Respaldar en la Nube</span><span lang="en">Backup to Cloud</span>
+                            </button>
+                            <button class="btn btn-outline" style="border-color: #f59e0b; color: #f59e0b; font-size: 1rem; background-color: white;" onclick="loadFromDrive()">
+                                <i class="fa-solid fa-cloud-arrow-down" style="margin-right: 8px;"></i> 
+                                <span lang="es">Restaurar Sitio Web</span><span lang="en">Restore Website</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="dashboard-security" style="display: none;">
                     
@@ -943,7 +972,144 @@
     </footer>
 
     <script>
-        // --- LIVE AUDIT LOG SYSTEM ---
+        // ==========================================
+        // GOOGLE CLOUD SYNC ENGINE
+        // ==========================================
+        const GOOGLE_CLIENT_ID = "679180312582-arekif5g0veao06qk1q1nripv7t3vc5v.apps.googleusercontent.com"; // <--- PASTE IT EXACTLY OVER THIS TEXT
+        
+        let tokenClient;
+        let cloudAccessToken = null;
+
+        function authenticateGoogle() {
+            if (GOOGLE_CLIENT_ID === "PASTE_YOUR_CLIENT_ID_HERE" || !GOOGLE_CLIENT_ID) {
+                alert("ERROR: Por favor pega tu Client ID en el código fuente primero.\n\nERROR: Please paste your Client ID in the source code first.");
+                return;
+            }
+
+            if (!tokenClient) {
+                tokenClient = google.accounts.oauth2.initTokenClient({
+                    client_id: GOOGLE_CLIENT_ID,
+                    scope: 'https://www.googleapis.com/auth/drive.file',
+                    callback: (response) => {
+                        if (response && response.access_token) {
+                            cloudAccessToken = response.access_token;
+                            document.getElementById('cloud-status').innerText = "Estado: Conectado 🟢";
+                            document.getElementById('cloud-status-en').innerText = "Status: Connected 🟢";
+                            
+                            if(document.body.classList.contains('lang-en')) {
+                                document.getElementById('cloud-status-en').style.display = 'block';
+                                document.getElementById('cloud-status').style.display = 'none';
+                                document.getElementById('btn-cloud-connect').innerText = "Connected to Google";
+                            } else {
+                                document.getElementById('cloud-status').style.display = 'block';
+                                document.getElementById('cloud-status-en').style.display = 'none';
+                                document.getElementById('btn-cloud-connect').innerText = "Conectado a Google";
+                            }
+                            document.getElementById('btn-cloud-connect').style.backgroundColor = '#10b981';
+                        }
+                    },
+                });
+            }
+            tokenClient.requestAccessToken();
+        }
+
+        async function saveToDrive() {
+            if (!cloudAccessToken) {
+                alert("Primero debes conectar con Google.\nPlease connect to Google first.");
+                return;
+            }
+            
+            document.body.style.cursor = 'wait';
+            
+            // Gather all local changes
+            const backupData = {};
+            for(let i=0; i<localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if(key.startsWith('faro_')) {
+                    backupData[key] = localStorage.getItem(key);
+                }
+            }
+            const fileContent = JSON.stringify(backupData);
+
+            const boundary = '-------314159265358979323846';
+            const delimiter = "\r\n--" + boundary + "\r\n";
+            const close_delim = "\r\n--" + boundary + "--";
+            
+            const metadata = {
+                'name': 'Iglesia_El_Faro_Website_Backup.json',
+                'mimeType': 'application/json'
+            };
+
+            const multipartRequestBody =
+                delimiter +
+                'Content-Type: application/json; charset=UTF-8\r\n\r\n' +
+                JSON.stringify(metadata) +
+                delimiter +
+                'Content-Type: application/json\r\n\r\n' +
+                fileContent +
+                close_delim;
+
+            try {
+                const request = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + cloudAccessToken,
+                        'Content-Type': 'multipart/related; boundary=' + boundary
+                    },
+                    body: multipartRequestBody
+                });
+
+                if(request.ok) {
+                    alert("¡Sincronización Exitosa! Toda tu información web está protegida en Google Drive.\n\nSuccess! All website data is protected in Google Drive.");
+                    addLog('Respaldo web subido a Google Drive', 'Website backup uploaded to Google Drive');
+                } else {
+                    alert("Ocurrió un error al subir el archivo.");
+                }
+            } catch(e) {
+                alert("Error: " + e.message);
+            }
+            document.body.style.cursor = 'default';
+        }
+
+        async function loadFromDrive() {
+            if (!cloudAccessToken) {
+                alert("Primero debes conectar con Google.\nPlease connect to Google first.");
+                return;
+            }
+
+            document.body.style.cursor = 'wait';
+            try {
+                const searchRes = await fetch("https://www.googleapis.com/drive/v3/files?q=name='Iglesia_El_Faro_Website_Backup.json'", {
+                    headers: { 'Authorization': 'Bearer ' + cloudAccessToken }
+                });
+                const searchData = await searchRes.json();
+                
+                if(searchData.files && searchData.files.length > 0) {
+                    const fileId = searchData.files[0].id;
+                    const fileRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
+                        headers: { 'Authorization': 'Bearer ' + cloudAccessToken }
+                    });
+                    const backupData = await fileRes.json();
+                    
+                    for(let key in backupData) {
+                        localStorage.setItem(key, backupData[key]);
+                    }
+                    
+                    alert("¡Sitio web restaurado desde la Nube! La página se recargará.\n\nWebsite restored from Cloud! The page will reload.");
+                    location.reload();
+                } else {
+                    alert("No se encontró ningún archivo de respaldo en tu Google Drive.\nNo backup file found in your Google Drive.");
+                }
+            } catch(e) {
+                alert("Error descargando desde Google Drive: " + e.message);
+            }
+            document.body.style.cursor = 'default';
+        }
+
+
+        // ==========================================
+        // LOCAL SYSTEMS & UI 
+        // ==========================================
         let currentUser = "Desconocido"; 
         let currentUserUsername = ""; 
         let auditLogs = JSON.parse(localStorage.getItem('faro_audit_logs')) || [];
@@ -987,7 +1153,6 @@
             });
         }
 
-        // --- TRANSLATION API ---
         async function translateText(text, targetLang) {
             if (!text) return "";
             try {
@@ -1001,7 +1166,6 @@
             }
         }
 
-        // --- DYNAMIC ADMIN MANAGER ---
         const defaultAdmins = [
             { user: "Pastor_01", pass: "1234", name: "Pastor Neil" },
             { user: "IT_02", pass: "5678", name: "Jorge" },
@@ -1078,18 +1242,23 @@
             }
         }
 
-        // --- MASTER ADMIN DASHBOARD TABS ---
         function switchMainDashboardTab(tabName) {
             document.getElementById('dashboard-content').style.display = (tabName === 'content') ? 'block' : 'none';
             document.getElementById('btn-tab-content').className = (tabName === 'content') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
             
-            document.getElementById('dashboard-security').style.display = (tabName === 'security') ? 'block' : 'none';
-            document.getElementById('btn-tab-security').className = (tabName === 'security') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
+            if (document.getElementById('btn-tab-security')) {
+                document.getElementById('dashboard-security').style.display = (tabName === 'security') ? 'block' : 'none';
+                document.getElementById('btn-tab-security').className = (tabName === 'security') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
+            }
+
+            if (document.getElementById('btn-tab-cloud')) {
+                document.getElementById('dashboard-cloud').style.display = (tabName === 'cloud') ? 'block' : 'none';
+                document.getElementById('btn-tab-cloud').className = (tabName === 'cloud') ? 'btn btn-primary main-tab-btn' : 'btn btn-outline main-tab-btn';
+            }
         }
 
-        // --- MASTER SECURITY PIN VERIFICATION ---
         let isSecurityUnlocked = false;
-        const MASTER_PIN = "0000"; // Cambiar aquí para actualizar el código PIN
+        const MASTER_PIN = "0000"; 
 
         function verifySecurityPin() {
             const pin = document.getElementById('security-pin-input').value.trim();
@@ -1115,7 +1284,6 @@
             }
         }
 
-        // --- COMPRESS IMAGE ENGINE ---
         function compressImage(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -1155,9 +1323,7 @@
                 reader.onerror = error => reject(error);
             });
         }
-        // --- FIN COMPRESS IMAGE ENGINE ---
 
-        // --- NEW DYNAMIC TEAM MANAGER ---
         let globalTeam = [];
         
         function initTeam() {
@@ -1353,7 +1519,6 @@
             }
         }
 
-        // --- DYNAMIC EVENTS SYSTEM START ---
         let globalEvents = [];
 
         function initEvents() {
@@ -1523,7 +1688,6 @@
             }
         }
 
-        // --- FUNCION PARA ELIMINAR IMAGEN MAIN GENERAL ---
         function removeMainImage(targetId, defaultSrc) {
             if(confirm("¿Seguro que desea eliminar esta imagen? / Are you sure?")) {
                 localStorage.removeItem('faro_main_' + targetId);
@@ -1536,14 +1700,12 @@
             }
         }
         
-        // --- FUNCIONES EXCLUSIVAS PARA LOGO ---
         async function updateLogoImage(inputId) {
             const fileInput = document.getElementById(inputId);
             if (!fileInput.files || fileInput.files.length === 0) { alert("Seleccione una imagen. / Select an image."); return; }
             try {
                 let compressedImage = await compressImage(fileInput.files[0]);
                 localStorage.setItem('faro_main_logo', compressedImage);
-                // Actualiza ambos logos de todos los idiomas
                 document.querySelectorAll('.logo-img').forEach(img => img.src = compressedImage);
                 addLog(`Actualizó el logo principal`, `Updated main logo`);
                 alert("¡Éxito! Logo actualizado. / Success! Logo updated.");
@@ -1562,19 +1724,16 @@
             }
         }
 
-        // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             initEvents();
             initTeam(); 
             renderAuditLog();
             
-            // Cargar Logo Personalizado (si lo hay)
             const savedLogo = localStorage.getItem('faro_main_logo');
             if (savedLogo) {
                 document.querySelectorAll('.logo-img').forEach(img => img.src = savedLogo);
             }
 
-            // Load Main Static Images
             const imageIds = [
                 'img-edit-1', 'img-edit-2',
                 'img-min-guarderia', 'img-min-ninos', 'img-min-jovenes', 'img-min-damas', 'img-min-varones',
@@ -1591,7 +1750,6 @@
                 document.getElementById('inicio').style.backgroundImage = `linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('${savedHero}')`;
             }
 
-            // Load Custom Static Texts
             const textIds = [
                 'text-hero-es', 'text-hero-en', 'text-edit1-es', 'text-edit1-en', 'text-edit2-es', 'text-edit2-en',
                 'text-min-guarderia-es', 'text-min-guarderia-en', 'text-min-ninos-es', 'text-min-ninos-en',
@@ -1608,7 +1766,6 @@
             });
         });
 
-        // PREFILL ALL ADMIN TEXT FORMS SO YOU DONT LOSE TEXT
         function populateAdminFields() {
             const isEn = document.body.classList.contains('lang-en');
             const suffix = isEn ? '-en' : '-es';
