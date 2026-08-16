@@ -9,6 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <script>
+        function fixExt(img, basePath) {
+            const exts = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
+            let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
+            if (attempts < exts.length) {
+                img.src = basePath + exts[attempts];
+                img.dataset.attempts = attempts + 1;
+            } else {
+                img.onerror = null; 
+                img.style.display = 'none'; // Hides broken icon if completely missing
+            }
+        }
+    </script>
+
     <style>
         :root {
             --navy-dark: #0f172a; 
@@ -244,11 +258,11 @@
         <header>
             <div class="header-brand">
                 <a href="index.html" class="logo" lang="es">
-                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     Iglesia Bautista <span>El Faro</span>
                 </a>
                 <a href="index.html" class="logo" lang="en">
-                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     El Faro <span>Baptist Church</span>
                 </a>
             </div>
