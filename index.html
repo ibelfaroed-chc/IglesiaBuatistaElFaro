@@ -13,13 +13,14 @@
 
     <script>
         function fixExt(img, basePath) {
-            const exts = ['.jpeg', '.png', '.jpg', '.JPG', '.JPEG', '.PNG', '.webp'];
+            const exts = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
             let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
             if (attempts < exts.length) {
                 img.src = basePath + exts[attempts];
                 img.dataset.attempts = attempts + 1;
             } else {
                 img.onerror = null; 
+                img.style.display = 'none'; // Hides broken icon if completely missing
             }
         }
     </script>
@@ -88,7 +89,8 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         .hero { 
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), center/cover no-repeat; 
+            /* Added P03.jpg as background image fallback */
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('./P-Pics/P03.jpg') center/cover no-repeat; 
             background-color: var(--navy-dark); 
             color: white; 
             text-align: center; 
@@ -256,11 +258,11 @@
         <header>
             <div class="header-brand">
                 <div class="logo" lang="es">
-                    <img src="P-Pics/Logo.jpg" onerror="fixExt(this, 'P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     Iglesia Bautista <span>El Faro</span>
                 </div>
                 <div class="logo" lang="en">
-                    <img src="P-Pics/Logo.jpg" onerror="fixExt(this, 'P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     El Faro <span>Baptist Church</span>
                 </div>
             </div>
@@ -312,7 +314,7 @@
             <a href="#nosotros" class="editorial-btn"><span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span></a>
         </div>
         <div class="editorial-image-wrapper">
-            <img src="P-Pics/G1.jpeg" onerror="fixExt(this, 'P-Pics/G1')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
+            <img src="./P-Pics/P01.jpg" onerror="fixExt(this, './P-Pics/P01')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
         </div>
     </section>
 
@@ -328,7 +330,7 @@
             <a href="#contacto" class="editorial-btn" lang="en">Connect With Us</a>
         </div>
         <div class="editorial-image-wrapper right-box">
-            <img src="P-Pics/G2.jpeg" onerror="fixExt(this, 'P-Pics/G2')" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
+            <img src="./P-Pics/P02.jpg" onerror="fixExt(this, './P-Pics/P02')" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
         </div>
     </section>
 
@@ -383,7 +385,7 @@
         <div style="max-width: 450px; margin: 0 auto 3.5rem auto;">
             <div class="ministry-card" style="border-top: 5px solid var(--accent-red);">
                 <div style="width: 140px; height: 140px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Pastor.jpeg" onerror="fixExt(this, 'P-Pics/Pastor')" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P05-Pastor.jpg" onerror="fixExt(this, './P-Pics/P05-Pastor')" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3>Pastor Neil Arias</h3>
                 <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Pastor Principal</h4>
@@ -396,7 +398,7 @@
         <div class="ministry-grid" style="max-width: 1100px; margin: 0 auto;">
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Andres.jpeg" onerror="fixExt(this, 'P-Pics/Andres')" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P06-Andres.jpeg" onerror="fixExt(this, './P-Pics/P06-Andres')" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Andres de la Garza</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
@@ -407,7 +409,7 @@
 
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Refugio.jpeg" onerror="fixExt(this, 'P-Pics/Refugio')" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P07-Refugio.png" onerror="fixExt(this, './P-Pics/P07-Refugio')" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Refugio Castillo</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
@@ -418,7 +420,7 @@
             
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Alejandra.jpeg" onerror="fixExt(this, 'P-Pics/Alejandra')" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P08-Alejandra.jpeg" onerror="fixExt(this, './P-Pics/P08-Alejandra')" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Hrna Alejandra</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
@@ -426,6 +428,62 @@
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
             </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="./P-Pics/P09-RHonda.png" onerror="fixExt(this, './P-Pics/P09-RHonda')" alt="RHonda" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">RHonda</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="./P-Pics/P10-Torres.png" onerror="fixExt(this, './P-Pics/P10-Torres')" alt="Torres" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Torres</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="./P-Pics/P12-Dan.png" onerror="fixExt(this, './P-Pics/P12-Dan')" alt="Dan" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Dan</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="./P-Pics/P13-Norma.png" onerror="fixExt(this, './P-Pics/P13-Norma')" alt="Norma" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Norma</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="./P-Pics/P14-Martha.jpeg" onerror="fixExt(this, './P-Pics/P14-Martha')" alt="Martha" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Martha</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
         </div>
     </section>
 
@@ -439,7 +497,7 @@
         <div class="ministry-grid">
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G3.jpeg" onerror="fixExt(this, 'P-Pics/G3')" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P15-Guarderia.jpeg" onerror="fixExt(this, './P-Pics/P15-Guarderia')" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Guardería</h3>
                 <h3 lang="en">Nursery</h3>
@@ -448,7 +506,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G4.jpeg" onerror="fixExt(this, 'P-Pics/G4')" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P16-Ninos.jpg" onerror="fixExt(this, './P-Pics/P16-Ninos')" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Ministerio de Niños</h3>
                 <h3 lang="en">Children's Ministry</h3>
@@ -457,7 +515,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G5.jpeg" onerror="fixExt(this, 'P-Pics/G5')" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P17-Jovenes.jpeg" onerror="fixExt(this, './P-Pics/P17-Jovenes')" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Jóvenes</h3>
                 <h3 lang="en">Youth Ministry</h3>
@@ -466,7 +524,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G6.jpeg" onerror="fixExt(this, 'P-Pics/G6')" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P18-Damas.jpeg" onerror="fixExt(this, './P-Pics/P18-Damas')" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Damas</h3>
                 <h3 lang="en">Women's Ministries</h3>
@@ -475,7 +533,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G7.jpeg" onerror="fixExt(this, 'P-Pics/G7')" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P19-Varones.jpeg" onerror="fixExt(this, './P-Pics/P19-Varones')" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Varones</h3>
                 <h3 lang="en">Men's Ministries</h3>
@@ -495,7 +553,7 @@
         <div class="ministry-grid" style="gap: 4rem; margin-bottom: 4rem;">
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G8.jpeg" onerror="fixExt(this, 'P-Pics/G8')" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P20-Bautismo.jpg" onerror="fixExt(this, './P-Pics/P20-Bautismo')" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Bautismo</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Baptism</h3>
@@ -504,7 +562,7 @@
             </div>
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G9.jpeg" onerror="fixExt(this, 'P-Pics/G9')" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P21-Discipulado.jpeg" onerror="fixExt(this, './P-Pics/P21-Discipulado')" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Clases de Discipulado</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Discipleship Classes</h3>
@@ -513,7 +571,7 @@
             </div>
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G10.jpeg" onerror="fixExt(this, 'P-Pics/G10')" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P22-Visista_A_Casa.jpg" onerror="fixExt(this, './P-Pics/P22-Visista_A_Casa')" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Visita a Su Casa</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Home Visit</h3>
@@ -536,7 +594,7 @@
         </div>
         <div class="sermon-card" style="border-top: 5px solid var(--accent-red); display: flex; flex-direction: column; align-items: center;">
             <div style="margin-bottom: 2.5rem; background-color: #f8fafc; padding: 1rem; width: 240px; height: 240px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
-                <img src="P-Pics/QR.jpeg" onerror="fixExt(this, 'P-Pics/QR')" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
+                <img src="./P-Pics/P04-Ofrenda.jpeg" onerror="fixExt(this, './P-Pics/P04-Ofrenda')" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
             </div>
             <h3 lang="es">Apoye la Misión</h3>
             <h3 lang="en">Support the Mission</h3>
@@ -774,7 +832,7 @@
                                 <input type="file" id="upload-min-guarderia" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-guarderia', 'upload-min-guarderia')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-guarderia', 'P-Pics/G3.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-guarderia', './P-Pics/P15-Guarderia.jpeg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -782,7 +840,7 @@
                                 <input type="file" id="upload-min-ninos" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-ninos', 'upload-min-ninos')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-ninos', 'P-Pics/G4.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-ninos', './P-Pics/P16-Ninos.jpg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -790,7 +848,7 @@
                                 <input type="file" id="upload-min-jovenes" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-jovenes', 'upload-min-jovenes')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-jovenes', 'P-Pics/G5.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-jovenes', './P-Pics/P17-Jovenes.jpeg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -798,7 +856,7 @@
                                 <input type="file" id="upload-min-damas" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-damas', 'upload-min-damas')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-damas', 'P-Pics/G6.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-damas', './P-Pics/P18-Damas.jpeg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -806,7 +864,7 @@
                                 <input type="file" id="upload-min-varones" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-min-varones', 'upload-min-varones')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-varones', 'P-Pics/G7.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-min-varones', './P-Pics/P19-Varones.jpeg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card" style="border-color: #10b981; background-color: #f0fdf4;">
@@ -814,7 +872,7 @@
                                 <input type="file" id="upload-ofrendar-qr" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; background-color: #10b981;" onclick="updateMainImage('img-ofrendar-qr', 'upload-ofrendar-qr')">Guardar QR</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-ofrendar-qr', 'P-Pics/QR.jpeg')">Eliminar QR</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-ofrendar-qr', './P-Pics/P04-Ofrenda.jpeg')">Eliminar QR</button>
                                 </div>
                             </div>
                         </div>
@@ -827,7 +885,7 @@
                                 <input type="file" id="upload-step-bautismo" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-bautismo', 'upload-step-bautismo')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-bautismo', 'P-Pics/G8.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-bautismo', './P-Pics/P20-Bautismo.jpg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -835,7 +893,7 @@
                                 <input type="file" id="upload-step-discipulado" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-discipulado', 'upload-step-discipulado')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-discipulado', 'P-Pics/G9.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-discipulado', './P-Pics/P21-Discipulado.jpeg')">Eliminar</button>
                                 </div>
                             </div>
                             <div class="admin-edit-card">
@@ -843,7 +901,7 @@
                                 <input type="file" id="upload-step-visita" accept="image/*" style="border: none; padding: 0; margin-bottom: 0.5rem;">
                                 <div style="display: flex; gap: 0.5rem;">
                                     <button class="btn btn-primary" style="padding: 0.6rem; flex: 1; font-size: 0.85rem;" onclick="updateMainImage('img-step-visita', 'upload-step-visita')">Guardar</button>
-                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-visita', 'P-Pics/G10.jpeg')">Eliminar</button>
+                                    <button class="btn btn-outline" style="padding: 0.6rem; flex: 1; font-size: 0.85rem; border-color: #dc2626; color: #dc2626;" onclick="removeMainImage('img-step-visita', './P-Pics/P22-Visista_A_Casa.jpg')">Eliminar</button>
                                 </div>
                             </div>
                         </div>
@@ -852,8 +910,8 @@
                     <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
                         <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
                         <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Team</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Agregue o elimine miembros de su equipo libremente. Los títulos y descripciones se traducen automáticamente.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Add or remove team members freely. Titles and descriptions auto-translate.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Agregue o elimine miembros de su equipo libremente. Los títulos y descripciones se traducen automáticamente, <b>los nombres no</b>.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Add or remove team members freely. Titles and descriptions auto-translate, <b>names do not</b>.</p>
                         <div id="admin-team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
                     </div>
 
@@ -883,20 +941,20 @@
                     <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
                         <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Eventos</h3>
                         <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Events</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Los detalles del evento se traducirán automáticamente a ambos idiomas al guardar.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Event details will automatically translate to both languages when saved.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Los detalles se traducirán, <b>el título no se traducirá</b>.</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Details will translate, <b>the title will not be translated</b>.</p>
 
                         <div class="admin-edit-card" style="margin-bottom: 2rem; border-style: dashed; border-color: var(--whatsapp-green); background: #f0fdf4;">
                             <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">+ Agregar Nuevo Evento:</strong>
                             <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="en">+ Add New Event:</strong>
-                            <input type="text" id="new-event-title" placeholder="Título del Evento / Event Title (Auto-translates)">
+                            <input type="text" id="new-event-title" placeholder="Título del Evento / Event Title (NO se traduce / NOT translated)">
                             <input type="text" id="new-event-date" placeholder="Fecha y Hora / Date & Time (ej. August 15, 6:00 PM)">
                             <input type="text" id="new-event-loc" placeholder="Ubicación / Location (Auto-translates)">
                             
                             <label style="font-size: 0.9rem; margin-top: 0.5rem;">Imagen del Evento / Event Image:</label>
                             <input type="file" id="new-event-img" accept="image/*" style="border: none; padding: 0;">
                             
-                            <button class="btn btn-primary" style="padding: 0.8rem; background-color: var(--whatsapp-green); margin-top: 0.5rem;" onclick="addNewEvent()">Agregar y Traducir Evento</button>
+                            <button class="btn btn-primary" style="padding: 0.8rem; background-color: var(--whatsapp-green); margin-top: 0.5rem;" onclick="addNewEvent()">Agregar Evento</button>
                         </div>
 
                         <div style="font-weight: 700; color: var(--navy-dark); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">Eventos Actuales / Current Events:</div>
@@ -1185,32 +1243,95 @@
             });
         }
 
-        // NOTE: TEAM ADMIN CONTROLS KEPT ALIVE, BUT PUBLIC USES HARDCODED HTML
-        let globalTeam = JSON.parse(localStorage.getItem('faro_team')) || [
-            { id: 1, name: "Pastor Neil Arias", roleEs: "Pastor Principal", roleEn: "Lead Pastor", descEs: "Apasionado por guiar a la comunidad y predicar la Palabra.", descEn: "Passionate about guiding the community and preaching the Word.", img: "" },
-            { id: 2, name: "Andres de la Garza", roleEs: "Diácono", roleEn: "Deacon", descEs: "Dedicado a servir a nuestra congregación con amor.", descEn: "Dedicated to serving our congregation with love.", img: "" }
-        ];
+        // --- MANAGE TEAM ---
+        let globalTeam = JSON.parse(localStorage.getItem('faro_team')) || [];
 
-        function renderPublicTeam() {}
+        function renderPublicTeam() {} // Manual HTML is used above
 
         function renderAdminTeam() {
             const grid = document.getElementById('admin-team-grid');
             if(!grid) return;
             grid.innerHTML = '';
             globalTeam.forEach(m => {
-                grid.innerHTML += `<div class="admin-edit-card"><button onclick="deleteTeamMember(${m.id})" class="delete-btn">×</button><input type="text" id="edit-team-name-${m.id}" value="${m.name}"><input type="text" id="edit-team-role-${m.id}" value="${m.roleEs}"><input type="file" id="edit-team-img-${m.id}" accept="image/*"><textarea id="edit-team-desc-${m.id}" rows="2">${m.descEs}</textarea><button class="btn btn-primary" onclick="updateTeamMember(${m.id})">Actualizar</button></div>`;
+                grid.innerHTML += `<div class="admin-edit-card">
+                    <button onclick="deleteTeamMember(${m.id})" class="delete-btn">×</button>
+                    <input type="text" id="edit-team-name-${m.id}" value="${m.name}">
+                    <input type="text" id="edit-team-role-${m.id}" value="${m.roleEs}" placeholder="Role (Auto-translates)">
+                    <textarea id="edit-team-desc-${m.id}" rows="2" placeholder="Description (Auto-translates)">${m.descEs}</textarea>
+                    <input type="file" id="edit-team-img-${m.id}" accept="image/*">
+                    <button class="btn btn-primary" onclick="updateTeamMember(${m.id})">Actualizar</button>
+                </div>`;
             });
+            
+            grid.innerHTML += `
+            <div class="admin-edit-card" style="border-style: dashed; border-color: var(--whatsapp-green); background-color: #f0fdf4;">
+                <h4 style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 0.5rem;">+ Nuevo Miembro / New</h4>
+                <input type="text" id="new-team-name" placeholder="Nombre Completo (NO se traduce)">
+                <input type="text" id="new-team-role" placeholder="Rol / Role (Auto-translates)">
+                <textarea id="new-team-desc" rows="2" placeholder="Descripción (Auto-translates)" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
+                <input type="file" id="new-team-img" accept="image/*" style="border:none; padding:0;">
+                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem; background-color: var(--whatsapp-green);" onclick="addTeamMember()">Agregar / Add</button>
+            </div>`;
+        }
+
+        async function addTeamMember() {
+            const name = document.getElementById('new-team-name').value.trim();
+            const role = document.getElementById('new-team-role').value.trim();
+            const desc = document.getElementById('new-team-desc').value.trim();
+            const fileInput = document.getElementById('new-team-img');
+
+            if(!name) { alert("Agregue un nombre. / Please add a name."); return; }
+            document.body.style.cursor = 'wait';
+
+            const roleEs = await translateText(role, 'es');
+            const roleEn = await translateText(role, 'en');
+            const descEs = await translateText(desc, 'es');
+            const descEn = await translateText(desc, 'en');
+
+            let imgData = "";
+            if (fileInput.files && fileInput.files[0]) {
+                imgData = await compressImage(fileInput.files[0]);
+            }
+
+            globalTeam.push({
+                id: Date.now(), name: name,
+                roleEs: roleEs, roleEn: roleEn,
+                descEs: descEs, descEn: descEn, img: imgData
+            });
+
+            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
+            renderAdminTeam();
+            addLog(`Agregó miembro al equipo: ${name}`, `Added team member: ${name}`);
+            document.body.style.cursor = 'default';
+            alert("¡Miembro Agregado! / Member Added!");
         }
 
         async function updateTeamMember(id) {
             const index = globalTeam.findIndex(m => m.id === id);
-            globalTeam[index].name = document.getElementById(`edit-team-name-${id}`).value;
-            globalTeam[index].roleEs = document.getElementById(`edit-team-role-${id}`).value;
-            globalTeam[index].descEs = document.getElementById(`edit-team-desc-${id}`).value;
+            if(index === -1) return;
+
+            const name = document.getElementById(`edit-team-name-${id}`).value;
+            const role = document.getElementById(`edit-team-role-${id}`).value;
+            const desc = document.getElementById(`edit-team-desc-${id}`).value;
             const fileInput = document.getElementById(`edit-team-img-${id}`);
-            if (fileInput.files[0]) globalTeam[index].img = await compressImage(fileInput.files[0]);
+
+            document.body.style.cursor = 'wait';
+            
+            globalTeam[index].name = name;
+            globalTeam[index].roleEs = await translateText(role, 'es');
+            globalTeam[index].roleEn = await translateText(role, 'en');
+            globalTeam[index].descEs = await translateText(desc, 'es');
+            globalTeam[index].descEn = await translateText(desc, 'en');
+
+            if (fileInput.files && fileInput.files[0]) {
+                globalTeam[index].img = await compressImage(fileInput.files[0]);
+            }
+
             localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderAdminTeam(); alert("Actualizado");
+            renderAdminTeam();
+            addLog(`Actualizó al miembro: ${name}`, `Updated team member: ${name}`);
+            document.body.style.cursor = 'default';
+            alert("¡Miembro Actualizado! / Member Updated!");
         }
 
         function deleteTeamMember(id) {
@@ -1219,16 +1340,15 @@
             renderAdminTeam();
         }
 
-        let globalEvents = JSON.parse(localStorage.getItem('faro_events')) || [
-            { id: 1, titleEs: "Escuelita Bíblica de Vacaciones", titleEn: "Vacation Bible School", dateEs: "15 de Agosto, 6:00 PM", dateEn: "August 15, 6:00 PM", locEs: "Iglesia El Faro", locEn: "El Faro Baptist Church", img: "" }
-        ];
+        // --- MANAGE EVENTS ---
+        let globalEvents = JSON.parse(localStorage.getItem('faro_events')) || [];
 
         function renderPublicEvents() {
             const grid = document.getElementById('public-events-grid');
             if(!grid) return;
             grid.innerHTML = '';
             globalEvents.forEach(ev => {
-                grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img || 'P-Pics/G1.jpeg'}" onerror="fixExt(this, 'P-Pics/G1')" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><h3 class="event-title" lang="es">${ev.titleEs}</h3><h3 class="event-title" lang="en">${ev.titleEn}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
+                grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img || './P-Pics/P01.jpg'}" onerror="fixExt(this, './P-Pics/P01')" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><h3 class="event-title">${ev.titleEs}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
             });
         }
 
@@ -1237,7 +1357,7 @@
             if(!list) return;
             list.innerHTML = '';
             globalEvents.forEach(ev => {
-                list.innerHTML += `<div class="admin-edit-card"><button onclick="deleteEvent(${ev.id})" class="delete-btn">×</button><input type="text" id="edit-ev-title-${ev.id}" value="${ev.titleEs}"><input type="text" id="edit-ev-date-${ev.id}" value="${ev.dateEs}"><button class="btn btn-primary" onclick="updateEvent(${ev.id})">Actualizar</button></div>`;
+                list.innerHTML += `<div class="admin-edit-card"><button onclick="deleteEvent(${ev.id})" class="delete-btn">×</button><input type="text" id="edit-ev-title-${ev.id}" value="${ev.titleEs}" placeholder="Title (NOT translated)"><input type="text" id="edit-ev-date-${ev.id}" value="${ev.dateEs}" placeholder="Date"><button class="btn btn-primary" onclick="updateEvent(${ev.id})">Actualizar</button></div>`;
             });
         }
 
@@ -1246,10 +1366,47 @@
             const date = document.getElementById('new-event-date').value.trim();
             const loc = document.getElementById('new-event-loc').value.trim();
             const fileInput = document.getElementById('new-event-img');
+            
+            if(!title) { alert("Please add a title."); return; }
+            document.body.style.cursor = 'wait';
+
+            const dateEs = await translateText(date, 'es');
+            const dateEn = await translateText(date, 'en');
+            const locEs = await translateText(loc, 'es');
+            const locEn = await translateText(loc, 'en');
+            
             let imgData = fileInput.files[0] ? await compressImage(fileInput.files[0]) : "";
-            globalEvents.push({ id: Date.now(), titleEs: title, titleEn: title, dateEs: date, dateEn: date, locEs: loc, locEn: loc, img: imgData });
+            globalEvents.push({ id: Date.now(), titleEs: title, titleEn: title, dateEs: dateEs, dateEn: dateEn, locEs: locEs, locEn: locEn, img: imgData });
             localStorage.setItem('faro_events', JSON.stringify(globalEvents));
-            renderPublicEvents(); renderAdminEvents(); alert("Agregado");
+            
+            document.getElementById('new-event-title').value = "";
+            document.getElementById('new-event-date').value = "";
+            document.getElementById('new-event-loc').value = "";
+            
+            renderPublicEvents(); renderAdminEvents(); 
+            document.body.style.cursor = 'default';
+            alert("Agregado");
+        }
+        
+        async function updateEvent(id) {
+            const index = globalEvents.findIndex(ev => ev.id === id);
+            if(index === -1) return;
+
+            const title = document.getElementById(`edit-ev-title-${id}`).value;
+            const date = document.getElementById(`edit-ev-date-${id}`).value;
+
+            document.body.style.cursor = 'wait';
+
+            globalEvents[index].titleEs = title;
+            globalEvents[index].titleEn = title;
+            globalEvents[index].dateEs = await translateText(date, 'es');
+            globalEvents[index].dateEn = await translateText(date, 'en');
+
+            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
+            renderPublicEvents();
+            renderAdminEvents();
+            document.body.style.cursor = 'default';
+            alert("Evento Actualizado! / Event Updated!");
         }
 
         function deleteEvent(id) {
@@ -1258,6 +1415,7 @@
             renderPublicEvents(); renderAdminEvents();
         }
 
+        // --- MAIN IMAGES ---
         async function updateMainImage(targetId, inputId) {
             const fileInput = document.getElementById(inputId);
             if (!fileInput.files[0]) return;
@@ -1288,7 +1446,7 @@
 
         function removeLogoImage() {
             localStorage.removeItem('faro_main_logo');
-            document.querySelectorAll('.logo-img').forEach(img => img.src = 'P-Pics/Logo.jpg');
+            document.querySelectorAll('.logo-img').forEach(img => img.src = './P-Pics/Logo.jpg');
             alert("Logo restaurado");
         }
 
@@ -1327,9 +1485,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initEvents(); renderAuditLog();
+            initEvents(); renderPublicEvents(); renderAuditLog();
             
-            // REMOVED THE CODE THAT LOADED BROKEN ADMIN MEMORY IMAGES OVER YOUR GITHUB IMAGES!
+            // REMOVED THE CODE THAT OVERWROTE WITH BROKEN ADMIN IMAGES!
+            // Now the website will use your pure P-Pics folder on GitHub.
         });
 
         function setLanguage(lang) {
