@@ -8,6 +8,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        function fixExt(img, basePath) {
+            const exts = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
+            let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
+            if (attempts < exts.length) {
+                img.src = basePath + exts[attempts];
+                img.dataset.attempts = attempts + 1;
+            } else {
+                img.onerror = null; 
+                img.style.display = 'none'; // Hides broken icon
+                if (img.parentElement && img.parentElement.classList.contains('gallery-item')) {
+                    img.parentElement.style.display = 'none'; // Hides the entire empty white box!
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
             /* Paleta de colores estricta: Rojo, Blanco y Azul */
@@ -205,7 +223,49 @@
     </div>
 
     <div class="gallery-container" id="main-gallery">
-        </div>
+        <div class="gallery-item"><img src="./G_Pics/G1.jpg" onerror="fixExt(this, './G_Pics/G1')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G2.jpg" onerror="fixExt(this, './G_Pics/G2')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G3..jpg" onerror="fixExt(this, './G_Pics/G3')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G4.jpg" onerror="fixExt(this, './G_Pics/G4')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G5.jpg" onerror="fixExt(this, './G_Pics/G5')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G6.jpg" onerror="fixExt(this, './G_Pics/G6')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G7.jpg" onerror="fixExt(this, './G_Pics/G7')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G8.jpg" onerror="fixExt(this, './G_Pics/G8')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G9.jpg" onerror="fixExt(this, './G_Pics/G9')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G10.jpeg" onerror="fixExt(this, './G_Pics/G10')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G11.jpg" onerror="fixExt(this, './G_Pics/G11')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G12.jpg" onerror="fixExt(this, './G_Pics/G12')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G13.jpg" onerror="fixExt(this, './G_Pics/G13')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G14.jpg" onerror="fixExt(this, './G_Pics/G14')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G15.jpg" onerror="fixExt(this, './G_Pics/G15')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G16.jpg" onerror="fixExt(this, './G_Pics/G16')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G17.jpg" onerror="fixExt(this, './G_Pics/G17')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G18.jpg" onerror="fixExt(this, './G_Pics/G18')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G19.jpg" onerror="fixExt(this, './G_Pics/G19')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G20.jpeg" onerror="fixExt(this, './G_Pics/G20')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G21.jpeg" onerror="fixExt(this, './G_Pics/G21')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G21.2.jpg" onerror="fixExt(this, './G_Pics/G21.2')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G22.jpeg" onerror="fixExt(this, './G_Pics/G22')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G23.jpeg" onerror="fixExt(this, './G_Pics/G23')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G24.jpeg" onerror="fixExt(this, './G_Pics/G24')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G25.jpeg" onerror="fixExt(this, './G_Pics/G25')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G26.jpeg" onerror="fixExt(this, './G_Pics/G26')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G27.jpeg" onerror="fixExt(this, './G_Pics/G27')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G28.jpeg" onerror="fixExt(this, './G_Pics/G28')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G29.jpg" onerror="fixExt(this, './G_Pics/G29')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G30.jpeg" onerror="fixExt(this, './G_Pics/G30')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G31.jpeg" onerror="fixExt(this, './G_Pics/G31')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G32.jpeg" onerror="fixExt(this, './G_Pics/G32')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G33.jpeg" onerror="fixExt(this, './G_Pics/G33')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G34.jpeg" onerror="fixExt(this, './G_Pics/G34')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G35.jpeg" onerror="fixExt(this, './G_Pics/G35')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G36.jpeg" onerror="fixExt(this, './G_Pics/G36')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G37.jpeg" onerror="fixExt(this, './G_Pics/G37')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G38.jpeg" onerror="fixExt(this, './G_Pics/G38')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G39.jpeg" onerror="fixExt(this, './G_Pics/G39')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G40.jpeg" onerror="fixExt(this, './G_Pics/G40')" alt="Galería El Faro" loading="lazy"></div>
+        <div class="gallery-item"><img src="./G_Pics/G41.jpeg" onerror="fixExt(this, './G_Pics/G41')" alt="Galería El Faro" loading="lazy"></div>
+    </div>
 
     <footer>
         <p><strong lang="es">Iglesia Bautista El Faro</strong><strong lang="en">El Faro Baptist Church</strong> — 24211 Sunflower Ln, Edcouch, TX</p>
@@ -215,6 +275,7 @@
 
     <script>
         function setLanguage(lang) {
+            localStorage.setItem('faro_language', lang);
             if (lang === 'en') {
                 document.body.classList.add('lang-en');
                 document.getElementById('btn-en').classList.add('active');
@@ -228,10 +289,13 @@
 
         /* --- LOAD CUSTOM IMAGES FROM BROWSER MEMORY --- */
         window.addEventListener('DOMContentLoaded', (event) => {
+            const savedLang = localStorage.getItem('faro_language') || 'es';
+            setLanguage(savedLang);
+
             const galleryContainer = document.getElementById('main-gallery');
             let savedImages = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
             
-            // Loop through any images you uploaded and add them to the top of the gallery!
+            // Loop through any manually uploaded images and put them at the very top!
             savedImages.reverse().forEach(imgData => {
                 const newDiv = document.createElement('div');
                 newDiv.className = 'gallery-item';
