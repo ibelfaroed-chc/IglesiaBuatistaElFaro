@@ -1,30 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia Bautista El Faro - Edcouch, TX</title>
+    <title>Declaración de Fe - Iglesia Bautista El Faro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-    <script>
-        function fixExt(img, basePath) {
-            const exts = ['.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
-            let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
-            if (attempts < exts.length) {
-                img.src = basePath + exts[attempts];
-                img.dataset.attempts = attempts + 1;
-            } else {
-                img.onerror = null; 
-                img.style.display = 'none'; // Hides broken icon if completely missing
-            }
-        }
-    </script>
-
     <style>
         :root {
             --navy-dark: #0f172a; 
@@ -37,28 +21,30 @@
             --card-bg: #ffffff; 
             --text-main: #334155; 
             --text-muted: #64748b;
+            --border-color: #e2e8f0;
             
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
-        
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { 
-            color: var(--text-main); 
-            background-color: var(--card-bg); 
-            line-height: 1.7; 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
-        
+
+        /* Language Toggle - CSS REESCRITO PARA ESCALADO PERFECTO */
         body:not(.lang-en) [lang="en"] { display: none !important; }
         body.lang-en [lang="es"] { display: none !important; }
 
+        /* HEADER UNIFICADO (Fondo Sólido para Subpáginas) */
         .header-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
+            background-color: var(--navy-dark); 
             width: 100%;
             z-index: 1000;
         }
@@ -67,14 +53,14 @@
         .lang-btn.active { background: white; color: var(--navy-dark); font-weight: 700; border-color: white; }
         .lang-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.15); color: white; }
 
-        .top-bar { background-color: rgba(15, 23, 42, 0.6); border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .top-bar { border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.6rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
         .top-bar-info { display: flex; gap: 2rem; }
         .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
 
         header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .header-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-        .logo-img { height: 45px; width: auto; object-fit: contain; border-radius: 8px; }
-        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: #ffffff !important; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; white-space: nowrap; text-decoration: none; }
         .logo span { color: var(--accent-red); }
         
         nav { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 1rem; align-items: center; }
@@ -88,131 +74,134 @@
         .dropdown-content a:hover { background-color: #f8fafc; color: var(--accent-red) !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        .hero { 
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), center/cover no-repeat; 
-            background-color: var(--navy-dark); 
-            color: white; 
-            text-align: center; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
+        /* Botón para volver atrás (Ubicado en el área de contenido para máxima claridad) */
+        .back-btn-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 4% 0 4%; 
+            text-align: left; 
+        }
+
+        .back-btn {
+            display: inline-flex; 
             justify-content: center; 
             align-items: center; 
-            padding: 8rem 4% 4rem 4%; 
+            padding: 0.9rem 2.5rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            letter-spacing: 0.5px; 
+            border: none; 
+            color: white !important; 
+            background-color: var(--accent-red);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
-        .hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.05; max-width: 900px; text-transform: uppercase; }
-        .hero p { font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: 700px; margin: 0 auto 3rem auto; color: #cbd5e1; font-weight: 300; line-height: 1.6; }
+
+        .back-btn:hover {
+            background-color: var(--accent-red-hover); 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Contenedor Principal y Grid */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 4% 5rem 4%;
+        }
+
+        .header-title-box {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            color: var(--navy-dark);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .doctrine-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--navy-primary);
+        }
         
-        .btn-group { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
-        .btn { display: inline-flex; justify-content: center; align-items: center; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; }
-        .btn-primary { background-color: var(--accent-red); color: white; box-shadow: var(--shadow-md); }
-        .btn-primary:hover { background-color: var(--accent-red-hover); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4); color: white;}
-        .btn-outline { border: 2px solid #ffffff; color: #ffffff; background: transparent; }
-        .btn-outline:hover { background-color: #ffffff; color: var(--navy-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); }
+        .doctrine-card:nth-child(even) {
+            border-top: 5px solid var(--accent-red);
+        }
 
-        .editorial-section { max-width: 1250px; margin: 8rem auto; padding: 0 4%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .editorial-section.reverse { direction: rtl; }
-        .editorial-section.reverse > * { direction: ltr; }
-        .editorial-content { padding: 2rem 0; text-align: left; }
-        .editorial-content h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 300; color: var(--navy-dark); line-height: 1.1; margin-bottom: 1.5rem; }
-        .editorial-content h2 em { font-style: italic; color: var(--accent-red); }
-        .editorial-content p { font-size: 1.1rem; color: var(--text-main); margin-bottom: 1.8rem; line-height: 1.8; font-weight: 300; }
-        .editorial-content p.italic-note { font-style: italic; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2.5rem; border-left: 3px solid var(--accent-red); padding-left: 1rem; }
-        
-        .editorial-btn { display: inline-block; padding: 0.9rem 2.5rem; border: 2px solid var(--navy-dark); border-radius: 50px; text-decoration: none; color: var(--navy-dark); font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s ease; background: transparent; cursor: pointer; }
-        .editorial-btn:hover { background-color: var(--navy-dark); color: white; transform: translateY(-2px); }
-        
-        .editorial-image-wrapper { position: relative; width: 100%; background-color: #e2e8f0; border-radius: 16px; }
-        .editorial-image-wrapper::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; border: 2px solid var(--accent-red); border-radius: 16px; z-index: 1; transition: all 0.3s ease; }
-        .editorial-image-wrapper.right-box::before { top: 20px; left: 20px; border-color: var(--navy-primary); }
-        .editorial-image-wrapper:hover::before { transform: translate(10px, 10px); }
-        .editorial-image-wrapper.right-box:hover::before { transform: translate(-10px, -10px); }
-        .editorial-image-wrapper img { position: relative; z-index: 2; width: 100%; height: auto; min-height: 400px; max-height: 550px; object-fit: cover; display: block; border-radius: 16px; box-shadow: var(--shadow-lg); }
+        .doctrine-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
 
-        .section { padding: 7rem 4%; max-width: 1250px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .section-header h2 { font-family: 'Merriweather', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); color: var(--navy-dark); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
-        .section-header h2 em { font-style: italic; font-weight: 300; color: var(--accent-red); }
-        .section-header p { color: var(--text-muted); font-size: 1.1rem; font-weight: 300; }
-        .bg-light-section { background-color: var(--bg-light); max-width: 100%; border-radius: 0; }
+        .doctrine-card h3 {
+            color: var(--navy-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Merriweather', serif;
+        }
 
-        .ministry-grid, .visit-grid { display: grid; gap: 2.5rem; justify-content: center; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .ministry-card, .visit-card { background: var(--card-bg); padding: 3rem 2.5rem; border-radius: 20px; border: 1px solid #e2e8f0; text-align: center; box-shadow: var(--shadow-md); height: 100%; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .ministry-card:hover, .visit-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
-        .ministry-card { border-top: 5px solid var(--navy-primary); }
-        .ministry-card h3, .visit-card h3 { font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem; }
-        .ministry-desc { color: var(--text-muted); line-height: 1.7; font-weight: 300; }
-        .ministry-icon { font-size: 3rem; margin-bottom: 1.5rem; color: var(--navy-primary); }
-        
-        .events-section { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); color: #ffffff; padding: 7rem 4%; text-align: center; }
-        .events-section h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 700; margin-bottom: 4rem; color: #ffffff; }
-        .events-section h2 em { font-style: italic; font-weight: 300; color: #94a3b8; }
-        .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1250px; margin: 0 auto 5rem auto; }
-        .event-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 1.5rem; text-align: left; display: flex; flex-direction: column; backdrop-filter: blur(12px); transition: transform 0.3s ease, background 0.3s ease; }
-        .event-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.08); }
-        .event-img-container { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; background-color: rgba(255,255,255,0.1); }
-        .event-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .event-card:hover .event-img-container img { transform: scale(1.05); }
-        .event-title { font-size: 1.3rem; font-family: 'Merriweather', serif; font-weight: 700; margin-bottom: 1rem; color: #ffffff; line-height: 1.4; }
-        .event-meta { font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; font-weight: 300; }
-        .event-meta i { color: var(--accent-red); width: 16px; text-align: center; }
+        .doctrine-card h3 i {
+            color: var(--accent-red);
+            font-size: 1.6rem;
+        }
 
-        .calendar-embed-container { max-width: 1100px; margin: 0 auto; background: #ffffff; border-radius: 20px; padding: 1rem; box-shadow: var(--shadow-lg); }
+        .doctrine-card:nth-child(even) h3 i {
+            color: var(--navy-primary);
+        }
 
-        .sermon-card { background: var(--card-bg); padding: 4rem 3rem; border-radius: 24px; box-shadow: var(--shadow-md); border: 1px solid #e2e8f0; text-align: center; max-width: 800px; margin: 0 auto; transition: box-shadow 0.3s ease; }
-        .sermon-card:hover { box-shadow: var(--shadow-lg); }
-        .sermon-card h3 { font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .sermon-card p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; font-weight: 300; }
+        .doctrine-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            text-align: left;
+            font-weight: 300;
+            line-height: 1.8;
+        }
 
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-        .contact-box { background: var(--card-bg); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-md); border: 1px solid #e2e8f0; text-align: center; }
-        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
-        .form-group { display: flex; flex-direction: column; text-align: left; }
-        .form-group label { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--navy-dark); }
-        .form-group input, .form-group textarea { padding: 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; font-family: inherit; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-primary); box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); }
-
-        .map-wrapper { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); width: 100%; height: 500px; border: 1px solid #e2e8f0; background: #ffffff; }
-        .map-wrapper iframe { width: 100%; height: 100%; border: 0; display: block; }
-        
-        .connect-section { padding: 8rem 4%; text-align: center; background-color: #ffffff; }
-        .connect-section h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-family: 'Merriweather', serif; font-weight: 300; color: var(--navy-dark); margin-bottom: 1.5rem; }
-        .connect-section h2 em { font-style: italic; color: var(--navy-primary); font-weight: 700; }
-        .connect-section > p { color: var(--text-muted); margin-bottom: 4rem; font-size: 1.2rem; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .social-circles-container { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 3rem; }
-        .social-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease; color: white; font-size: 3rem; overflow: hidden; }
-        .social-circle:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-        .circle-facebook { background-color: var(--facebook-blue); }
-        .circle-whatsapp { background-color: var(--whatsapp-green); }
-        .circle-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-
-        .bottom-action-bar { background-color: var(--navy-dark); color: white; padding: 5rem 4%; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; text-align: center; border-top: 4px solid var(--accent-red); }
-        .action-item { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-        .action-item span.icon { font-size: 2.5rem; color: var(--accent-red); margin-bottom: 0.5rem; }
-        .action-item h4 { font-family: 'Merriweather', serif; font-size: 1.3rem; font-weight: 700; color: #f8fafc; }
-        .action-item a, .action-item p { color: #cbd5e1; text-decoration: none; font-size: 1rem; font-weight: 300; transition: color 0.2s ease; }
-        .action-item a:hover { color: white; }
-
-        footer { background-color: #020617; color: #94a3b8; text-align: center; padding: 3rem 4%; font-size: 0.95rem; font-weight: 300; }
+        /* Footer */
+        footer {
+            background-color: #020617; 
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 3rem 4%; 
+            font-size: 0.95rem; 
+            font-weight: 300; 
+            margin-top: 2rem; 
+        }
         footer p { margin-top: 0.5rem; }
         footer strong { color: white; font-weight: 600; }
 
-        .hidden { display: none !important; }
-        
-        .admin-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.9rem; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .admin-table th, .admin-table td { padding: 1rem; border: 1px solid #e2e8f0; text-align: left; }
-        .admin-table th { background-color: var(--navy-dark); color: white; font-weight: 600; }
-        .admin-table tr:nth-child(even) { background-color: #f8fafc; }
-
-        .text-tab-btn { background: transparent; border: 1px solid var(--navy-primary); color: var(--navy-primary); padding: 0.5rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all 0.2s; white-space: nowrap; font-size: 0.85rem; }
-        .text-tab-btn.active, .text-tab-btn:hover { background: var(--navy-primary); color: white; }
-        .main-tab-btn { padding: 0.8rem 2rem; font-size: 0.95rem; border-radius: 50px; }
-
-        .admin-edit-card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 12px; background: white; display: flex; flex-direction: column; gap: 0.8rem; position: relative; box-shadow: var(--shadow-sm); }
-        .admin-edit-card input { padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
-        .delete-btn { position: absolute; right: 15px; top: 15px; background: #fee2e2; color: var(--accent-red); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight:bold; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
-        .delete-btn:hover { background: var(--accent-red); color: white; }
-
+        /* REGLAS PARA PANTALLAS PEQUEÑAS */
         @media (max-width: 1250px) {
             header { padding: 1rem 2%; }
             nav { gap: 0.8rem; }
@@ -227,12 +216,10 @@
             nav { justify-content: center; flex-wrap: wrap; }
         }
 
-        @media (max-width: 768px) {
-            .editorial-section, .editorial-section.reverse { grid-template-columns: 1fr; gap: 3rem; direction: ltr; text-align: center; }
-            .editorial-content { text-align: center; }
-            .hero { align-items: center; text-align: center; }
-            .btn-group { justify-content: center; }
-            .section { padding: 5rem 4%; }
+        @media (max-width: 900px) {
+            h1 { font-size: 2.5rem; }
+            .back-btn-container { text-align: center; }
+            .doctrine-card { padding: 2rem; }
         }
     </style>
 </head>
@@ -256,634 +243,112 @@
 
         <header>
             <div class="header-brand">
-                <div class="logo" lang="es">
-                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
+                <a href="index.html" class="logo" lang="es">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
                     Iglesia Bautista <span>El Faro</span>
-                </div>
-                <div class="logo" lang="en">
-                    <img src="./P-Pics/Logo.jpg" onerror="fixExt(this, './P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
+                </a>
+                <a href="index.html" class="logo" lang="en">
+                    <img src="Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
                     El Faro <span>Baptist Church</span>
-                </div>
+                </a>
             </div>
             <nav>
-                <a href="#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+                <a href="index.html#inicio"><span lang="es">Inicio</span><span lang="en">Home</span></a>
                 <div class="dropdown">
                     <span class="dropbtn"><span lang="es">Bienvenidos ▾</span><span lang="en">Welcome ▾</span></span>
                     <div class="dropdown-content">
-                        <a href="#visita"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
-                        <a href="#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
-                        <a href="#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
+                        <a href="index.html#visita"><span lang="es">Primera Vez</span><span lang="en">First Time</span></a>
+                        <a href="index.html#nosotros"><span lang="es">Quiénes Somos</span><span lang="en">About Us</span></a>
+                        <a href="index.html#pasos"><span lang="es">Pasos</span><span lang="en">Steps</span></a>
                     </div>
                 </div>
-                <a href="#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+                <a href="index.html#equipo"><span lang="es">Conoce Nuestro Equipo</span><span lang="en">Meet Our Team</span></a>
+                <a href="fe.html" style="color: var(--accent-red) !important;"><span lang="es">Nuestra Fe</span><span lang="en">Our Faith</span></a>
                 <a href="gallery.html"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
-                <a href="#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
-                <a href="#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
-                <a href="#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
-                <a onclick="toggleAdminTab()" style="color: white !important; font-weight: 700; cursor: pointer; padding: 0.5rem 1.2rem; border-radius: 50px; background: var(--accent-red); transition: all 0.3s; white-space: nowrap;">
-                    <span lang="es">Admin</span><span lang="en">Admin</span>
-                </a>
+                <a href="index.html#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
+                <a href="index.html#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
+                <a href="index.html#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
             </nav>
         </header>
     </div>
 
-    <section class="hero" id="inicio">
-        <h1 lang="es">Iglesia Bautista<br>El Faro</h1>
-        <h1 lang="en">El Faro<br>Baptist Church</h1>
-        <p id="text-hero-es" lang="es">Una iglesia muy amigable que ama a Dios. Le invitamos a acompañarnos en nuestros servicios y crecer juntos en la fe.</p>
-        <p id="text-hero-en" lang="en">A very friendly church that loves God. We invite you to join us in our services and grow together in faith.</p>
-        
-        <div class="btn-group">
-            <a href="#pasos" class="btn btn-primary" lang="es">Planifique Su Visita</a>
-            <a href="#pasos" class="btn btn-primary" lang="en">Plan Your Visit</a>
-            
-            <a href="#nosotros" class="btn btn-outline" lang="es">Conozca Más</a>
-            <a href="#nosotros" class="btn btn-outline" lang="en">Learn More</a>
-        </div>
-    </section>
-
-    <section class="editorial-section" id="visita">
-        <div class="editorial-content">
-            <h2 lang="es">Bienvenidos a<br><em>Iglesia El Faro</em></h2>
-            <h2 lang="en">Welcome to<br><em>El Faro Church</em></h2>
-            <p id="text-edit1-es" lang="es">Somos una iglesia amigable en Edcouch, TX, observando ritmos bíblicos de oración y comunidad que conducen al crecimiento espiritual personal.</p>
-            <p id="text-edit1-en" lang="en">We are a friendly church in Edcouch, TX, observing biblical rhythms of prayer and community that lead to personal spiritual growth.</p>
-            <p class="italic-note" lang="es">Conozca más sobre nuestra iglesia y prácticas espirituales.</p>
-            <p class="italic-note" lang="en">Learn more about our church and spiritual practices.</p>
-            <a href="#nosotros" class="editorial-btn"><span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span></a>
-        </div>
-        <div class="editorial-image-wrapper">
-            <img src="./P-Pics/G1.jpg" onerror="fixExt(this, './P-Pics/G1')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
-        </div>
-    </section>
-
-    <section class="editorial-section reverse bg-light-section" id="oracion">
-        <div class="editorial-content">
-            <h2 lang="es">Nos encantaría<br>conocerle</h2>
-            <h2 lang="en">We'd love to get<br>to know <em>you</em></h2>
-            <p id="text-edit2-es" lang="es">Nuestro ministerio está arraigado en la dirección espiritual y la amistad, que son esencialmente conversaciones sobre la vida y la oración.</p>
-            <p id="text-edit2-en" lang="en">Our ministry is rooted in spiritual direction and friendships, which are essentially conversations about life and prayer.</p>
-            <p class="italic-note" lang="es">Comuníquese con alguien de nuestro equipo pastoral para iniciar una conversación.</p>
-            <p class="italic-note" lang="en">Reach out to someone on our Pastoral Team to start a conversation.</p>
-            <a href="#contacto" class="editorial-btn" lang="es">Conéctese con Nosotros</a>
-            <a href="#contacto" class="editorial-btn" lang="en">Connect With Us</a>
-        </div>
-        <div class="editorial-image-wrapper right-box">
-            <img src="./P-Pics/G2.jpg" onerror="fixExt(this, './P-Pics/G2')" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
-        </div>
-    </section>
-
-    <section class="events-section" id="eventos">
-        <h2 lang="es">Próximos <em>Eventos</em></h2>
-        <h2 lang="en">Upcoming <em>Events</em></h2>
-        <div class="events-grid" id="public-events-grid"></div>
-        
-        <div class="calendar-embed-container">
-            <h3 style="color: var(--navy-dark); margin-bottom: 1.5rem; font-family: 'Merriweather', serif; font-size: 1.8rem; text-align: center;" lang="es">Calendario Completo de Google</h3>
-            <h3 style="color: var(--navy-dark); margin-bottom: 1.5rem; font-family: 'Merriweather', serif; font-size: 1.8rem; text-align: center;" lang="en">Full Google Calendar</h3>
-            <div style="width: 100%; height: 650px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0;">
-                <iframe src="https://calendar.google.com/calendar/embed?src=ibelfaroed%40gmail.com&ctz=America%2FChicago" width="100%" height="650" frameborder="0" scrolling="yes" style="border:0;" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="nosotros">
-        <div class="section-header">
-            <h2 lang="es">Quiénes Somos y Qué Creemos</h2>
-            <h2 lang="en">About Us & Beliefs</h2>
-            <p lang="es">Conozca nuestra historia y doctrina bíblica.</p>
-            <p lang="en">Learn about our story and biblical doctrine.</p>
-        </div>
-        <div class="visit-grid" style="margin-bottom: 4rem;">
-            <div class="visit-card" style="border-top: 5px solid var(--navy-primary);">
-                <div class="ministry-icon"><i class="fa-solid fa-book-bible"></i></div>
-                <h3 lang="es">Declaración de Fe</h3>
-                <h3 lang="en">Statement of Faith</h3>
-                <p class="ministry-desc" lang="es">Creemos en el Evangelio, la salvación por gracia, el bautismo del creyente y que las Escrituras son la palabra inerrante de Dios.</p>
-                <p class="ministry-desc" lang="en">We believe in the Gospel, salvation by grace, believer's baptism, and that the Scriptures are the inerrant word of God.</p>
-                <a href="fe.html" class="editorial-btn" style="margin-top: 2rem; padding: 0.8rem 1.8rem; font-size: 0.8rem;"><span lang="es">LEER MÁS</span><span lang="en">READ MORE</span></a>
-            </div>
-            <div class="visit-card" style="border-top: 5px solid var(--accent-red);">
-                <div class="ministry-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <h3 lang="es">Nuestra Historia</h3>
-                <h3 lang="en">Our Story</h3>
-                <p class="ministry-desc" lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, sirviendo fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
-                <p class="ministry-desc" lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community con the love of Christ throughout the years.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-light-section" id="equipo">
-        <div class="section-header">
-            <h2 lang="es">Conoce Nuestro Equipo</h2>
-            <h2 lang="en">Meet Our Team</h2>
-            <p lang="es">El liderazgo pastoral y ministerial de nuestra iglesia.</p>
-            <p lang="en">The pastoral and ministerial leadership of our church.</p>
-        </div>
-        
-        <div style="max-width: 450px; margin: 0 auto 3.5rem auto;">
-            <div class="ministry-card" style="border-top: 5px solid var(--accent-red);">
-                <div style="width: 140px; height: 140px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="./P-Pics/Pastor.jpg" onerror="fixExt(this, './P-Pics/Pastor')" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3>Pastor Neil Arias</h3>
-                <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Pastor Principal</h4>
-                <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Lead Pastor</h4>
-                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="es">Apasionado por guiar a la comunidad y predicar la Palabra.</p>
-                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="en">Passionate about guiding the community and preaching the Word.</p>
-            </div>
-        </div>
-
-        <div class="ministry-grid" style="max-width: 1100px; margin: 0 auto;">
-            <div class="ministry-card" style="border-top: none;">
-                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="./P-Pics/Andres.jpg" onerror="fixExt(this, './P-Pics/Andres')" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 style="font-size: 1.3rem;">Andres de la Garza</h3>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Deacon</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
-            </div>
-
-            <div class="ministry-card" style="border-top: none;">
-                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="./P-Pics/Refugio.jpg" onerror="fixExt(this, './P-Pics/Refugio')" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 style="font-size: 1.3rem;">Refugio Castillo</h3>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Deacon</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
-            </div>
-            
-            <div class="ministry-card" style="border-top: none;">
-                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="./P-Pics/Alejandra.jpg" onerror="fixExt(this, './P-Pics/Alejandra')" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 style="font-size: 1.3rem;">Hrna Alejandra</h3>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
-                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="ministerios">
-        <div class="section-header">
-            <h2 lang="es">Nuestros Ministerios</h2>
-            <h2 lang="en">Our Ministries</h2>
-            <p lang="es">Conozca las diferentes áreas donde servimos a nuestra comunidad.</p>
-            <p lang="en">Learn about the different areas where we serve our community.</p>
-        </div>
-        <div class="ministry-grid">
-            <div class="ministry-card">
-                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="./P-Pics/G3.jpg" onerror="fixExt(this, './P-Pics/G3')" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es">Guardería</h3>
-                <h3 lang="en">Nursery</h3>
-                <p id="text-min-guarderia-es" class="ministry-desc" lang="es">Nuestras instalaciones de guardería, respaldadas por un dedicado equipo de voluntarias, ofrecen un entorno higiénico y protegido para el cuidado de bebés y niños de hasta tres años.</p>
-                <p id="text-min-guarderia-en" class="ministry-desc" lang="en">Our nursery facilities, supported by a dedicated team of volunteers, offer a hygienic and protected environment for the care of babies and toddlers up to three years old.</p>
-            </div>
-            <div class="ministry-card">
-                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="./P-Pics/G4.jpg" onerror="fixExt(this, './P-Pics/G4')" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es">Ministerio de Niños</h3>
-                <h3 lang="en">Children's Ministry</h3>
-                <p id="text-min-ninos-es" class="ministry-desc" lang="es">Contamos con un programa integral cuidadosamente adaptado para el desarrollo espiritual infantil. Durante las clases de Escuela Dominical, los estudiantes disfrutan de un entorno de aprendizaje que incluye historias bíblicas, memorización de versículos y tiempos de alabanza.</p>
-                <p id="text-min-ninos-en" class="ministry-desc" lang="en">We have a comprehensive program carefully adapted for children's spiritual development. During Sunday School classes, students enjoy a learning environment that includes Bible stories, verse memorization, and times of worship.</p>
-            </div>
-            <div class="ministry-card">
-                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="./P-Pics/G5.jpg" onerror="fixExt(this, './P-Pics/G5')" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es">Jóvenes</h3>
-                <h3 lang="en">Youth Ministry</h3>
-                <p id="text-min-jovenes-es" class="ministry-desc" lang="es">El ministerio juvenil ofrece estudios bíblicos orientados a inspirar a los adolescentes a dedicar sus vidas al servicio de Dios.</p>
-                <p id="text-min-jovenes-en" class="ministry-desc" lang="en">The youth ministry offers Bible studies aimed at inspiring teens to dedicate their lives to serving God.</p>
-            </div>
-            <div class="ministry-card">
-                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="./P-Pics/G6.jpg" onerror="fixExt(this, './P-Pics/G6')" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es">Damas</h3>
-                <h3 lang="en">Women's Ministries</h3>
-                <p id="text-min-damas-es" class="ministry-desc" lang="es">Un espacio dedicado a que las mujeres aprendan y apliquen los principios de la Palabra de Dios.</p>
-                <p id="text-min-damas-en" class="ministry-desc" lang="en">A space dedicated for women to learn and apply the principles of God's Word.</p>
-            </div>
-            <div class="ministry-card">
-                <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="./P-Pics/G7.jpg" onerror="fixExt(this, './P-Pics/G7')" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es">Varones</h3>
-                <h3 lang="en">Men's Ministries</h3>
-                <p id="text-min-varones-es" class="ministry-desc" lang="es">Una hermandad enfocada en que los hombres sean instruidos en los principios fundamentales de las Escrituras.</p>
-                <p id="text-min-varones-en" class="ministry-desc" lang="en">A brotherhood focused on instructing men in the fundamental principles of the Scriptures.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-light-section" id="pasos">
-        <div class="section-header">
-            <h2 lang="es">Siguientes Pasos / Involúcrese</h2>
-            <h2 lang="en">Next Steps / Get Involved</h2>
-            <p lang="es">Le guiamos paso a paso para que crezca más profundamente en su camino de fe.</p>
-            <p lang="en">We guide you step-by-step to grow deeper in your faith journey.</p>
-        </div>
-        <div class="ministry-grid" style="gap: 4rem; margin-bottom: 4rem;">
-            <div style="text-align: center;">
-                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="./P-Pics/G8.jpg" onerror="fixExt(this, './P-Pics/G8')" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Bautismo</h3>
-                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Baptism</h3>
-                <p class="ministry-desc" id="text-step-bautismo-es" lang="es">Dé el siguiente paso de obediencia pública en su fe cristiana.</p>
-                <p class="ministry-desc" id="text-step-bautismo-en" lang="en">Take the next step of public obedience in your Christian faith.</p>
-            </div>
-            <div style="text-align: center;">
-                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="./P-Pics/G9.jpg" onerror="fixExt(this, './P-Pics/G9')" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Clases de Discipulado</h3>
-                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Discipleship Classes</h3>
-                <p class="ministry-desc" id="text-step-discipulado-es" lang="es">Fundamentos sólidos para nuevos creyentes y futuros miembros.</p>
-                <p class="ministry-desc" id="text-step-discipulado-en" lang="en">Solid foundations for new believers and future members.</p>
-            </div>
-            <div style="text-align: center;">
-                <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="./P-Pics/G10.jpg" onerror="fixExt(this, './P-Pics/G10')" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                </div>
-                <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Visita a Su Casa</h3>
-                <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Home Visit</h3>
-                <p class="ministry-desc" id="text-step-visita-es" lang="es">Queremos conocerle mejor y orar por su familia personalmente.</p>
-                <p class="ministry-desc" id="text-step-visita-en" lang="en">We want to get to know you better and pray for your family personally.</p>
-            </div>
-        </div>
-        
-        <div class="contact-box" id="contacto" style="margin-top: 4rem; max-width: 900px; margin-left: auto; margin-right: auto; border-top: 5px solid var(--navy-primary); padding: 0; overflow: hidden;">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfne6q6cIYKqH8fs_Yd0QiKgEFWKb59rmZa8yBlK5ER4ysXlA/viewform?embedded=true" width="100%" height="1296" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Cargando…</iframe>
-        </div>
-    </section>
-
-    <section class="section" id="ofrendar">
-        <div class="section-header">
-            <h2 lang="es">Ofrendar y Diezmar en Línea</h2>
-            <h2 lang="en">Online Giving</h2>
-            <p lang="es">"Cada uno dé como propuso en su corazón: no con tristeza ni por obligación, porque Dios ama al dador alegre." - 2 Corintios 9:7</p>
-            <p lang="en">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
-        </div>
-        <div class="sermon-card" style="border-top: 5px solid var(--accent-red); display: flex; flex-direction: column; align-items: center;">
-            <div style="margin-bottom: 2.5rem; background-color: #f8fafc; padding: 1rem; width: 240px; height: 240px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
-                <img src="./P-Pics/QR.jpg" onerror="fixExt(this, './P-Pics/QR')" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
-            </div>
-            <h3 lang="es">Apoye la Misión</h3>
-            <h3 lang="en">Support the Mission</h3>
-            <p id="text-ofrendar-es" lang="es">Escanee el código QR con su teléfono para ofrendar de manera rápida y segura. Su generosidad nos ayuda a continuar compartiendo el Evangelio y sirviendo a nuestra comunidad de Edcouch.</p>
-            <p id="text-ofrendar-en" lang="en">Scan the QR code with your phone to give quickly and securely. Your generosity helps us continue sharing the Gospel and serving our Edcouch community.</p>
-        </div>
-    </section>
-
-    <section class="section bg-light-section" id="contacto-mapa" style="padding-bottom: 0;">
-        <div class="section-header">
-            <h2 lang="es">Nuestra Ubicación</h2>
-            <h2 lang="en">Our Location</h2>
-            <p lang="es">Encuéntrenos fácilmente. ¡Le esperamos con los brazos abiertos!</p>
-            <p lang="en">Find us easily. We look forward to welcoming you with open arms!</p>
-        </div>
-        <div class="map-wrapper" style="border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none;">
-            <iframe src="https://maps.google.com/maps?q=24211+Sunflower+Ln,+Edcouch,+TX&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
-
-    <section class="connect-section" id="conecta">
-        <h2 lang="es">Conéctese <em>Con Nosotros</em></h2>
-        <h2 lang="en">Connect <em>With Us</em></h2>
-        <p lang="es">Síganos en nuestras redes sociales para mantenerse al tanto de mensajes, eventos y comunidad durante toda la semana.</p>
-        <p lang="en">Follow us on our social media channels to stay up to date with messages, events, and community throughout the week.</p>
-        <div class="social-circles-container">
-            <a href="https://www.facebook.com/profile.php?id=61571522836318" target="_blank" rel="noopener noreferrer" class="social-circle circle-facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/ibelfaroedcouch" target="_blank" rel="noopener noreferrer" class="social-circle circle-instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/19563821051" target="_blank" rel="noopener noreferrer" class="social-circle circle-whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </section>
-
-    <div class="bottom-action-bar">
-        <div class="action-item">
-            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-            <h4 lang="es">¡Escríbanos!</h4>
-            <h4 lang="en">Get In Touch!</h4>
-            <a href="mailto:Ibelfaroed@gmail.com">Ibelfaroed@gmail.com</a>
-        </div>
-        <div class="action-item">
-            <span class="icon"><i class="fa-solid fa-phone"></i></span>
-            <h4 lang="es">¡Llámenos!</h4>
-            <h4 lang="en">Call Us!</h4>
-            <a href="tel:9563821051">(956) 382-1051</a>
-        </div>
-        <div class="action-item">
-            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-            <h4 lang="es">Ubicación</h4>
-            <h4 lang="en">Location</h4>
-            <p>24211 Sunflower Ln<br>Edcouch, TX</p>
-        </div>
-        <div class="action-item">
-            <span class="icon"><i class="fa-solid fa-credit-card"></i></span>
-            <h4 lang="es">Ofrendar</h4>
-            <h4 lang="en">Give Online</h4>
-            <a href="#ofrendar" lang="es">Dar en línea</a>
-            <a href="#ofrendar" lang="en">Give online</a>
-        </div>
+    <div class="back-btn-container">
+        <a href="index.html#nosotros" class="back-btn">
+            <span lang="es"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Volver a Quiénes Somos</span>
+            <span lang="en"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to About Us</span>
+        </a>
     </div>
 
-    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); z-index: 1000; justify-content: center; align-items: center; padding: 1rem;">
-        <div style="background: white; border-radius: 20px; max-width: 1000px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative; box-shadow: var(--shadow-lg); border-top: 6px solid var(--accent-red);">
+    <div class="container">
+        <div class="header-title-box">
+            <h1>
+                <span lang="es">Declaración de Fe</span>
+                <span lang="en">Statement of Faith</span>
+            </h1>
+            <p class="intro-text">
+                <span lang="es">En los siguientes párrafos usted podrá informarse de manera general en lo que creemos como Iglesia. Ante todo, nosotros creemos en la Biblia y enseñamos que es la verdad perfecta inspirada por Dios. Cada una de las creencias y enseñanzas se deriva directamente de la Palabra de Dios.</span>
+                <span lang="en">In the following paragraphs, you can learn generally what we believe as a Church. Above all, we believe in the Bible and teach that it is the perfect truth inspired by God. Every belief and teaching is derived directly from God's Word.</span>
+            </p>
+        </div>
+        
+        <div class="cards-grid">
             
-            <button onclick="toggleAdminTab()" style="position: absolute; top: 1.5rem; right: 2rem; background: #f1f5f9; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); width: 40px; height: 40px; border-radius: 50%; transition: all 0.2s;">×</button>
-
-            <div class="section-header" style="margin-bottom: 2.5rem;">
-                <h2 lang="es" style="font-family: 'Inter', sans-serif;">Portal de Administración</h2>
-                <h2 lang="en" style="font-family: 'Inter', sans-serif;">Administration Portal</h2>
-                <p lang="es">Acceso restringido. Solo para administradores de la Iglesia El Faro.</p>
-                <p lang="en">Restricted access. Only for El Faro Church administrators.</p>
-            </div>
-            
-            <div class="sermon-card" id="admin-login-container" style="max-width: 500px; padding: 2.5rem; border-radius: 16px;">
-                <h3 lang="es" style="font-family: 'Inter', sans-serif; font-weight: 700;">Iniciar Sesión</h3>
-                <h3 lang="en" style="font-family: 'Inter', sans-serif; font-weight: 700;">Login</h3>
-                <div class="contact-form" onsubmit="event.preventDefault();">
-                    <div class="form-group">
-                        <label for="admin-user" lang="es">Usuario</label>
-                        <label for="admin-user" lang="en">Username</label>
-                        <input type="text" id="admin-user" placeholder="Ingrese su usuario / Enter your username">
-                    </div>
-                    <div class="form-group">
-                        <label for="admin-pass" lang="es">Contraseña</label>
-                        <label for="admin-pass" lang="en">Password</label>
-                        <input type="password" id="admin-pass" placeholder="Ingrese su contraseña / Enter your password">
-                    </div>
-                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1.5rem;" lang="es">Acceder al Sistema</button>
-                    <button type="button" onclick="loginAdmin()" class="btn btn-primary" style="margin-top: 1.5rem;" lang="en">Access System</button>
-                    <p id="login-error" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="es">Credenciales incorrectas.</p>
-                    <p id="login-error-en" class="hidden" style="color: var(--accent-red); margin-top: 1rem; font-weight: bold;" lang="en">Incorrect credentials.</p>
-                </div>
+            <div class="doctrine-card">
+                <h3><i class="fas fa-book-bible"></i> <span lang="es">La Biblia</span><span lang="en">The Bible</span></h3>
+                <p>
+                    <span lang="es">Creemos que la Biblia es la Palabra de Dios revelada, y que es completa y verbalmente inspirada por Dios. Creemos que la Escritura es la inerrante e infalible Palabra de Dios, y se encuentra así en sus 66 libros desde Génesis hasta Apocalipsis. Creemos que Dios no solamente inspiró cada palabra, sino que también la preservó a través de los tiempos. Creemos que la Versión Reina Valera 1960 es la Palabra de Dios preservada para el pueblo Hispano-Parlante (Salmos 12:6-7; II Timoteo 3:15-17; I Pedro 1:23-25; II Pedro 1:19-21).</span>
+                    <span lang="en">We believe that the Bible is the revealed Word of God, and that it is completely and verbally inspired by God. We believe that Scripture is the inerrant and infallible Word of God, found in its 66 books from Genesis to Revelation. We believe that God not only inspired every word, but also preserved it through the ages. (Psalms 12:6-7; 2 Timothy 3:15-17; 1 Peter 1:23-25; 2 Peter 1:19-21).</span>
+                </p>
             </div>
 
-            <div id="admin-dashboard-container" class="hidden">
-                <h3 id="admin-greeting" style="text-align: center; margin-bottom: 2rem; color: var(--navy-dark); font-size: 2rem; font-weight: 700;"></h3>
-                
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
-                    <button id="btn-tab-content" class="btn btn-primary main-tab-btn" onclick="switchMainDashboardTab('content')">Sitio Web / Website</button>
-                    <button id="btn-tab-cloud" class="btn btn-outline main-tab-btn" style="border-color: #3b82f6; color: #3b82f6; background: transparent;" onclick="switchMainDashboardTab('cloud')"><i class="fa-solid fa-cloud" style="margin-right: 8px;"></i> Nube / Cloud</button>
-                    <button id="btn-tab-security" class="btn btn-outline main-tab-btn" style="display: none; border-color: var(--accent-red); color: var(--accent-red); background: transparent;" onclick="switchMainDashboardTab('security')"><i class="fa-solid fa-lock" style="margin-right: 8px;"></i> Seguridad / Security</button>
-                </div>
-
-                <div id="dashboard-content">
-                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
-                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Descripciones</h3>
-                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Descriptions</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">¡Solo escriba en su idioma preferido! El sistema lo traducirá y guardará automáticamente.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Just type in your preferred language! The system will automatically translate and save.</p>
-                        
-                        <div style="display: flex; gap: 0.8rem; margin-bottom: 2rem; overflow-x: auto; padding-bottom: 1rem; border-bottom: 2px solid #e2e8f0;">
-                            <button class="text-tab-btn active" onclick="showTextTab('tab-text-hero', this)">Inicio / Hero</button>
-                            <button class="text-tab-btn" onclick="showTextTab('tab-text-edit', this)">Bienvenidos</button>
-                            <button class="text-tab-btn" onclick="showTextTab('tab-text-min', this)">Ministerios</button>
-                            <button class="text-tab-btn" onclick="showTextTab('tab-text-step', this)">Pasos / Steps</button>
-                            <button class="text-tab-btn" onclick="showTextTab('tab-text-give', this)">Ofrendar</button>
-                        </div>
-
-                        <div id="tab-text-hero" class="text-tab-content" style="display: block;">
-                            <div class="admin-edit-card">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Inicio / Hero</h4>
-                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
-                                <textarea id="input-text-hero" rows="4" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-hero', 'text-hero')">Actualizar / Update</button>
-                            </div>
-                        </div>
-
-                        <div id="tab-text-edit" class="text-tab-content" style="display: none;">
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Texto 1 (Iglesia El Faro)</h4>
-                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
-                                <textarea id="input-text-edit1" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-edit1', 'text-edit1')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Texto 2 (Conocerle)</h4>
-                                <label style="font-size: 0.9rem; color: var(--text-muted);">Texto / Text (Auto-translates)</label>
-                                <textarea id="input-text-edit2" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-edit2', 'text-edit2')">Actualizar / Update</button>
-                            </div>
-                        </div>
-
-                        <div id="tab-text-min" class="text-tab-content" style="display: none;">
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Guardería / Nursery</h4>
-                                <textarea id="input-text-min-guarderia" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-guarderia', 'text-min-guarderia')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Niños / Children</h4>
-                                <textarea id="input-text-min-ninos" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-ninos', 'text-min-ninos')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Jóvenes / Youth</h4>
-                                <textarea id="input-text-min-jovenes" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-jovenes', 'text-min-jovenes')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Damas / Women</h4>
-                                <textarea id="input-text-min-damas" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-damas', 'text-min-damas')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Varones / Men</h4>
-                                <textarea id="input-text-min-varones" rows="3" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-min-varones', 'text-min-varones')">Actualizar / Update</button>
-                            </div>
-                        </div>
-
-                        <div id="tab-text-step" class="text-tab-content" style="display: none;">
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Bautismo / Baptism</h4>
-                                <textarea id="input-text-step-bautismo" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-bautismo', 'text-step-bautismo')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem;">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Clases de Discipulado / Discipleship</h4>
-                                <textarea id="input-text-step-discipulado" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-discipulado', 'text-step-discipulado')">Actualizar / Update</button>
-                            </div>
-                            <div class="admin-edit-card">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Visita a Casa / Home Visit</h4>
-                                <textarea id="input-text-step-visita" rows="2" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-step-visita', 'text-step-visita')">Actualizar / Update</button>
-                            </div>
-                        </div>
-
-                        <div id="tab-text-give" class="text-tab-content" style="display: none;">
-                            <div class="admin-edit-card">
-                                <h4 style="color: var(--navy-dark); font-size: 1.1rem;">Ofrendar / Giving</h4>
-                                <textarea id="input-text-ofrendar" rows="4" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem;" onclick="updateSectionText('input-text-ofrendar', 'text-ofrendar')">Actualizar / Update</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
-                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
-                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Team</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Agregue o elimine miembros de su equipo libremente. Los títulos y descripciones se traducen automáticamente, <b>los nombres no</b>.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Add or remove team members freely. Titles and descriptions auto-translate, <b>names do not</b>.</p>
-                        <div id="admin-team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                        <div class="contact-box" style="text-align: left; padding: 2rem;">
-                            <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Galería</h3>
-                            <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Gallery</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;" lang="es">Suba nuevas fotos o haga clic en la X para eliminar las guardadas.</p>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;" lang="en">Upload new photos or click X to delete saved ones.</p>
-                            
-                            <div class="admin-edit-card" style="margin-bottom: 1.5rem; border-style: dashed; background: #f8fafc;">
-                                <strong style="color: var(--navy-dark);" lang="es">Subir Nuevas Fotos:</strong>
-                                <strong style="color: var(--navy-dark);" lang="en">Upload New Photos:</strong>
-                                <input type="file" id="gallery-upload" accept="image/*" multiple style="border: none; padding: 0; cursor: pointer;">
-                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="uploadToGallery()" lang="es">Subir a Galería</button>
-                                <button class="btn btn-primary" style="padding: 0.6rem;" onclick="uploadToGallery()" lang="en">Upload to Gallery</button>
-                            </div>
-
-                            <div class="admin-edit-card" style="border-style: dashed;">
-                                <strong style="color: var(--navy-dark);" lang="es">Imágenes Guardadas:</strong>
-                                <strong style="color: var(--navy-dark);" lang="en">Saved Images:</strong>
-                                <div id="admin-gallery-thumbnails" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; max-height: 250px; overflow-y: auto; padding: 5px;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
-                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Eventos</h3>
-                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Events</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Los detalles se traducirán, <b>el título no se traducirá</b>.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Details will translate, <b>the title will not be translated</b>.</p>
-
-                        <div class="admin-edit-card" style="margin-bottom: 2rem; border-style: dashed; border-color: var(--whatsapp-green); background: #f0fdf4;">
-                            <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">+ Agregar Nuevo Evento:</strong>
-                            <strong style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 1rem;" lang="en">+ Add New Event:</strong>
-                            <input type="text" id="new-event-title" placeholder="Título del Evento / Event Title (NO se traduce / NOT translated)">
-                            <input type="text" id="new-event-date" placeholder="Fecha y Hora / Date & Time (ej. August 15, 6:00 PM)">
-                            <input type="text" id="new-event-loc" placeholder="Ubicación / Location (Auto-translates)">
-                            
-                            <label style="font-size: 0.9rem; margin-top: 0.5rem;">Imagen del Evento / Event Image:</label>
-                            <input type="file" id="new-event-img" accept="image/*" style="border: none; padding: 0;">
-                            
-                            <button class="btn btn-primary" style="padding: 0.8rem; background-color: var(--whatsapp-green); margin-top: 0.5rem;" onclick="addNewEvent()">Agregar Evento</button>
-                        </div>
-
-                        <div style="font-weight: 700; color: var(--navy-dark); font-size: 1.1rem; margin-bottom: 1rem;" lang="es">Eventos Actuales / Current Events:</div>
-                        <div id="admin-events-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
-                    </div>
-
-                </div>
-                
-                <div id="dashboard-cloud" style="display: none;">
-                    <div class="contact-box" style="padding: 3rem; background-color: #eff6ff; border: 2px solid #bfdbfe; text-align: center;">
-                        <span style="font-size: 4rem; color: #3b82f6; display: block; margin-bottom: 1rem;"><i class="fa-brands fa-google-drive"></i></span>
-                        <h3 style="color: #1d4ed8; font-family: 'Inter', sans-serif; font-size: 2rem; margin-bottom: 1rem;" lang="es">Sincronización con Google Cloud</h3>
-                        <h3 style="color: #1d4ed8; font-family: 'Inter', sans-serif; font-size: 2rem; margin-bottom: 1rem;" lang="en">Google Cloud Sync</h3>
-                        
-                        <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 2rem;" lang="es">Guarda y protege todos los cambios de tu sitio web de forma permanente en el Google Drive oficial de la iglesia.</p>
-                        <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 2rem;" lang="en">Save and protect all your website changes permanently in the church's official Google Drive.</p>
-
-                        <button id="btn-cloud-connect" class="btn btn-primary" style="background-color: #3b82f6; font-size: 1.1rem; padding: 1rem 3rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;" onclick="authenticateGoogle()">
-                            <i class="fa-solid fa-link" style="margin-right: 8px;"></i> <span lang="es">Conectar con Google</span><span lang="en">Connect with Google</span>
-                        </button>
-                        
-                        <p id="cloud-status" style="font-weight: bold; margin-bottom: 2rem; color: #64748b;" lang="es">Estado: Desconectado 🔴</p>
-                        <p id="cloud-status-en" style="font-weight: bold; margin-bottom: 2rem; color: #64748b; display: none;" lang="en">Status: Disconnected 🔴</p>
-
-                        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; border-top: 1px solid #bfdbfe; padding-top: 2rem;">
-                            <button class="btn btn-primary" style="background-color: #10b981; font-size: 1rem;" onclick="saveToDrive()">
-                                <i class="fa-solid fa-cloud-arrow-up" style="margin-right: 8px;"></i> 
-                                <span lang="es">Respaldar en la Nube</span><span lang="en">Backup to Cloud</span>
-                            </button>
-                            <button class="btn btn-outline" style="border-color: #f59e0b; color: #f59e0b; font-size: 1rem; background-color: white;" onclick="loadFromDrive()">
-                                <i class="fa-solid fa-cloud-arrow-down" style="margin-right: 8px;"></i> 
-                                <span lang="es">Restaurar Sitio Web</span><span lang="en">Restore Website</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="dashboard-security" style="display: none;">
-                    <div class="sermon-card" id="security-pin-container" style="max-width: 500px; margin: 0 auto; border-top: 5px solid var(--accent-red); padding: 3rem 2rem;">
-                        <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif;" lang="es">Portal de Seguridad</h3>
-                        <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif;" lang="en">Admin Security Portal</h3>
-                        
-                        <p style="color: var(--text-main); font-weight: 700; margin-bottom: 1rem;" lang="es">¡Atención! Usted está intentando acceder a los controles de Seguridad avanzados.</p>
-                        <p style="color: var(--text-main); font-weight: 700; margin-bottom: 1rem;" lang="en">Warning! You are attempting to access advanced Security controls.</p>
-                        
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Por favor, ingrese el PIN de Administrador Maestro para continuar.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Please enter the Master Admin PIN to continue.</p>
-
-                        <div class="contact-form" onsubmit="event.preventDefault();" style="max-width: 300px; margin: 0 auto;">
-                            <input type="password" id="security-pin-input" placeholder="0000" maxlength="4" style="text-align: center; font-size: 2rem; letter-spacing: 1rem; padding: 1rem; border-radius: 12px;">
-                            <button type="button" onclick="verifySecurityPin()" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; background-color: var(--accent-red); font-size: 1rem;" lang="es">Acceder</button>
-                            <button type="button" onclick="verifySecurityPin()" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; background-color: var(--accent-red); font-size: 1rem;" lang="en">Access</button>
-                            
-                            <p id="pin-error-msg" class="hidden" style="color: var(--accent-red); font-weight: bold; margin-top: 1rem; font-size: 0.9rem;" lang="es">PIN Incorrecto.</p>
-                            <p id="pin-error-msg-en" class="hidden" style="color: var(--accent-red); font-weight: bold; margin-top: 1rem; font-size: 0.9rem;" lang="en">Incorrect PIN.</p>
-                        </div>
-                    </div>
-
-                    <div id="security-content-container" class="hidden">
-                        <div class="contact-box" style="margin-bottom: 2.5rem; padding: 2rem; background-color: #fef2f2; border: 1px solid #fca5a5; text-align: left;">
-                            <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif; font-size: 1.5rem;" lang="es">Gestión de Administradores</h3>
-                            <h3 style="color: var(--accent-red); font-family: 'Inter', sans-serif; font-size: 1.5rem;" lang="en">Admin Account Management</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Solo el Pastor y TI tienen acceso a esta sección de seguridad.</p>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Only the Pastor and IT have access to this security section.</p>
-                            
-                            <div class="admin-edit-card" style="margin-bottom: 2rem; border-style: dashed; border-color: var(--accent-red);">
-                                <strong style="color: var(--accent-red); margin-bottom: 1rem; font-size: 1.05rem;" lang="es">Agregar Nuevo Admin:</strong>
-                                <strong style="color: var(--accent-red); margin-bottom: 1rem; font-size: 1.05rem;" lang="en">Add New Admin:</strong>
-                                <input type="text" id="new-admin-realname" placeholder="Nombre de la Persona / Real Name">
-                                <input type="text" id="new-admin-user" placeholder="Nombre de Usuario / Username">
-                                <input type="text" id="new-admin-pass" placeholder="Contraseña / Password">
-                                <button class="btn btn-primary" style="padding: 0.8rem; margin-top: 0.5rem; background-color: var(--accent-red);" onclick="addNewAdmin()">Agregar Admin / Add Admin</button>
-                            </div>
-                            
-                            <strong style="color: var(--accent-red); font-size: 1.1rem; display: block; margin-bottom: 1rem;" lang="es">Cuentas Actuales / Current Accounts:</strong>
-                            <div id="admin-accounts-list" style="display: grid; gap: 1rem;"></div>
-                        </div>
-
-                        <div class="contact-box" style="padding: 2rem; text-align: left;">
-                            <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Registro de Ediciones (En Vivo)</h3>
-                            <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">Live Audit Log</h3>
-                            <div style="overflow-x: auto; max-height: 400px; overflow-y: auto; border-radius: 12px; border: 1px solid #e2e8f0;">
-                                <table class="admin-table" style="margin-top: 0; border: none; box-shadow: none;">
-                                    <thead style="position: sticky; top: 0; z-index: 10;">
-                                        <tr>
-                                            <th lang="es">Usuario</th><th lang="en">User</th>
-                                            <th lang="es">Acción Realizada</th><th lang="en">Action Performed</th>
-                                            <th lang="es">Fecha y Hora</th><th lang="en">Timestamp</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="audit-log-body"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 4rem;">
-                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--text-muted); color: var(--text-muted); padding: 0.8rem 3rem;" lang="es"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Cerrar Sesión</button>
-                    <button onclick="logoutAdmin()" class="btn btn-outline" style="border-color: var(--text-muted); color: var(--text-muted); padding: 0.8rem 3rem;" lang="en"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Logout</button>
-                </div>
+            <div class="doctrine-card">
+                <h3><i class="fas fa-shield-halved"></i> <span lang="es">Dios</span><span lang="en">God</span></h3>
+                <p>
+                    <span lang="es">Creemos en un sólo Dios, el cual es eterno, auto-existente, infinito e inmutable. Creemos que tiene una naturaleza, una esencia, una sustancia y que se ha manifestado al hombre en tres personas: el Padre, el Hijo y el Espíritu Santo (Deuteronomio 6:4; I Timoteo 1:17; Santiago 1:17; I Juan 4:4).</span>
+                    <span lang="en">We believe in one God, who is eternal, self-existent, infinite, and immutable. We believe He has one nature, one essence, one substance, and has manifested Himself to man in three persons: the Father, the Son, and the Holy Spirit (Deuteronomy 6:4; 1 Timothy 1:17; James 1:17; 1 John 4:4).</span>
+                </p>
             </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-hourglass-half"></i> <span lang="es">Los Últimos Días</span><span lang="en">The Last Days</span></h3>
+                <p>
+                    <span lang="es">Creemos en la interpretación literal de las Escrituras en su contexto gramatical e histórico. Creemos en el Rapto pre-tribulacional de los santos de la iglesia, seguido por los siete años de Tribulación. Creemos en el regreso pre-milenial de Cristo a la tierra y su literal reinado de mil años. Seguido a estos mil años es el juicio del Gran Trono Blanco y entonces el Cielo nuevo y tierra nueva (I Corintios 15:51-58; I Tesalonicenses 4:13-18; I Tesalonicenses 5:1-9; Apocalipsis 19-22).</span>
+                    <span lang="en">We believe in the literal interpretation of Scriptures in their grammatical and historical context. We believe in the pre-tribulation Rapture of the church saints, followed by the seven years of Tribulation. We believe in the pre-millennial return of Christ to earth and His literal thousand-year reign (1 Corinthians 15:51-58; 1 Thessalonians 4:13-18; Revelation 19-22).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-cross"></i> <span lang="es">El Hijo</span><span lang="en">The Son</span></h3>
+                <p>
+                    <span lang="es">Creemos que Jesucristo es el único Salvador de la humanidad. Creemos que Jesucristo es eternamente Dios y que posee todos los atributos de la Deidad. Creemos que el Señor Jesucristo nació de una virgen, que Él es Dios encarnado, y que el propósito de la encarnación fue revelar a Dios para redimir al hombre, y para reinar sobre el reino de Dios. Creemos que vivió una vida perfecta, sin pecado, y que la ofreció como un sacrificio sustitutivo por los pecados del hombre a través del derramamiento de su sangre en la Cruz (Salmos 2:7-9; Isaías 7:14; Juan 1:1; Romanos 3:19-25; Filipenses 2:5-11).</span>
+                    <span lang="en">We believe that Jesus Christ is the only Savior of humanity. We believe that Jesus Christ is eternally God and possesses all the attributes of Deity. We believe He was born of a virgin, lived a perfect, sinless life, and offered Himself as a substitutionary sacrifice for man's sins through the shedding of His blood on the Cross (Psalm 2:7-9; Isaiah 7:14; John 1:1; Romans 3:19-25; Philippians 2:5-11).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-heart-pulse"></i> <span lang="es">El Pecado y la Salvación</span><span lang="en">Sin and Salvation</span></h3>
+                <p>
+                    <span lang="es">Creemos que todos los hombres nacen con la herencia del pecado natural recibida de parte de nuestro antecesor común Adán. Creemos que debido a esta naturaleza el hombre es un pecador por decisión, y que es totalmente incapaz de reformarse a sí mismo o dejar de pecar por su propio poder. Creemos que la única esperanza de salvación es volverse a Jesucristo como único Salvador a través de Su sacrificio sustitutivo en la Cruz (Génesis 5:1-5; Romanos 3:10-23; Romanos 6:23; Efesios 2:8-9).</span>
+                    <span lang="en">We believe all men are born with a nature of natural sin inherited from Adam, making man a sinner by choice and entirely incapable of reforming himself. We believe the only hope of salvation is turning to Jesus Christ as the only Savior through His substitutionary sacrifice (Genesis 5:1-5; Romans 3:10-23; Romans 6:23; Ephesians 2:8-9).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-dove"></i> <span lang="es">El Espíritu Santo</span><span lang="en">The Holy Spirit</span></h3>
+                <p>
+                    <span lang="es">Creemos que El Espíritu Santo de Dios es una persona que tiene todos los atributos de la Deidad. Su ministerio especial comenzó el día de Pentecostés y continúa hasta el día del rapto. Su ministerio incluye proveer convicción del pecado y redargüir hacia una vida de santidad, regenerando, santificando, sellando y llenando a todos aquellos que han recibido a Cristo (Juan 3:5-6; Hechos 1:5; I Corintios 6:19-20; I Corintios 12:13).</span>
+                    <span lang="en">We believe the Holy Spirit is a person possessing all attributes of Deity. His special ministry began on Pentecost and continues until the rapture, providing conviction of sin, regeneration, sanctification, and sealing all believers (John 3:5-6; Acts 1:5; 1 Corinthians 6:19-20; 1 Corinthians 12:13).</span>
+                </p>
+            </div>
+
+            <div class="doctrine-card">
+                <h3><i class="fas fa-church"></i> <span lang="es">La Iglesia del Nuevo Testamento</span><span lang="en">The New Testament Church</span></h3>
+                <p>
+                    <span lang="es">Creemos que la iglesia comenzó con el llamado de los doce apóstoles por Jesucristo y que fue empoderada en el día de Pentecostés. Creemos que la iglesia local es la única institución de parte de Dios para hacer su obra en este tiempo, compuesta por miembros que han sido salvos y bautizados que voluntariamente se reúnen para adorar a Dios y recordar la Cena del Señor (Mateo 16:16-18; Hechos 2:41-43; Efesios 5:25-30; I Tesalonicenses 4:13-18).</span>
+                    <span lang="en">We believe the church began with the calling of the twelve apostles and was empowered on Pentecost. We believe the local church is God's sole institution for His work today, composed of saved and baptized members who gather to worship and remember the Lord's Supper (Matthew 16:16-18; Acts 2:41-43; Ephesians 5:25-30).</span>
+                </p>
+            </div>
+
         </div>
     </div>
 
@@ -894,437 +359,16 @@
     </footer>
 
     <script>
-        const GOOGLE_CLIENT_ID = "679180312582-arekif5g0veao06qk1q1nripv7t3vc5v.apps.googleusercontent.com";
-        
-        let tokenClient;
-        let cloudAccessToken = null;
-
-        function authenticateGoogle() {
-            if (!tokenClient) {
-                tokenClient = google.accounts.oauth2.initTokenClient({
-                    client_id: GOOGLE_CLIENT_ID,
-                    scope: 'https://www.googleapis.com/auth/drive.file',
-                    callback: (response) => {
-                        if (response && response.access_token) {
-                            cloudAccessToken = response.access_token;
-                            document.getElementById('cloud-status').innerText = "Estado: Conectado 🟢";
-                            document.getElementById('cloud-status-en').innerText = "Status: Connected 🟢";
-                            document.getElementById('btn-cloud-connect').style.backgroundColor = '#10b981';
-                        }
-                    },
-                });
-            }
-            tokenClient.requestAccessToken();
-        }
-
-        async function saveToDrive() {
-            if (!cloudAccessToken) { alert("Primero debes conectar con Google."); return; }
-            document.body.style.cursor = 'wait';
-            const backupData = {};
-            for(let i=0; i<localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if(key.startsWith('faro_')) backupData[key] = localStorage.getItem(key);
-            }
-            const fileContent = JSON.stringify(backupData);
-            const boundary = '-------314159265358979323846';
-            const delimiter = "\r\n--" + boundary + "\r\n";
-            const close_delim = "\r\n--" + boundary + "--";
-            const metadata = { 'name': 'Iglesia_El_Faro_Website_Backup.json', 'mimeType': 'application/json' };
-            const multipartRequestBody = delimiter + 'Content-Type: application/json; charset=UTF-8\r\n\r\n' + JSON.stringify(metadata) + delimiter + 'Content-Type: application/json\r\n\r\n' + fileContent + close_delim;
-
-            try {
-                const request = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-                    method: 'POST',
-                    headers: { 'Authorization': 'Bearer ' + cloudAccessToken, 'Content-Type': 'multipart/related; boundary=' + boundary },
-                    body: multipartRequestBody
-                });
-                if(request.ok) { alert("¡Sincronización Exitosa!"); addLog('Respaldo subido a Google Drive', 'Backup uploaded'); }
-            } catch(e) { alert("Error: " + e.message); }
-            document.body.style.cursor = 'default';
-        }
-
-        async function loadFromDrive() {
-            if (!cloudAccessToken) { alert("Primero debes conectar con Google."); return; }
-            document.body.style.cursor = 'wait';
-            try {
-                const searchRes = await fetch("https://www.googleapis.com/drive/v3/files?q=name='Iglesia_El_Faro_Website_Backup.json'", {
-                    headers: { 'Authorization': 'Bearer ' + cloudAccessToken }
-                });
-                const searchData = await searchRes.json();
-                if(searchData.files && searchData.files.length > 0) {
-                    const fileId = searchData.files[0].id;
-                    const fileRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
-                        headers: { 'Authorization': 'Bearer ' + cloudAccessToken }
-                    });
-                    const backupData = await fileRes.json();
-                    for(let key in backupData) localStorage.setItem(key, backupData[key]);
-                    alert("¡Sitio web restaurado! La página se recargará.");
-                    location.reload();
-                } else { alert("No se encontró ningún archivo de respaldo."); }
-            } catch(e) { alert("Error: " + e.message); }
-            document.body.style.cursor = 'default';
-        }
-
-        let currentUser = "Desconocido"; 
-        let currentUserUsername = ""; 
-        let auditLogs = JSON.parse(localStorage.getItem('faro_audit_logs')) || [];
-
-        function addLog(actionEs, actionEn) {
-            const now = new Date();
-            auditLogs.unshift({ user: currentUser, actionEs, actionEn, timestamp: now.toLocaleDateString() + " " + now.toLocaleTimeString() });
-            if(auditLogs.length > 20) auditLogs.pop();
-            localStorage.setItem('faro_audit_logs', JSON.stringify(auditLogs));
-            renderAuditLog();
-        }
-
-        function renderAuditLog() {
-            const tbody = document.getElementById('audit-log-body');
-            if(!tbody) return;
-            tbody.innerHTML = '';
-            const isEn = document.body.classList.contains('lang-en');
-            if(auditLogs.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:gray; padding: 2rem;">Sin registros / No logs</td></tr>`;
-                return;
-            }
-            auditLogs.forEach(log => {
-                tbody.innerHTML += `<tr><td><strong>${log.user}</strong></td><td>${isEn ? log.actionEn : log.actionEs}</td><td style="color: #64748b; font-size: 0.85rem;">${log.timestamp}</td></tr>`;
-            });
-        }
-
-        async function translateText(text, targetLang) {
-            if (!text) return "";
-            try {
-                const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
-                const data = await response.json();
-                return data[0].map(item => item[0]).join(''); 
-            } catch (error) { return text; }
-        }
-
-        const defaultAdmins = [
-            { user: "Pastor_01", pass: "1234", name: "Pastor Neil" },
-            { user: "IT_02", pass: "5678", name: "Jorge" },
-            { user: "Hermana_03", pass: "1011", name: "Hrna Alejandra" }
-        ];
-        let globalAdmins = JSON.parse(localStorage.getItem('faro_admins')) || defaultAdmins;
-
-        function renderAdminAccounts() {
-            const list = document.getElementById('admin-accounts-list');
-            if(!list) return;
-            list.innerHTML = '';
-            globalAdmins.forEach(adm => {
-                list.innerHTML += `<div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: white;"><div style="font-size: 0.95rem;"><strong style="color: var(--navy-dark);">${adm.name}</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">User: ${adm.user}</span></div><button onclick="deleteAdmin('${adm.user}')" class="delete-btn" style="position:relative; right:0; top:0;">×</button></div>`;
-            });
-        }
-
-        function addNewAdmin() {
-            const realname = document.getElementById('new-admin-realname').value.trim();
-            const user = document.getElementById('new-admin-user').value.trim();
-            const pass = document.getElementById('new-admin-pass').value.trim();
-            if(!realname || !user || !pass) { alert("Complete todos los campos."); return; }
-            globalAdmins.push({ user, pass, name: realname });
-            localStorage.setItem('faro_admins', JSON.stringify(globalAdmins));
-            document.getElementById('new-admin-realname').value = '';
-            document.getElementById('new-admin-user').value = '';
-            document.getElementById('new-admin-pass').value = '';
-            renderAdminAccounts();
-            alert("Administrador agregado.");
-        }
-
-        function deleteAdmin(username) {
-            if(globalAdmins.length <= 1) { alert("Debe quedar al menos un administrador."); return; }
-            globalAdmins = globalAdmins.filter(a => a.user !== username);
-            localStorage.setItem('faro_admins', JSON.stringify(globalAdmins));
-            renderAdminAccounts();
-        }
-
-        function switchMainDashboardTab(tabName) {
-            document.getElementById('dashboard-content').style.display = (tabName === 'content') ? 'block' : 'none';
-            document.getElementById('dashboard-cloud').style.display = (tabName === 'cloud') ? 'block' : 'none';
-            if(document.getElementById('dashboard-security')) document.getElementById('dashboard-security').style.display = (tabName === 'security') ? 'block' : 'none';
-        }
-
-        function verifySecurityPin() {
-            if(document.getElementById('security-pin-input').value.trim() === "0000") {
-                document.getElementById('security-pin-container').classList.add('hidden');
-                document.getElementById('security-content-container').classList.remove('hidden');
-            } else { alert("PIN Incorrecto."); }
-        }
-
-        function compressImage(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = event => {
-                    const img = new Image();
-                    img.src = event.target.result;
-                    img.onload = () => {
-                        const canvas = document.createElement('canvas');
-                        let width = img.width, height = img.height;
-                        if (width > height && width > 800) { height *= 800 / width; width = 800; }
-                        else if (height > 800) { width *= 800 / height; height = 800; }
-                        canvas.width = width; canvas.height = height;
-                        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-                        resolve(canvas.toDataURL('image/jpeg', 0.6));
-                    };
-                };
-            });
-        }
-
-        // --- MANAGE TEAM ---
-        let globalTeam = JSON.parse(localStorage.getItem('faro_team')) || [];
-
-        function renderPublicTeam() {} // Manual HTML is used above, so script doesn't override it
-
-        function renderAdminTeam() {
-            const grid = document.getElementById('admin-team-grid');
-            if(!grid) return;
-            grid.innerHTML = '';
-            globalTeam.forEach(m => {
-                grid.innerHTML += `<div class="admin-edit-card">
-                    <button onclick="deleteTeamMember(${m.id})" class="delete-btn">×</button>
-                    <input type="text" id="edit-team-name-${m.id}" value="${m.name}">
-                    <input type="text" id="edit-team-role-${m.id}" value="${m.roleEs}" placeholder="Role (Auto-translates)">
-                    <textarea id="edit-team-desc-${m.id}" rows="2" placeholder="Description (Auto-translates)">${m.descEs}</textarea>
-                    <input type="file" id="edit-team-img-${m.id}" accept="image/*">
-                    <button class="btn btn-primary" onclick="updateTeamMember(${m.id})">Actualizar</button>
-                </div>`;
-            });
-            
-            // Add new member card
-            grid.innerHTML += `
-            <div class="admin-edit-card" style="border-style: dashed; border-color: var(--whatsapp-green); background-color: #f0fdf4;">
-                <h4 style="color: var(--whatsapp-green); font-size: 1.1rem; margin-bottom: 0.5rem;">+ Nuevo Miembro / New</h4>
-                <input type="text" id="new-team-name" placeholder="Nombre Completo (NO se traduce)">
-                <input type="text" id="new-team-role" placeholder="Rol / Role (Auto-translates)">
-                <textarea id="new-team-desc" rows="2" placeholder="Descripción (Auto-translates)" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-family: inherit;"></textarea>
-                <input type="file" id="new-team-img" accept="image/*" style="border:none; padding:0;">
-                <button class="btn btn-primary" style="padding: 0.6rem; font-size: 0.9rem; background-color: var(--whatsapp-green);" onclick="addTeamMember()">Agregar / Add</button>
-            </div>`;
-        }
-
-        async function addTeamMember() {
-            const name = document.getElementById('new-team-name').value.trim();
-            const role = document.getElementById('new-team-role').value.trim();
-            const desc = document.getElementById('new-team-desc').value.trim();
-            const fileInput = document.getElementById('new-team-img');
-
-            if(!name) { alert("Agregue un nombre. / Please add a name."); return; }
-            document.body.style.cursor = 'wait';
-
-            // NAME IS NOT TRANSLATED. Only Role and Desc.
-            const roleEs = await translateText(role, 'es');
-            const roleEn = await translateText(role, 'en');
-            const descEs = await translateText(desc, 'es');
-            const descEn = await translateText(desc, 'en');
-
-            let imgData = "";
-            if (fileInput.files && fileInput.files[0]) {
-                imgData = await compressImage(fileInput.files[0]);
-            }
-
-            globalTeam.push({
-                id: Date.now(), name: name,
-                roleEs: roleEs, roleEn: roleEn,
-                descEs: descEs, descEn: descEn, img: imgData
-            });
-
-            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderAdminTeam();
-            addLog(`Agregó miembro al equipo: ${name}`, `Added team member: ${name}`);
-            document.body.style.cursor = 'default';
-            alert("¡Miembro Agregado! / Member Added!");
-        }
-
-        async function updateTeamMember(id) {
-            const index = globalTeam.findIndex(m => m.id === id);
-            if(index === -1) return;
-
-            const name = document.getElementById(`edit-team-name-${id}`).value;
-            const role = document.getElementById(`edit-team-role-${id}`).value;
-            const desc = document.getElementById(`edit-team-desc-${id}`).value;
-            const fileInput = document.getElementById(`edit-team-img-${id}`);
-
-            document.body.style.cursor = 'wait';
-            
-            // NAME IS NOT TRANSLATED.
-            globalTeam[index].name = name;
-            globalTeam[index].roleEs = await translateText(role, 'es');
-            globalTeam[index].roleEn = await translateText(role, 'en');
-            globalTeam[index].descEs = await translateText(desc, 'es');
-            globalTeam[index].descEn = await translateText(desc, 'en');
-
-            if (fileInput.files && fileInput.files[0]) {
-                globalTeam[index].img = await compressImage(fileInput.files[0]);
-            }
-
-            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderAdminTeam();
-            addLog(`Actualizó al miembro: ${name}`, `Updated team member: ${name}`);
-            document.body.style.cursor = 'default';
-            alert("¡Miembro Actualizado! / Member Updated!");
-        }
-
-        function deleteTeamMember(id) {
-            globalTeam = globalTeam.filter(m => m.id !== id);
-            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderAdminTeam();
-        }
-
-        // --- MANAGE EVENTS ---
-        let globalEvents = JSON.parse(localStorage.getItem('faro_events')) || [];
-
-        function renderPublicEvents() {
-            const grid = document.getElementById('public-events-grid');
-            if(!grid) return;
-            grid.innerHTML = '';
-            globalEvents.forEach(ev => {
-                grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img || './P-Pics/G1.jpg'}" onerror="fixExt(this, './P-Pics/G1')" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><h3 class="event-title">${ev.titleEs}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
-            });
-        }
-
-        function renderAdminEvents() {
-            const list = document.getElementById('admin-events-list');
-            if(!list) return;
-            list.innerHTML = '';
-            globalEvents.forEach(ev => {
-                list.innerHTML += `<div class="admin-edit-card"><button onclick="deleteEvent(${ev.id})" class="delete-btn">×</button><input type="text" id="edit-ev-title-${ev.id}" value="${ev.titleEs}" placeholder="Title (NOT translated)"><input type="text" id="edit-ev-date-${ev.id}" value="${ev.dateEs}" placeholder="Date"><button class="btn btn-primary" onclick="updateEvent(${ev.id})">Actualizar</button></div>`;
-            });
-        }
-
-        async function addNewEvent() {
-            const title = document.getElementById('new-event-title').value.trim();
-            const date = document.getElementById('new-event-date').value.trim();
-            const loc = document.getElementById('new-event-loc').value.trim();
-            const fileInput = document.getElementById('new-event-img');
-            
-            if(!title) { alert("Please add a title."); return; }
-            document.body.style.cursor = 'wait';
-
-            // TITLE IS NOT TRANSLATED.
-            const dateEs = await translateText(date, 'es');
-            const dateEn = await translateText(date, 'en');
-            const locEs = await translateText(loc, 'es');
-            const locEn = await translateText(loc, 'en');
-            
-            let imgData = fileInput.files[0] ? await compressImage(fileInput.files[0]) : "";
-            globalEvents.push({ id: Date.now(), titleEs: title, titleEn: title, dateEs: dateEs, dateEn: dateEn, locEs: locEs, locEn: locEn, img: imgData });
-            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
-            
-            document.getElementById('new-event-title').value = "";
-            document.getElementById('new-event-date').value = "";
-            document.getElementById('new-event-loc').value = "";
-            
-            renderPublicEvents(); renderAdminEvents(); 
-            document.body.style.cursor = 'default';
-            alert("Agregado");
-        }
-        
-        async function updateEvent(id) {
-            const index = globalEvents.findIndex(ev => ev.id === id);
-            if(index === -1) return;
-
-            const title = document.getElementById(`edit-ev-title-${id}`).value;
-            const date = document.getElementById(`edit-ev-date-${id}`).value;
-
-            document.body.style.cursor = 'wait';
-
-            // TITLE IS NOT TRANSLATED
-            globalEvents[index].titleEs = title;
-            globalEvents[index].titleEn = title;
-            globalEvents[index].dateEs = await translateText(date, 'es');
-            globalEvents[index].dateEn = await translateText(date, 'en');
-
-            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
-            renderPublicEvents();
-            renderAdminEvents();
-            document.body.style.cursor = 'default';
-            alert("Evento Actualizado! / Event Updated!");
-        }
-
-        function deleteEvent(id) {
-            globalEvents = globalEvents.filter(e => e.id !== id);
-            localStorage.setItem('faro_events', JSON.stringify(globalEvents));
-            renderPublicEvents(); renderAdminEvents();
-        }
-
-        // --- MAIN IMAGES ---
-        async function updateMainImage(targetId, inputId) {
-            const fileInput = document.getElementById(inputId);
-            if (!fileInput.files[0]) return;
-            const compressed = await compressImage(fileInput.files[0]);
-            localStorage.setItem('faro_main_' + targetId, compressed);
-            if (targetId === 'inicio-hero') {
-                document.getElementById('inicio').style.backgroundImage = `linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('${compressed}')`;
-            } else {
-                document.getElementById(targetId).src = compressed;
-            }
-            alert("Imagen actualizada");
-        }
-
-        function removeMainImage(targetId, defaultFile) {
-            localStorage.removeItem('faro_main_' + targetId);
-            document.getElementById(targetId).src = defaultFile;
-            alert("Imagen restaurada");
-        }
-
-        async function updateLogoImage(inputId) {
-            const fileInput = document.getElementById(inputId);
-            if (!fileInput.files[0]) return;
-            const compressed = await compressImage(fileInput.files[0]);
-            localStorage.setItem('faro_main_logo', compressed);
-            document.querySelectorAll('.logo-img').forEach(img => img.src = compressed);
-            alert("Logo actualizado");
-        }
-
-        function removeLogoImage() {
-            localStorage.removeItem('faro_main_logo');
-            document.querySelectorAll('.logo-img').forEach(img => img.src = './P-Pics/Logo.jpg');
-            alert("Logo restaurado");
-        }
-
-        // --- GALLERY ---
-        async function uploadToGallery() {
-            const files = document.getElementById('gallery-upload').files;
-            let saved = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
-            for(let f of files) saved.push(await compressImage(f));
-            localStorage.setItem('faro_custom_gallery', JSON.stringify(saved));
-            renderAdminGallery(); alert("Subido");
-        }
-
-        function renderAdminGallery() {
-            const container = document.getElementById('admin-gallery-thumbnails');
-            if (!container) return;
-            container.innerHTML = '';
-            let saved = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
-            saved.forEach((img, i) => {
-                container.innerHTML += `<div style="position:relative; width:90px; height:90px;"><img src="${img}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"><button class="delete-btn" style="top:-8px;right:-8px;width:24px;height:24px;" onclick="deleteGalleryImg(${i})">×</button></div>`;
-            });
-        }
-
-        function deleteGalleryImg(i) {
-            let saved = JSON.parse(localStorage.getItem('faro_custom_gallery') || '[]');
-            saved.splice(i, 1);
-            localStorage.setItem('faro_custom_gallery', JSON.stringify(saved));
-            renderAdminGallery();
-        }
-
-        async function updateSectionText(inputId, prefix) {
-            const text = document.getElementById(inputId).value.trim();
-            localStorage.setItem('faro_text_' + prefix + '-es', text);
-            localStorage.setItem('faro_text_' + prefix + '-en', text);
-            if(document.getElementById(prefix + '-es')) document.getElementById(prefix + '-es').innerText = text;
-            if(document.getElementById(prefix + '-en')) document.getElementById(prefix + '-en').innerText = text;
-            alert("Texto actualizado");
-        }
-
+        // Check if user previously selected a language on index.html
         document.addEventListener('DOMContentLoaded', () => {
-            initEvents(); renderPublicEvents(); renderAuditLog();
-            
-            // REMOVED THE CODE THAT OVERWROTE WITH BROKEN ADMIN IMAGES!
-            // Now the website will use your pure P-Pics folder on GitHub.
+            const savedLang = localStorage.getItem('faro_language') || 'es';
+            setLanguage(savedLang);
         });
 
         function setLanguage(lang) {
+            // Save choice to localStorage so it syncs automatically across pages
+            localStorage.setItem('faro_language', lang);
+            
             if (lang === 'en') {
                 document.body.classList.add('lang-en');
                 document.getElementById('btn-en').classList.add('active');
@@ -1334,36 +378,6 @@
                 document.getElementById('btn-es').classList.add('active');
                 document.getElementById('btn-en').classList.remove('active');
             }
-        }
-
-        function toggleAdminTab() {
-            const modal = document.getElementById('admin-modal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        function loginAdmin() {
-            const user = document.getElementById('admin-user').value.trim();
-            const pass = document.getElementById('admin-pass').value.trim();
-            const found = globalAdmins.find(a => a.user === user && a.pass === pass);
-            if(found) {
-                currentUser = found.name; currentUserUsername = found.user;
-                document.getElementById('admin-login-container').classList.add('hidden');
-                document.getElementById('admin-dashboard-container').classList.remove('hidden');
-                document.getElementById('admin-greeting').innerText = "Bienvenido, " + currentUser;
-                renderAdminAccounts(); renderAdminGallery(); renderAdminEvents(); renderAdminTeam();
-            } else { document.getElementById('login-error').classList.remove('hidden'); }
-        }
-
-        function logoutAdmin() {
-            document.getElementById('admin-dashboard-container').classList.add('hidden');
-            document.getElementById('admin-login-container').classList.remove('hidden');
-        }
-
-        function showTextTab(tabId, btn) {
-            document.querySelectorAll('.text-tab-content').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.text-tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).style.display = 'block';
-            if(btn) btn.classList.add('active');
         }
     </script>
 </body>
