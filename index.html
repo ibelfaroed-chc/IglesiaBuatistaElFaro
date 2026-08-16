@@ -13,7 +13,7 @@
 
     <script>
         function fixExt(img, basePath) {
-            const exts = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
+            const exts = ['.jpeg', '.png', '.jpg', '.JPG', '.JPEG', '.PNG', '.webp'];
             let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
             if (attempts < exts.length) {
                 img.src = basePath + exts[attempts];
@@ -89,8 +89,8 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         .hero { 
-            /* Added P03.jpg as background image fallback */
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('./P-Pics/P03.jpg') center/cover no-repeat; 
+            /* Switched to P01.jpg as background image */
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%), url('./P-Pics/P01.jpg') center/cover no-repeat; 
             background-color: var(--navy-dark); 
             color: white; 
             text-align: center; 
@@ -314,7 +314,7 @@
             <a href="#nosotros" class="editorial-btn"><span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span></a>
         </div>
         <div class="editorial-image-wrapper">
-            <img src="./P-Pics/P01.jpg" onerror="fixExt(this, './P-Pics/P01')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
+            <img src="./P-Pics/P03.jpg" onerror="fixExt(this, './P-Pics/P03')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
         </div>
     </section>
 
@@ -433,7 +433,7 @@
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
                     <img src="./P-Pics/P09-RHonda.png" onerror="fixExt(this, './P-Pics/P09-RHonda')" alt="RHonda" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 style="font-size: 1.3rem;">RHonda</h3>
+                <h3 style="font-size: 1.3rem;">Hrna RHonda</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
@@ -466,7 +466,7 @@
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
                     <img src="./P-Pics/P13-Norma.png" onerror="fixExt(this, './P-Pics/P13-Norma')" alt="Norma" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 style="font-size: 1.3rem;">Norma</h3>
+                <h3 style="font-size: 1.3rem;">Hrna Norma</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
@@ -477,7 +477,7 @@
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
                     <img src="./P-Pics/P14-Martha.jpeg" onerror="fixExt(this, './P-Pics/P14-Martha')" alt="Martha" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <h3 style="font-size: 1.3rem;">Martha</h3>
+                <h3 style="font-size: 1.3rem;">Hrna Martha</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
@@ -1415,7 +1415,6 @@
             renderPublicEvents(); renderAdminEvents();
         }
 
-        // --- MAIN IMAGES ---
         async function updateMainImage(targetId, inputId) {
             const fileInput = document.getElementById(inputId);
             if (!fileInput.files[0]) return;
@@ -1486,9 +1485,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             initEvents(); renderPublicEvents(); renderAuditLog();
-            
-            // REMOVED THE CODE THAT OVERWROTE WITH BROKEN ADMIN IMAGES!
-            // Now the website will use your pure P-Pics folder on GitHub.
         });
 
         function setLanguage(lang) {
