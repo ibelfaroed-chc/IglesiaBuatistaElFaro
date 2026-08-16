@@ -11,6 +11,19 @@
     
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
+    <script>
+        function fixExt(img, basePath) {
+            const exts = ['.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.webp'];
+            let attempts = img.dataset.attempts ? parseInt(img.dataset.attempts) : 0;
+            if (attempts < exts.length) {
+                img.src = basePath + exts[attempts];
+                img.dataset.attempts = attempts + 1;
+            } else {
+                img.onerror = null; 
+            }
+        }
+    </script>
+
     <style>
         :root {
             --navy-dark: #0f172a; 
@@ -243,11 +256,11 @@
         <header>
             <div class="header-brand">
                 <div class="logo" lang="es">
-                    <img src="P-Pics/Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="P-Pics/Logo.jpg" onerror="fixExt(this, 'P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     Iglesia Bautista <span>El Faro</span>
                 </div>
                 <div class="logo" lang="en">
-                    <img src="P-Pics/Logo.jpg" alt="El Faro Logo" class="logo-img" loading="lazy">
+                    <img src="P-Pics/Logo.jpg" onerror="fixExt(this, 'P-Pics/Logo')" alt="El Faro Logo" class="logo-img" loading="lazy">
                     El Faro <span>Baptist Church</span>
                 </div>
             </div>
@@ -299,7 +312,7 @@
             <a href="#nosotros" class="editorial-btn"><span lang="es">SOBRE NOSOTROS</span><span lang="en">ABOUT US</span></a>
         </div>
         <div class="editorial-image-wrapper">
-            <img src="P-Pics/G1.jpg" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
+            <img src="P-Pics/G1.jpg" onerror="fixExt(this, 'P-Pics/G1')" id="img-edit-1" alt="El Faro Church Scene 1" loading="lazy">
         </div>
     </section>
 
@@ -315,7 +328,7 @@
             <a href="#contacto" class="editorial-btn" lang="en">Connect With Us</a>
         </div>
         <div class="editorial-image-wrapper right-box">
-            <img src="P-Pics/G2.jpg" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
+            <img src="P-Pics/G2.jpg" onerror="fixExt(this, 'P-Pics/G2')" id="img-edit-2" alt="El Faro Church Scene 2" loading="lazy">
         </div>
     </section>
 
@@ -370,7 +383,7 @@
         <div style="max-width: 450px; margin: 0 auto 3.5rem auto;">
             <div class="ministry-card" style="border-top: 5px solid var(--accent-red);">
                 <div style="width: 140px; height: 140px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Pastor.jpg" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/Pastor.jpg" onerror="fixExt(this, 'P-Pics/Pastor')" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3>Pastor Neil Arias</h3>
                 <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Pastor Principal</h4>
@@ -383,7 +396,7 @@
         <div class="ministry-grid" style="max-width: 1100px; margin: 0 auto;">
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Andres.jpg" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/Andres.jpg" onerror="fixExt(this, 'P-Pics/Andres')" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Andres de la Garza</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
@@ -394,7 +407,7 @@
 
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Refugio.jpg" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/Refugio.jpg" onerror="fixExt(this, 'P-Pics/Refugio')" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Refugio Castillo</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
@@ -405,7 +418,7 @@
             
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="P-Pics/Alejandra.jpg" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/Alejandra.jpg" onerror="fixExt(this, 'P-Pics/Alejandra')" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Hrna Alejandra</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
@@ -426,7 +439,7 @@
         <div class="ministry-grid">
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G3.jpg" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G3.jpg" onerror="fixExt(this, 'P-Pics/G3')" id="img-min-guarderia" alt="Guardería" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Guardería</h3>
                 <h3 lang="en">Nursery</h3>
@@ -435,7 +448,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G4.jpg" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G4.jpg" onerror="fixExt(this, 'P-Pics/G4')" id="img-min-ninos" alt="Ministerio de Niños" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Ministerio de Niños</h3>
                 <h3 lang="en">Children's Ministry</h3>
@@ -444,7 +457,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G5.jpg" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G5.jpg" onerror="fixExt(this, 'P-Pics/G5')" id="img-min-jovenes" alt="Ministerio de Jóvenes" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Jóvenes</h3>
                 <h3 lang="en">Youth Ministry</h3>
@@ -453,7 +466,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G6.jpg" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G6.jpg" onerror="fixExt(this, 'P-Pics/G6')" id="img-min-damas" alt="Ministerio de Damas" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Damas</h3>
                 <h3 lang="en">Women's Ministries</h3>
@@ -462,7 +475,7 @@
             </div>
             <div class="ministry-card">
                 <div style="width: 100%; height: 200px; margin-bottom: 1.5rem; border-radius: 12px; overflow: hidden; background-color: #cbd5e1;">
-                    <img src="P-Pics/G7.jpg" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G7.jpg" onerror="fixExt(this, 'P-Pics/G7')" id="img-min-varones" alt="Ministerio de Varones" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es">Varones</h3>
                 <h3 lang="en">Men's Ministries</h3>
@@ -482,7 +495,7 @@
         <div class="ministry-grid" style="gap: 4rem; margin-bottom: 4rem;">
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G8.jpg" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G8.jpg" onerror="fixExt(this, 'P-Pics/G8')" id="img-step-bautismo" alt="Bautismo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Bautismo</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Baptism</h3>
@@ -491,7 +504,7 @@
             </div>
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G9.jpg" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G9.jpg" onerror="fixExt(this, 'P-Pics/G9')" id="img-step-discipulado" alt="Clases de Discipulado" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Clases de Discipulado</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Discipleship Classes</h3>
@@ -500,7 +513,7 @@
             </div>
             <div style="text-align: center;">
                 <div style="width: 200px; height: 200px; margin: 0 auto 2rem auto; border-radius: 50%; border: 6px solid white; overflow: hidden; background-color: #cbd5e1; box-shadow: var(--shadow-md);">
-                    <img src="P-Pics/G10.jpg" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="P-Pics/G10.jpg" onerror="fixExt(this, 'P-Pics/G10')" id="img-step-visita" alt="Visita a Su Casa" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 lang="es" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Visita a Su Casa</h3>
                 <h3 lang="en" style="font-family: 'Merriweather', serif; color: var(--navy-dark); font-size: 1.5rem; margin-bottom: 1rem;">Home Visit</h3>
@@ -523,7 +536,7 @@
         </div>
         <div class="sermon-card" style="border-top: 5px solid var(--accent-red); display: flex; flex-direction: column; align-items: center;">
             <div style="margin-bottom: 2.5rem; background-color: #f8fafc; padding: 1rem; width: 240px; height: 240px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
-                <img src="P-Pics/QR.jpg" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
+                <img src="P-Pics/QR.jpg" onerror="fixExt(this, 'P-Pics/QR')" id="img-ofrendar-qr" alt="Giving QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" loading="lazy">
             </div>
             <h3 lang="es">Apoye la Misión</h3>
             <h3 lang="en">Support the Mission</h3>
@@ -1172,16 +1185,13 @@
             });
         }
 
-        // Updated default team array to use .jpg for standard fallbacks
         let globalTeam = JSON.parse(localStorage.getItem('faro_team')) || [
             { id: 1, name: "Pastor Neil Arias", roleEs: "Pastor Principal", roleEn: "Lead Pastor", descEs: "Apasionado por guiar a la comunidad y predicar la Palabra.", descEn: "Passionate about guiding the community and preaching the Word.", img: "" },
             { id: 2, name: "Andres de la Garza", roleEs: "Diácono", roleEn: "Deacon", descEs: "Dedicado a servir a nuestra congregación con amor.", descEn: "Dedicated to serving our congregation with love.", img: "" }
         ];
 
         function renderPublicTeam() {
-            // Note: Since you requested the manual, hard-coded version, 
-            // the Javascript 'public-team-container' isn't needed anymore! 
-            // The hard-coded HTML above replaces it beautifully.
+            // Manual grid is used in this HTML file, no script needed here.
         }
 
         function renderAdminTeam() {
@@ -1219,6 +1229,7 @@
             if(!grid) return;
             grid.innerHTML = '';
             globalEvents.forEach(ev => {
+                // FIXED EVENT IMAGES WITH AUTO FALLBACK
                 grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img || 'P-Pics/G1.jpg'}" onerror="fixExt(this, 'P-Pics/G1')" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><h3 class="event-title" lang="es">${ev.titleEs}</h3><h3 class="event-title" lang="en">${ev.titleEn}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
             });
         }
@@ -1318,7 +1329,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initEvents(); renderAuditLog();
+            initEvents(); renderPublicEvents(); renderAuditLog();
             
             const savedLogo = localStorage.getItem('faro_main_logo');
             if (savedLogo) document.querySelectorAll('.logo-img').forEach(img => img.src = savedLogo);
