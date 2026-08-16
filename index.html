@@ -20,6 +20,7 @@
                 img.dataset.attempts = attempts + 1;
             } else {
                 img.onerror = null; // Stop trying if nothing matches
+                img.style.display = 'none'; // Hide the broken image icon
             }
         }
     </script>
@@ -379,7 +380,54 @@
             <p lang="es">El liderazgo pastoral y ministerial de nuestra iglesia.</p>
             <p lang="en">The pastoral and ministerial leadership of our church.</p>
         </div>
-        <div id="public-team-container"></div>
+        
+        <div style="max-width: 450px; margin: 0 auto 3.5rem auto;">
+            <div class="ministry-card" style="border-top: 5px solid var(--accent-red);">
+                <div style="width: 140px; height: 140px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="P-Pics/P10-Pastor.jpg" onerror="fixExt(this, 'P-Pics/P10-Pastor')" alt="Pastor Neil Arias" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3>Pastor Neil Arias</h3>
+                <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Pastor Principal</h4>
+                <h4 style="color: var(--navy-primary); font-size: 1.05rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Lead Pastor</h4>
+                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="es">Apasionado por guiar a la comunidad y predicar la Palabra.</p>
+                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; line-height: 1.6;" lang="en">Passionate about guiding the community and preaching the Word.</p>
+            </div>
+        </div>
+
+        <div class="ministry-grid" style="max-width: 1100px; margin: 0 auto;">
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="P-Pics/P11-Andres.jpg" onerror="fixExt(this, 'P-Pics/P11-Andres')" alt="Andres de la Garza" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Andres de la Garza</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Deacon</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="P-Pics/Refugio.jpg" onerror="fixExt(this, 'P-Pics/Refugio')" alt="Refugio Castillo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Refugio Castillo</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Diácono</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Deacon</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicado a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+            
+            <div class="ministry-card" style="border-top: none;">
+                <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
+                    <img src="P-Pics/Alejandra.jpg" onerror="fixExt(this, 'P-Pics/Alejandra')" alt="Alejandra" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <h3 style="font-size: 1.3rem;">Hrna Alejandra</h3>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Líder</h4>
+                <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="en">Leader</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="es">Dedicada a servir a nuestra congregación con amor.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;" lang="en">Dedicated to serving our congregation with love.</p>
+            </div>
+        </div>
     </section>
 
     <section class="section" id="ministerios">
@@ -802,14 +850,6 @@
                         </div>
                     </div>
 
-                    <div class="contact-box" style="margin-bottom: 2rem; padding: 2rem; background-color: var(--bg-light); text-align: left;">
-                        <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Equipo</h3>
-                        <h3 lang="en" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Manage Team</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="es">Agregue o elimine miembros de su equipo libremente. Los títulos y descripciones se traducen automáticamente.</p>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" lang="en">Add or remove team members freely. Titles and descriptions auto-translate.</p>
-                        <div id="admin-team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
-                    </div>
-
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
                         <div class="contact-box" style="text-align: left; padding: 2rem;">
                             <h3 lang="es" style="font-family: 'Inter', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Administrar Galería</h3>
@@ -1138,46 +1178,6 @@
             });
         }
 
-        let globalTeam = JSON.parse(localStorage.getItem('faro_team')) || [
-            { id: 1, name: "Pastor Neil Arias", roleEs: "Pastor Principal", roleEn: "Lead Pastor", descEs: "Apasionado por guiar a la comunidad y predicar la Palabra.", descEn: "Passionate about guiding the community and preaching the Word.", img: "" },
-            { id: 2, name: "Andres de la Garza", roleEs: "Diácono", roleEn: "Deacon", descEs: "Dedicado a servir a nuestra congregación con amor.", descEn: "Dedicated to serving our congregation with love.", img: "" }
-        ];
-
-        function renderPublicTeam() {
-            const publicGrid = document.getElementById('public-team-container');
-            if(!publicGrid) return;
-            publicGrid.innerHTML = '';
-            globalTeam.forEach(p => {
-                publicGrid.innerHTML += `<div class="ministry-card" style="max-width:350px; margin:0 auto; border-top: 5px solid var(--accent-red);"><div style="width: 120px; height: 120px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background: #e2e8f0;"><img src="${p.img}" style="width:100%;height:100%;object-fit:cover;${p.img?'':'display:none;'}" loading="lazy"></div><h3>${p.name}</h3><h4 style="color:var(--navy-primary);font-style:italic;" lang="es">${p.roleEs}</h4><h4 style="color:var(--navy-primary);font-style:italic;" lang="en">${p.roleEn}</h4><p lang="es">${p.descEs}</p><p lang="en">${p.descEn}</p></div>`;
-            });
-        }
-
-        function renderAdminTeam() {
-            const grid = document.getElementById('admin-team-grid');
-            if(!grid) return;
-            grid.innerHTML = '';
-            globalTeam.forEach(m => {
-                grid.innerHTML += `<div class="admin-edit-card"><button onclick="deleteTeamMember(${m.id})" class="delete-btn">×</button><input type="text" id="edit-team-name-${m.id}" value="${m.name}"><input type="text" id="edit-team-role-${m.id}" value="${m.roleEs}"><input type="file" id="edit-team-img-${m.id}" accept="image/*"><textarea id="edit-team-desc-${m.id}" rows="2">${m.descEs}</textarea><button class="btn btn-primary" onclick="updateTeamMember(${m.id})">Actualizar</button></div>`;
-            });
-        }
-
-        async function updateTeamMember(id) {
-            const index = globalTeam.findIndex(m => m.id === id);
-            globalTeam[index].name = document.getElementById(`edit-team-name-${id}`).value;
-            globalTeam[index].roleEs = document.getElementById(`edit-team-role-${id}`).value;
-            globalTeam[index].descEs = document.getElementById(`edit-team-desc-${id}`).value;
-            const fileInput = document.getElementById(`edit-team-img-${id}`);
-            if (fileInput.files[0]) globalTeam[index].img = await compressImage(fileInput.files[0]);
-            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderPublicTeam(); renderAdminTeam(); alert("Actualizado");
-        }
-
-        function deleteTeamMember(id) {
-            globalTeam = globalTeam.filter(m => m.id !== id);
-            localStorage.setItem('faro_team', JSON.stringify(globalTeam));
-            renderPublicTeam(); renderAdminTeam();
-        }
-
         let globalEvents = JSON.parse(localStorage.getItem('faro_events')) || [
             { id: 1, titleEs: "Escuelita Bíblica de Vacaciones", titleEn: "Vacation Bible School", dateEs: "15 de Agosto, 6:00 PM", dateEn: "August 15, 6:00 PM", locEs: "Iglesia El Faro", locEn: "El Faro Baptist Church", img: "" }
         ];
@@ -1187,7 +1187,8 @@
             if(!grid) return;
             grid.innerHTML = '';
             globalEvents.forEach(ev => {
-                grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img}" style="${ev.img?'':'display:none;'}" loading="lazy"></div><h3 class="event-title" lang="es">${ev.titleEs}</h3><h3 class="event-title" lang="en">${ev.titleEn}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
+                // ALL EVENT IMAGES AUTO-FIXED WITH A DEFAULT PLACEHOLDER IF NONE UPLOADED
+                grid.innerHTML += `<div class="event-card"><div class="event-img-container"><img src="${ev.img || 'P-Pics/G1.jpg'}" onerror="fixExt(this, 'P-Pics/G1')" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><h3 class="event-title" lang="es">${ev.titleEs}</h3><h3 class="event-title" lang="en">${ev.titleEn}</h3><p class="event-meta" lang="es"><i class="fa-regular fa-calendar"></i> ${ev.dateEs}</p><p class="event-meta" lang="en"><i class="fa-regular fa-calendar"></i> ${ev.dateEn}</p></div>`;
             });
         }
 
@@ -1286,7 +1287,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initEvents(); renderPublicTeam(); renderAuditLog();
+            initEvents(); renderAuditLog();
             
             const savedLogo = localStorage.getItem('faro_main_logo');
             if (savedLogo) document.querySelectorAll('.logo-img').forEach(img => img.src = savedLogo);
@@ -1324,7 +1325,7 @@
                 document.getElementById('admin-login-container').classList.add('hidden');
                 document.getElementById('admin-dashboard-container').classList.remove('hidden');
                 document.getElementById('admin-greeting').innerText = "Bienvenido, " + currentUser;
-                renderAdminAccounts(); renderAdminGallery(); renderAdminEvents(); renderAdminTeam();
+                renderAdminAccounts(); renderAdminGallery(); renderAdminEvents();
             } else { document.getElementById('login-error').classList.remove('hidden'); }
         }
 
