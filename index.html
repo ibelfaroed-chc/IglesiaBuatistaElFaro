@@ -43,8 +43,16 @@
             --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
         
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+        
         html { scroll-behavior: smooth; }
+        
         body { 
             color: var(--text-main); 
             background-color: var(--card-bg); 
@@ -68,7 +76,7 @@
         .lang-btn:hover:not(.active) { background: rgba(255, 255, 255, 0.15); color: white; }
 
         .top-bar { background-color: rgba(15, 23, 42, 0.6); border-bottom: 1px solid rgba(255,255,255,0.1); color: #f8fafc; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 3%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
-        .top-bar-info { display: flex; gap: 2rem; }
+        .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
         .top-bar-info span { display: flex; align-items: center; gap: 0.5rem; opacity: 0.9; }
 
         header { background-color: transparent; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3%; flex-wrap: nowrap; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -78,7 +86,7 @@
         .logo span { color: var(--accent-red); }
         
         nav { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 1rem; align-items: center; }
-        nav a, .dropbtn { color: #ffffff !important; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        nav a, .dropbtn { color: #ffffff !important; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.2s ease; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; padding: 0.3rem; }
         nav a:hover, .dropdown:hover .dropbtn { color: var(--accent-red) !important; transform: translateY(-1px); }
 
         .dropdown { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: -15px; }
@@ -100,7 +108,7 @@
             align-items: center; 
             padding: 8rem 4% 4rem 4%; 
         }
-        .hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.05; max-width: 900px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; line-height: 1.05; max-width: 900px; text-transform: uppercase; }
         .hero p { font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: 700px; margin: 0 auto 3rem auto; color: #cbd5e1; font-weight: 300; line-height: 1.6; }
         
         .btn-group { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; width: 100%; }
@@ -228,11 +236,25 @@
         }
 
         @media (max-width: 768px) {
+            .top-bar { flex-direction: column; text-align: center; padding: 1rem; }
+            .top-bar-info { flex-direction: column; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+            
+            header { padding: 1rem; gap: 1.5rem; }
+            nav { gap: 1rem; }
+            nav a, .dropbtn { font-size: 0.85rem; padding: 0.4rem; white-space: normal; }
+            
             .editorial-section, .editorial-section.reverse { grid-template-columns: 1fr; gap: 3rem; direction: ltr; text-align: center; }
             .editorial-content { text-align: center; }
-            .hero { align-items: center; text-align: center; }
+            
+            .hero { padding-top: 14rem; align-items: center; text-align: center; }
+            
             .btn-group { justify-content: center; }
             .section { padding: 5rem 4%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding-top: 16rem; }
+            nav { gap: 0.5rem; flex-direction: column; }
         }
     </style>
 </head>
@@ -244,7 +266,7 @@
                 <span><i class="fa-solid fa-location-dot"></i> 24211 Sunflower Ln, Edcouch, TX</span>
                 <span><i class="fa-solid fa-phone"></i> (956) 382-1051</span>
             </div>
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; justify-content: center;">
                 <span lang="es">Bienvenidos</span>
                 <span lang="en">Welcome</span>
                 <div style="display: inline-block; margin-left: 1rem;">
@@ -280,7 +302,7 @@
                 <a href="#ministerios"><span lang="es">Ministerios</span><span lang="en">Ministries</span></a>
                 <a href="#eventos"><span lang="es">Eventos</span><span lang="en">Events</span></a>
                 <a href="#ofrendar"><span lang="es">Ofrendar</span><span lang="en">Give</span></a>
-                <a onclick="toggleAdminTab()" style="color: white !important; font-weight: 700; cursor: pointer; padding: 0.5rem 1.2rem; border-radius: 50px; background: var(--accent-red); transition: all 0.3s; white-space: nowrap;">
+                <a onclick="toggleAdminTab()" style="color: white !important; font-weight: 700; cursor: pointer; padding: 0.5rem 1.2rem; border-radius: 50px; background: var(--accent-red); transition: all 0.3s;">
                     <span lang="es">Admin</span><span lang="en">Admin</span>
                 </a>
             </nav>
@@ -367,8 +389,8 @@
                 <div class="ministry-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <h3 lang="es">Nuestra Historia</h3>
                 <h3 lang="en">Our Story</h3>
-                <p class="ministry-desc" lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, sirviendo fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
-                <p class="ministry-desc" lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community con the love of Christ throughout the years.</p>
+                <p class="ministry-desc" lang="es">Tenemos la visión de compartir la luz del evangelio en Edcouch, TX, serving fielmente a nuestra comunidad con el amor de Cristo a través de los años.</p>
+                <p class="ministry-desc" lang="en">We have a vision to share the light of the gospel in Edcouch, TX, faithfully serving our community with the love of Christ throughout the years.</p>
             </div>
         </div>
     </section>
@@ -452,7 +474,7 @@
             
             <div class="ministry-card" style="border-top: none;">
                 <div style="width: 110px; height: 110px; margin: 0 auto 1.5rem auto; border-radius: 50%; overflow: hidden; background-color: #e2e8f0; border: 4px solid white; box-shadow: var(--shadow-sm);">
-                    <img src="./P-Pics/P11-Perales.jpg" onerror="fixExt(this, './P-Pics/P11-Perales')" alt="Josue Perales" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                    <img src="./P-Pics/P11-Perales.png" onerror="fixExt(this, './P-Pics/P11-Perales')" alt="Josue Perales" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
                 <h3 style="font-size: 1.3rem;">Josue Perales</h3>
                 <h4 style="color: var(--navy-primary); font-size: 0.95rem; margin-top: 0.2rem; font-style: italic; font-weight: 500;" lang="es">Tesorero / Tecnología</h4>
